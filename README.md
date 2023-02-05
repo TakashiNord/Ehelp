@@ -5,5 +5,5 @@ variation files of format chm \ docs
   
   **DGhelp** -  эскиз DG chm-формат.(chm)
   
-  
+ **RabbitMQhelp** -  эскиз Rabbit chm-формат.(chm)  
   
