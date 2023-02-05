@@ -15,3 +15,4 @@ variation files of format chm \ docs
 
   **Proj4KCC** -  эскиз KCC chm-формат.(chm)
   
+  **Назначение модулей РВ**  - e1-Назначение модулей РВ
