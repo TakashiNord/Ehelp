@@ -11,3 +11,4 @@ variation files of format chm \ docs
 
   **Proj1Base** -  эскиз Base chm-формат.(chm)
   
+  **Proj3Sbor** -  эскиз Sbor chm-формат.(chm)

@@ -1,0 +1,3443 @@
+﻿<html>
+
+<head>
+<title>Описание параметров в подсистеме сбора и передачи РСДУ. Руководство администратора</title>
+
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Bookshelf Symbol 7";
+	panose-1:5 1 1 1 1 1 1 1 1 1;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Wingdings 3";
+	panose-1:5 4 1 2 1 8 7 7 7 7;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+h1
+	{margin-top:0cm;
+	margin-right:164.45pt;
+	margin-bottom:12.0pt;
+	margin-left:14.2pt;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-before:always;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Заголовок 2 Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+h3
+	{mso-style-link:"Заголовок 3 Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+h4
+	{mso-style-link:"Заголовок 4 Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:12.5pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+h5
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+h6
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:57.55pt;
+	text-align:justify;
+	text-indent:-57.55pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:normal;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{margin-top:0cm;
+	margin-right:164.45pt;
+	margin-bottom:12.0pt;
+	margin-left:14.2pt;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-before:always;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.55pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:48.2pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:61.25pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:44.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:55.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:66.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:77.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:88.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoNormalIndent, li.MsoNormalIndent, div.MsoNormalIndent
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:35.4pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Текст сноски Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-link:"Текст примечания Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Верхний колонтитул Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoPageNumber
+	{font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Текст концевой сноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListCxSpFirst, li.MsoListCxSpFirst, div.MsoListCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:14.15pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListCxSpMiddle, li.MsoListCxSpMiddle, div.MsoListCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:14.15pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListCxSpLast, li.MsoListCxSpLast, div.MsoListCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.05pt;
+	text-align:justify;
+	text-indent:-17.85pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:159.75pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
+	{mso-style-name:"Маркированный список 2\,р_мар1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.15pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
+	{mso-style-name:"Маркированный список 3\,р_мар2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:46.3pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListBullet4, li.MsoListBullet4, div.MsoListBullet4
+	{mso-style-name:"Маркированный список 4\,р_мар3";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:60.45pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
+	{mso-style-name:"Нумерованный список 2\,р_нум1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.15pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListNumber3, li.MsoListNumber3, div.MsoListNumber3
+	{mso-style-name:"Нумерованный список 3\,р_нум2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:46.3pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListNumber4, li.MsoListNumber4, div.MsoListNumber4
+	{mso-style-name:"Нумерованный список 4\,р_нум3";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:60.45pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoClosing, li.MsoClosing, div.MsoClosing
+	{mso-style-link:"Прощание Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:212.6pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Основной текст Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:8.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Основной текст с отступом Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	layout-grid-mode:line;}
+p.MsoListContinue2, li.MsoListContinue2, div.MsoListContinue2
+	{mso-style-name:"Продолжение списка 2\,р_прод1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.05pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListContinue3, li.MsoListContinue3, div.MsoListContinue3
+	{mso-style-name:"Продолжение списка 3\,р_прод2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:46.2pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListContinue4, li.MsoListContinue4, div.MsoListContinue4
+	{mso-style-name:"Продолжение списка 4\,р_прод3";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:60.4pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Основной текст 2 Знак";
+	margin-top:3.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Основной текст 3 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:8.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{mso-style-link:"Основной текст с отступом 3 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	layout-grid-mode:line;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+em
+	{font-family:Courier;
+	font-style:normal;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+address
+	{mso-style-link:"Адрес HTML Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+kbd
+	{font-family:"Courier New";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Текст выноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoQuote, li.MsoQuote, div.MsoQuote
+	{mso-style-link:"Цитата 2 Знак";
+	margin-top:10.0pt;
+	margin-right:43.2pt;
+	margin-bottom:8.0pt;
+	margin-left:43.2pt;
+	text-align:center;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	color:#404040;
+	font-style:italic;}
+span.MsoSubtleEmphasis
+	{color:#404040;
+	font-style:italic;}
+span.MsoIntenseEmphasis
+	{color:#284F8E;
+	font-style:italic;}
+span.MsoBookTitle
+	{letter-spacing:.25pt;
+	font-weight:bold;
+	font-style:italic;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:14.2pt;
+	margin-bottom:.0001pt;
+	text-indent:0cm;
+	line-height:107%;
+	font-size:16.0pt;
+	font-family:"Calibri Light","sans-serif";
+	color:#2F5496;}
+p.a, li.a, div.a
+	{mso-style-name:р_дисплейсерый;
+	mso-style-link:"р_дисплейсерый Знак";
+	margin-top:0cm;
+	margin-right:5.65pt;
+	margin-bottom:0cm;
+	margin-left:5.65pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	background:#C1C1C1;
+	border:none;
+	padding:0cm;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.a0, li.a0, div.a0
+	{mso-style-name:Маркированный;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:155.95pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.2, li.2, div.2
+	{mso-style-name:"Маркированный 2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:171.0pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.3, li.3, div.3
+	{mso-style-name:"Маркированный 3";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:186.0pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.a1, li.a1, div.a1
+	{mso-style-name:Нумерованный;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+span.a2
+	{mso-style-name:"Основной текст Знак";
+	mso-style-link:"Основной текст";
+	font-family:"Arial","sans-serif";}
+span.20
+	{mso-style-name:"Основной текст 2 Знак";
+	mso-style-link:"Основной текст 2";
+	font-family:"Arial","sans-serif";}
+span.30
+	{mso-style-name:"Основной текст 3 Знак";
+	mso-style-link:"Основной текст 3";
+	font-family:"Arial","sans-serif";}
+span.a3
+	{mso-style-name:"Основной текст с отступом Знак";
+	mso-style-link:"Основной текст с отступом";
+	font-family:"Arial","sans-serif";
+	layout-grid-mode:both;}
+span.31
+	{mso-style-name:"Основной текст с отступом 3 Знак";
+	mso-style-link:"Основной текст с отступом 3";
+	font-family:"Arial","sans-serif";
+	layout-grid-mode:both;
+	font-style:italic;}
+span.1
+	{mso-style-name:"Неразрешенное упоминание1";
+	color:#605E5C;
+	background:#E1DFDD;}
+p.a4, li.a4, div.a4
+	{mso-style-name:"Нумерованный список широкий";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:18.0pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+span.a5
+	{mso-style-name:"Текст сноски Знак";
+	mso-style-link:"Текст сноски";
+	font-family:"Arial","sans-serif";}
+span.a6
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Arial","sans-serif";}
+p.a7, li.a7, div.a7
+	{mso-style-name:р_определение;
+	mso-style-link:"р_определение Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.a8, li.a8, div.a8
+	{mso-style-name:"Обычный широкий";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+span.a9
+	{mso-style-name:"р_определение Знак";
+	mso-style-link:р_определение;
+	font-family:"Arial","sans-serif";}
+span.21
+	{mso-style-name:"Заголовок 2 Знак";
+	mso-style-link:"Заголовок 2";
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.32
+	{mso-style-name:"Заголовок 3 Знак";
+	mso-style-link:"Заголовок 3";
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.10
+	{mso-style-name:"Неразрешенное упоминание1";
+	color:#605E5C;
+	background:#E1DFDD;}
+span.4
+	{mso-style-name:"Заголовок 4 Знак";
+	mso-style-link:"Заголовок 4";
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.aa, li.aa, div.aa
+	{mso-style-name:Нумерация;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.2pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.ab, li.ab, div.ab
+	{mso-style-name:р_верхкол;
+	mso-style-link:"р_верхкол Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	border:none;
+	padding:0cm;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+span.11
+	{mso-style-name:"Неразрешенное упоминание1";
+	color:#605E5C;
+	background:#E1DFDD;}
+span.ac
+	{mso-style-name:"Верхний колонтитул Знак";
+	mso-style-link:"Верхний колонтитул";
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+span.ad
+	{mso-style-name:"р_верхкол Знак";
+	mso-style-link:р_верхкол;
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+p.ae, li.ae, div.ae
+	{mso-style-name:р_марИ;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	color:black;}
+p.af, li.af, div.af
+	{mso-style-name:р_табТекст;
+	mso-style-link:"р_табТекст Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.12, li.12, div.12
+	{mso-style-name:Стиль1;
+	mso-style-link:"Стиль1 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:14.2pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	color:white;
+	font-weight:bold;}
+p.13, li.13, div.13
+	{mso-style-name:р_тит1;
+	mso-style-link:"р_тит1 Знак";
+	margin-top:0cm;
+	margin-right:2.85pt;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:18.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	text-transform:uppercase;
+	font-weight:bold;}
+span.14
+	{mso-style-name:"Стиль1 Знак";
+	mso-style-link:Стиль1;
+	font-family:"Arial","sans-serif";
+	color:white;
+	font-weight:bold;}
+p.22, li.22, div.22
+	{mso-style-name:р_тит2;
+	mso-style-link:"р_тит2 Знак";
+	margin-top:0cm;
+	margin-right:2.85pt;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:18.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+span.15
+	{mso-style-name:"р_тит1 Знак";
+	mso-style-link:р_тит1;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	text-transform:uppercase;
+	font-weight:bold;}
+span.23
+	{mso-style-name:"р_тит2 Знак";
+	mso-style-link:р_тит2;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	text-transform:none;
+	font-weight:bold;}
+p.af0, li.af0, div.af0
+	{mso-style-name:"";
+	margin-right:0cm;
+	margin-left:0cm;
+	text-indent:14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	color:black;}
+p.af1, li.af1, div.af1
+	{mso-style-name:р_выделить;
+	mso-style-link:"р_выделить Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+p.af2, li.af2, div.af2
+	{mso-style-name:р_клав;
+	mso-style-link:"р_клав Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	text-transform:uppercase;}
+span.af3
+	{mso-style-name:"р_выделить Знак";
+	mso-style-link:р_выделить;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+span.af4
+	{mso-style-name:"р_клав Знак";
+	mso-style-link:р_клав;
+	font-family:"Arial","sans-serif";
+	text-transform:uppercase;}
+span.af5
+	{mso-style-name:р_дисплей;
+	font-family:"Courier New";}
+p.af6, li.af6, div.af6
+	{mso-style-name:р_выноска;
+	mso-style-link:"р_выноска Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+span.af7
+	{mso-style-name:р_БД;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-style:italic;}
+p.af8, li.af8, div.af8
+	{mso-style-name:р_примТекст;
+	mso-style-link:"р_примТекст Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.af9, li.af9, div.af9
+	{mso-style-name:р_прим;
+	mso-style-link:"р_прим Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	letter-spacing:1.0pt;
+	font-weight:bold;}
+span.afa
+	{mso-style-name:"р_примТекст Знак";
+	mso-style-link:р_примТекст;
+	font-family:"Arial","sans-serif";}
+span.afb
+	{mso-style-name:"р_прим Знак";
+	mso-style-link:р_прим;
+	font-family:"Arial","sans-serif";
+	letter-spacing:1.0pt;
+	font-weight:bold;}
+p.afc, li.afc, div.afc
+	{mso-style-name:р_пред;
+	mso-style-link:"р_пред Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	text-transform:uppercase;
+	letter-spacing:1.0pt;
+	font-weight:bold;}
+span.afd
+	{mso-style-name:"р_пред Знак";
+	mso-style-link:р_пред;
+	font-family:"Arial","sans-serif";
+	text-transform:uppercase;
+	letter-spacing:1.0pt;
+	font-weight:bold;}
+span.afe
+	{mso-style-name:"Текст концевой сноски Знак";
+	mso-style-link:"Текст концевой сноски";
+	font-family:"Arial","sans-serif";}
+span.aff
+	{mso-style-name:"Текст примечания Знак";
+	mso-style-link:"Текст примечания";
+	font-family:"Arial","sans-serif";}
+span.24
+	{mso-style-name:"Цитата 2 Знак";
+	mso-style-link:"Цитата 2";
+	font-family:"Arial","sans-serif";
+	color:#404040;
+	font-style:italic;}
+span.aff0
+	{mso-style-name:"р_дисплейсерый Знак";
+	mso-style-link:р_дисплейсерый;
+	font-family:"Courier New";
+	background:#C1C1C1;}
+p.aff1, li.aff1, div.aff1
+	{mso-style-name:р_содерж;
+	mso-style-link:"р_содерж Знак";
+	margin-top:0cm;
+	margin-right:7.0cm;
+	margin-bottom:24.0pt;
+	margin-left:14.2pt;
+	line-height:115%;
+	page-break-before:always;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+span.aff2
+	{mso-style-name:"р_содерж Знак";
+	mso-style-link:р_содерж;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+p.aff3, li.aff3, div.aff3
+	{mso-style-name:р_табЗаг;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.aff4, li.aff4, div.aff4
+	{mso-style-name:р_обычАбзац;
+	mso-style-link:"р_обычАбзац Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+span.aff5
+	{mso-style-name:"р_обычАбзац Знак";
+	mso-style-link:р_обычАбзац;
+	font-family:"Arial","sans-serif";}
+p.aff6, li.aff6, div.aff6
+	{mso-style-name:р_табНум;
+	mso-style-link:"р_табНум Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.aff7, li.aff7, div.aff7
+	{mso-style-name:р_нумТаб;
+	mso-style-link:"р_нумТаб Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	text-indent:0cm;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+span.aff8
+	{mso-style-name:"р_табТекст Знак";
+	mso-style-link:р_табТекст;
+	font-family:"Arial","sans-serif";}
+span.aff9
+	{mso-style-name:"р_табНум Знак";
+	mso-style-link:р_табНум;
+	font-family:"Arial","sans-serif";}
+span.affa
+	{mso-style-name:"р_нумТаб Знак";
+	mso-style-link:р_нумТаб;
+	font-family:"Arial","sans-serif";}
+span.HTML
+	{mso-style-name:"Адрес HTML Знак";
+	mso-style-link:"Адрес HTML";
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+span.affb
+	{mso-style-name:"Прощание Знак";
+	mso-style-link:Прощание;
+	font-family:"Arial","sans-serif";}
+p.16, li.16, div.16
+	{mso-style-name:р_1дисплейсерый;
+	mso-style-link:"р_1дисплейсерый Знак";
+	margin-top:0cm;
+	margin-right:5.65pt;
+	margin-bottom:0cm;
+	margin-left:38.25pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	background:#C1C1C1;
+	border:none;
+	padding:0cm;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.25, li.25, div.25
+	{mso-style-name:р_2дисплейсерый;
+	mso-style-link:"р_2дисплейсерый Знак";
+	margin-top:0cm;
+	margin-right:5.65pt;
+	margin-bottom:0cm;
+	margin-left:52.45pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	background:#C1C1C1;
+	border:none;
+	padding:0cm;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+span.17
+	{mso-style-name:"р_1дисплейсерый Знак";
+	mso-style-link:р_1дисплейсерый;
+	font-family:"Courier New";
+	background:#C1C1C1;}
+span.26
+	{mso-style-name:"р_2дисплейсерый Знак";
+	mso-style-link:р_2дисплейсерый;
+	font-family:"Courier New";
+	background:#C1C1C1;}
+span.affc
+	{mso-style-name:"р_выноска Знак";
+	mso-style-link:р_выноска;
+	font-family:"Arial","sans-serif";}
+p.affd, li.affd, div.affd
+	{mso-style-name:р_обычный;
+	mso-style-link:"р_обычный Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:normal;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+span.affe
+	{mso-style-name:"р_обычный Знак";
+	mso-style-link:р_обычный;
+	font-family:"Arial","sans-serif";}
+p.afff, li.afff, div.afff
+	{mso-style-name:р_табОбъед;
+	mso-style-link:"р_табОбъед Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+span.afff0
+	{mso-style-name:"р_табОбъед Знак";
+	mso-style-link:р_табОбъед;
+	font-family:"Arial","sans-serif";}
+.MsoChpDefault
+	{font-size:10.0pt;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:3.0cm 2.0cm 70.9pt 2.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=RU link=blue vlink="#954f72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span style="POSITION: relative; Z-INDEX: 251663343"><span
+ style="HEIGHT: 38px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -4px"><IMG
+ style="HEIGHT: 8px; WIDTH: 646px" src="000.files/image001.png" width=646 height=38 ></span></span><a
+ name="_Toc521142556"></a><a name="_Toc41200689"></a><a name="_Toc41194303"></a><a
+ name="_Toc41190549"></a><a name="_Toc41190422"></a><a name="_Toc41151993"></a><a
+ name="_Toc41151875"></a><a name="_Toc41149718"></a><a name="_Toc41138842"></a><span
+ lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Содержание</p>
+
+<p class=MsoToc1><A
+ href="#_Toc117858905" >1 Общие сведения<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">3</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858906">1.1 Необходимые условия<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">3</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858907">1.2 Необходимые знания<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">3</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858908">2 Добавление параметра в профиль
+протокола ION<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">4</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858909">3 Добавление параметра в профиль
+протокола IEC60870-5-101(104)<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none"> </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">8</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858910">4 Добавление параметра в профиль
+протокола IEC60870-5-103<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">14</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858911">5 Добавление параметра в профиль
+счетчиков СПЕ, СПГ, СПТ<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">22</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858912">6 Добавление параметра в профиль
+протокола измерителей ИРТ<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">29</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858913">7 Добавление параметра в профиль
+протокола Modbus TCP<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">33</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858914">8 Добавление параметра в профиль
+протокола ТЭКОН<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">35</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858915">9 Добавление параметров в систему
+сбора&nbsp; для передачи&nbsp; по&nbsp; протоколу&nbsp; <span lang=EN-US>Modbus</span><span
+ lang=EN-US> </span><span lang=EN-US>TCP</span><span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">40</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858916">9.1 Передача параметров с двойным
+регистром<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">44</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858917">10 Добавление параметра в профиль
+протокола Макет 80020 (АИИСКУЭ)<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none"> </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">47</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858918">10.1 Общие сведения<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">47</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858919">10.2 Описание профиля макета<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">47</span></A></p>
+
+<p class=MsoToc3><A href="#_Toc117858920">10.2.1 Описание структуры макета в
+справочнике «Протоколы»<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">47</span></A></p>
+
+<p class=MsoToc3><A href="#_Toc117858921">10.2.2 Описание устройства сбора
+(системы отправителя макета)<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none"> </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">50</span></A></p>
+
+<p class=MsoToc3><A href="#_Toc117858922">10.2.3 Описание профиля макета<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">51</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858923">11 Добавление параметра в профиль
+протокола <span lang=EN-US>OPC</span><span lang=EN-US> </span><span lang=EN-US>DA</span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">61</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858924">11.1 Общие сведения<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">61</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858925">11.2 Описание профиля протокола<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">61</span></A></p>
+
+<p class=MsoToc3><A href="#_Toc117858926">11.2.1 Описание структуры протокола в
+справочнике «Протоколы»<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">61</span></A></p>
+
+<p class=MsoToc3><A href="#_Toc117858927">11.2.2 Описание устройства в
+справочнике «Устройства сбора»<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">62</span></A></p>
+
+<p class=MsoToc3><A href="#_Toc117858928">11.2.3 Описание профиля протокола<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">64</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858929">12 Описание специальных функций
+сервера сбора (DCS)<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none"> </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">73</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858930">12.1 Описание функции «Контроль
+каналов»<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">76</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858931">12.2 Описание функции
+«Двухпозиционные ТС/ТУ»<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">78</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858932">12.3 Описание функции «Преобразование
+типов»<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">80</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858933">13 Описание нового параметра в
+распределенной системе сбора<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">84</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858934">14 Применение изменений в подсистеме
+сбора и передачи<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">87</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858935">14.1 Перезагрузка модуля
+«Коммуникационный сервер сбора и передачи»<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">87</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc117858936">14.2 Перезагрузка модуля «Сервис
+приема макетов 80020 АИИСКУЭ»<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">88</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc117858937">Приложение А. Список возможных типов
+в протоколе МЭК 870-5-101/104<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">89</span></A></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span class=MsoPageNumber><span style="FONT-SIZE:
+ 11pt; LINE-HEIGHT: 115%"></span></span>&nbsp;</p>
+
+<p class=a7 style="MARGIN-LEFT: 0cm">&nbsp;</p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc117858905">1 </a><span
+ style="POSITION: relative; Z-INDEX: 251656687"><span style="HEIGHT:
+ 38px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -4px"><IMG style="HEIGHT: 5px;
+ WIDTH: 646px" src="000.files/image002.png" width=646 height=38 ></span></span>Общие сведения</h1>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc117858906"></a><a
+ name="_Toc11145432"></a><a name="_Toc462055436">1.1 Необходимые условия</a></h2>
+
+<p class=MsoNormal>Перед переходом к действиям, описанным ниже в руководстве,
+должны быть выполнены следующие необходимые условия:</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Доступен АРМ РСДУ с
+правами пользователя на чтение и настройку подсистемы сбора.</p>
+
+<p class=MsoNormal>Необходимо наличие следующих исходных данных:</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>сопроводительная
+документация к измерителям и счетчикам, с которых осуществляется сбор
+измерений.</p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc117858907"></a><a
+ name="_Ref117254588"></a><a name="_Ref117254471"></a><a name="_Ref117254415"></a><a
+ name="_Ref117254350"></a><a name="_Toc11145433"></a><a name="_Toc462055437">1.2
+Необходимые знания</a></h2>
+
+<p class=MsoNormal>Перед чтением данного руководства рекомендуется изучить
+следующие материалы:</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>«Картридж
+“Распределенная подсистема сбора данных”. Руководство администратора»<span
+ lang=EN-US>;</span></p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>«Картридж “Настройка
+информационных панелей”. Руководство администратора»);</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>«Справочная
+информация по распределенной системе сбора данных. Руководство пользователя»;</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>«Сервис приема
+макетов 80020 АИИСКУЭ. Руководство администратора»;</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>«Настройка
+коммуникационного сервиса сбора и передачи данных РСДУ5. Руководство
+администратора».</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc117858908"></a><a name="_Toc12457665">2
+</a><span style="POSITION: relative; Z-INDEX: 251692015"><span style="HEIGHT:
+ 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT:
+ 5px; WIDTH: 646px" src="000.files/image003.png" width=646 height=72 ></span></span>Добавление параметра в
+профиль протокола ION</h1>
+
+<p class=MsoListNumber2>1.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Запустить приложение «Справочная информация по распределенной системе
+сбора данных» <span class=af5>DAView</span> (из Панели оператора через меню «Прикладные
+программы» либо из каталога с ресурсами РСДУ <span class=af5>R:\bin\</span>).</p>
+
+<p class=MsoListNumber2>2.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Выбрать необходимое Устройство сбора, например ION 7300, для которого
+выбрать протокол <span lang=EN-US>ION</span><span lang=EN-US> </span>и узел <span
+ lang=EN-US>Power</span><span lang=EN-US> </span><span lang=EN-US>meter</span><span
+ lang=EN-US> </span>(см. Рисунок 1).</p>
+
+<p class=MsoListContinue2 align=center style="TEXT-ALIGN: center"><IMG
+ src="000.files/image004.jpg" width=601 height=362 ></p>
+
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a name="_Ref423700454">Рисунок
+</a>1 – Выбор профиля устройства сбора</p>
+
+<p class=MsoListNumber2>3.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Найти в документе ION_Reference.chm в разделе ION Device Handles модуль,
+к которому относится добавляемый сигнал (см. Рисунок 2).</p>
+
+<p class=MsoListContinue2 align=center style="TEXT-ALIGN: center"><IMG
+ id="Рисунок 2" src ="000.files/image005.jpg" width=597 height=425 ></p>
+
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a name="_Ref423701015">Рисунок
+</a>2 – Выбор модуля</p>
+
+<p class=MsoListNumber2>4.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Найти в списке модулей выбранный модуль. Если модуля нет в списке, то
+его можно создать, вызвав контекстное меню правой кнопкой мыши на устройстве
+сбора и выбрав пункт «Создать». Откроется диалоговое окно, представленное на Рисунок 3.</p>
+
+<p class=MsoListContinue2 align=center style="TEXT-ALIGN: center"><IMG
+ src="000.files/image006.jpg" width=597 height=366 ></p>
+
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a name="_Ref358910967"></a><a
+ name="_Ref358910978">Рисунок </a>3 – Создание нового модуля</p>
+
+<p class=MsoListNumber2><a name="_Ref121915455">5.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Найти в документе ION_Reference.chm в разделе ION Device Handles в
+разделе нужного модуля регистр добавляемого сигнала (см. </a>Рисунок 4).</p>
+
+<p class=MsoListContinue2 align=center style="TEXT-ALIGN: center"><IMG
+ id="Рисунок 10" src ="000.files/image007.jpg" width=598 height=264 ></p>
+
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a name="_Ref423701047">Рисунок
+</a>4 – Определение номера регистра</p>
+
+<p class=MsoListNumber2>6.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Добавить новый сигнал, вызвав контекстное меню правой кнопкой мыши на
+модуле. В отрывшемся диалоговом окне (см. Рисунок 5) указать:</p>
+
+<p class=MsoListBullet3><span style='FONT-FAMILY: "Courier New"'>o<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; </span></span>Наименование –
+ввести название нового сигнала;</p>
+
+<p class=MsoListBullet3><span style='FONT-FAMILY: "Courier New"'>o<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; </span></span>Протокол – <span
+ lang=EN-US>ION</span><span lang=EN-US> </span><span lang=EN-US>register</span>;</p>
+
+<p class=MsoListBullet3><span style='FONT-FAMILY: "Courier New"'>o<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; </span></span>Тип – тип
+нового сигнала;</p>
+
+<p class=MsoListBullet3><span style='FONT-FAMILY: "Courier New"'>o<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; </span></span>Опции параметра
+– Мгновенные значения (список доступен только после выбора типа сигнала);</p>
+
+<p class=MsoListBullet3><span style='FONT-FAMILY: "Courier New"'>o<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; </span></span>Квалификатор –
+перевести в десятичный вид найденное в п.5. значение;</p>
+
+<p class=MsoListBullet3><span style='FONT-FAMILY: "Courier New"'>o<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; </span></span>Имя атрибута –
+для протокола <span lang=EN-US>ION</span><span lang=EN-US> </span>данное поле
+не заполняется.</p>
+
+<p class=MsoListContinue2 align=center style="TEXT-ALIGN: center"><IMG
+ src="000.files/image008.jpg" width=593 height=364 ></p>
+
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a name="_Ref423701062">Рисунок
+</a>5 – Добавление нового сигнала в профиль</p>
+
+<p class=MsoListNumber2>7.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>После нажатия на кнопку «ОК» в списке отобразится созданный параметр.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc117858909"></a><a name="_Toc12457666">3
+</a><span style="POSITION: relative; Z-INDEX: 251694063"><span style="HEIGHT:
+ 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT:
+ 6px; WIDTH: 646px" src="000.files/image009.png" width=646 height=72 ></span></span>Добавление параметра в
+профиль протокола IEC60870-5-101(104)</h1>
+
+<p class=MsoNormal>Создание и конфигурирование профиля устройства производится
+с помощью утилиты <span class=af5><span lang=EN-US>DAV</span></span><span
+ class=af5>iew</span> (Справочная информация по распределенной системе сбора).
+Какие функции будет выполнять данное устройство (КП или ПУ) не имеет значения.
+Пример для протокола МЭК870-5-101, для МЭК870-5-104 действия аналогичны.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 7" alt ="Описание: prot" src="000.files/image010.png" width=421 height=490 ></p>
+
+<p class=MsoCaption>Рисунок 6 – Просмотр информации о протоколе</p>
+
+<p class=MsoListNumber2>1.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Выбрать в меню «Справочники» пункт «Протоколы». В открывшемся окне
+«Протоколы» проверить, что информация о протоколе МЭК внесена в список (как
+IEC60870-5-101). Здесь определяется структура адресации информационного объекта
+(точки) в протоколе МЭК870-5-101.</p>
+
+<p class=MsoListNumber2>2.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Выбрать в меню «Справочники» пункт «Устройства сбора». В открывшемся
+окне «Устройства сбора» создать устройство, которое будет работать по протоколу
+МЭК (в контекстном меню выбрать команду «Добавить»). Добавить МЭК в
+поддерживаемые протоколы.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 16" alt ="Описание: prot_1" src="000.files/image011.jpg" width=324 height=438 ></p>
+
+<p class=MsoCaption>Рисунок 7 – Создание устройства</p>
+
+<p class=MsoNormal>Созданное устройство должно появиться в списке «Устройства
+сбора».</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 17" alt ="Описание: prot_2" src="000.files/image012.jpg" width=441 height=347 ></p>
+
+<p class=MsoCaption>Рисунок 8 – Устройства сбора</p>
+
+<p class=MsoNormal>После этого можно приступить к описанию дерева профиля для
+добавленного устройства.</p>
+
+<p class=MsoNormal>Создаем в корне дерева новый узел – устройство. В свойствах
+узла выбираем устройство, которое создали в «Устройствах сбора». Протокол не
+выбираем. Тип, квалификатор, наименование – любые.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 18" alt ="Описание: prot_3" src="000.files/image013.jpg" width=615 height=377 ></p>
+
+<p class=MsoCaption>Рисунок 9 – Добавление профиля</p>
+
+<p class=MsoNormal>Для созданного устройства создаем узел – протокол. Поле
+«Устройство» должно повторять родительское (на примере – «Сбор по
+МЭК870-5-101»). Назначаем протокол – МЭК (на примере – «IEC69870-5-101»). Тип,
+квалификатор, наименование – любые.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 19" alt ="Описание: prot_3" src="000.files/image014.jpg" width=548 height=337 ></p>
+
+<p class=MsoCaption>Рисунок 10 – Добавление протокола в профиль</p>
+
+<p class=MsoNormal>Для созданного узла устройства создаем узел объекта,
+характеризующегося общим адресом ASDU. Таких объектов может быть несколько,
+соответственно создаем необходимое число таких узлов на текущем уровне
+иерархии. В поле протокол указываем – «Общий адрес ASDU». Поле «Устройство»
+должно повторять родительское. В качестве квалификатора указываем общий адрес
+ASDU, определенный в разделе «Необходимые знания» п.3. Тип, название – любые.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 11" alt ="Описание: prot_3" src="000.files/image015.jpg" width=550 height=337 ></p>
+
+<p class=MsoCaption>Рисунок 11 – Добавление объекта протокола</p>
+
+<p class=MsoNormal>Для созданного узла общего адреса ASDU создаем узлы
+стандартных типов ASDU. Необходимые типы определяются разделом «Необходимые знания» п. 3. Количество стандартных типов ASDU для заданного общего
+адреса ASDU не ограничено. В поле протокол указываем – «Тип».&nbsp; В качестве
+квалификатора выбираем идентификатор стандартного типа ASDU. Поле «Устройство»
+должно повторять родительское устройство. Тип, название – значения не имеют. На
+примере: ТИ передаются стандартным типом ASDU = 13 (значение измеряемой
+величины, короткий формат с плавающей запятой). Прочие поддерживаемые типы
+данных для протоколов IEC60870-5-101/104 перечислены в Приложение А.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 22" alt ="Описание: prot_3" src="000.files/image016.jpg" width=551 height=338 ></p>
+
+<p class=MsoCaption>Рисунок 12 – Добавление узла</p>
+
+<p class=MsoNormal>Для созданного узла стандартного типа ASDU создаем узлы
+объектов информации (точек). В качестве квалификатора указываем адрес объекта
+информации. Адреса объектов информации определяется разделом «Необходимые знания» п. 3.</p>
+
+<p class=MsoNormal>Количество объектов информации для заданного стандартного
+типа ASDU не ограничено. В поле протокол указываем – «Точка». Поле «Устройство»
+должно повторять родительское. Название значения не имеет. В качестве типа:</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>для ТС указываем
+«Базовый булевый» или любой тип состояния. Опции параметра – «Мгновенные
+значения»;</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>для ТИ указываем
+«Базовый аналоговый» или любой аналоговый тип (на примере – Ток). Опции
+параметра – «Мгновенные значения»;</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>для ТУ указываем
+«Параметр телеуправления». Может быть задана опция «Телеуправление с
+предварительным выбором». Необходимость выбора перед ТУ согласуется в профиле
+(раздел «Необходимые знания» п. 3)</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 13" alt ="Описание: prot_3" src="000.files/image017.jpg" width=553 height=339 ></p>
+
+<p class=MsoCaption>Рисунок 13 – Добавление точки измерений</p>
+
+<p class=MsoNormal>В результате выполнения этих шагов имеем сконфигурированный
+профиль устройства, работающего по МЭК протоколу.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 24" alt ="Описание: prot_3" src="000.files/image018.png" width=346 height=310 ></p>
+
+<p class=MsoCaption>Рисунок 14 – Просмотр профиля</p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc117858910"></a><a name="_Toc12457667">4
+</a><span style="POSITION: relative; Z-INDEX: 251696111"><span style="HEIGHT:
+ 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT:
+ 3px; WIDTH: 646px" src="000.files/image003.png" width=646 height=72 ></span></span>Добавление параметра в
+профиль протокола IEC60870-5-103</h1>
+
+<p class=MsoNormal>Создание и конфигурирование профиля устройства производится
+с помощью инструмента <span class=af5>DAView</span> (Справочная информация по
+распределенной системе сбора).</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 27" alt ="Описание: 0" src="000.files/image019.jpg" width=409 height=475 ></p>
+
+<p class=MsoCaption>Рисунок 15 – Просмотр информации о протоколе</p>
+
+<p class=MsoNormal>В первую очередь необходимо добавить описание нового
+измерителя с помощью следующих шагов:</p>
+
+<p class=MsoListNumber2>1.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Выбрать в меню «Справочники» пункт «Протоколы». В открывшемся окне
+«Протоколы» проверить, что информация о протоколе МЭК внесена в список (как
+IEC60870-5-103). Здесь определяется структура адресации информационного объекта
+(точки).</p>
+
+<p class=MsoListNumber2>2.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Выбрать в меню «Справочники» пункт «Устройства сбора». В открывшемся
+окне «Устройства сбора» создать устройство, которое будет работать по протоколу
+МЭК (в контекстном меню выбрать команду «Добавить»). Добавить IEC60870-5-103 в
+поддерживаемые протоколы.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 28" alt ="Описание: 1" src="000.files/image020.png" width=306 height=412 ></p>
+
+<p class=MsoCaption>Рисунок 16 – Создание устройства</p>
+
+<p class=MsoNormal>Созданное устройство должно появиться в списке «Устройства
+сбора».</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG src="000.files/image021.jpg"
+ width=363 height=374 ></p>
+
+<p class=MsoCaption>Рисунок 17 – Устройства сбора</p>
+
+<p class=MsoNormal>Создаем в корне дерева новый узел – устройство. В свойствах
+узла выбираем устройство, которое создали в «Устройствах сбора». Протокол не
+выбираем. Тип, квалификатор, наименование – любые.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 30" alt ="Описание: 4" src="000.files/image022.jpg" width=533 height=327 ></p>
+
+<p class=MsoCaption>Рисунок 18 – Добавление профиля</p>
+
+<p class=MsoNormal>Для созданного устройства добавляется узел «Протокол». Поле
+«Устройство» должно повторять родительское (например, «Сбор по IEC69870-5-103»).
+Назначается протокол IEC60870-5-103. Тип, квалификатор и наименование
+заполняются согласно исходным данным.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 31" alt ="Описание: 5" src="000.files/image023.jpg" width=533 height=325 ></p>
+
+<p class=MsoCaption>Рисунок 19 – Добавление протокола в профиль</p>
+
+<p class=MsoNormal>Для созданного узла устройства создаем узел объекта,
+характеризующегося общим адресом ASDU. Таких объектов может быть несколько,
+соответственно создаем необходимое число таких узлов на текущем уровне
+иерархии. В поле протокол указываем – «Общий адрес ASDU». Поле «Устройство»
+должно повторять родительское. В качестве квалификатора указываем общий адрес
+ASDU, определенный в разделе «Необходимые знания» п.3. Тип, название – любые.</p>
+
+<p class=af8><span class=afb>Примечание</span>. Для измерителей, работающих с
+протоколом IEC69870-5-103, значение «Общий адрес ASDU» обычно (но не обязательно)
+совпадает с физическим адресом измерителя.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 288" alt ="Описание: 6" src="000.files/image024.jpg" width=561 height=343 ></p>
+
+<p class=MsoCaption>Рисунок 20 – Добавление объекта протокола</p>
+
+<p class=MsoNormal>Для созданного узла общего адреса ASDU создаем узлы
+стандартных типов ASDU. Количество стандартных типов ASDU для заданного общего
+адреса ASDU не ограничено.</p>
+
+<p class=MsoNormal>В поле «Протокол» указываем тип элемента профиля, это может
+быть «Группа ТС» либо «Группа ТИ». Обратите внимание, что при выборе типа
+«Группа ТС» или «Группа ТИ» будет отличаться дальнейшая иерархическая структура
+уровней протокола. </p>
+
+<p class=MsoNormal>Итак, в качестве квалификатора для узла 
+«Группа ТС» или «Группа ТИ» необходимо выбрать идентификатор стандартного типа 
+ASDU. Например, для «Группы ТС» квалификатор может иметь значение 1, 2, 20 
+(команда телеуправления), а для «Группа ТИ» – 3, 9. Поле «Устройство» должно 
+повторять родительское устройство.&nbsp; Тип, название – значения не имеют. На 
+Рисунок 21 представлен следующий случай: ТС передаются стандартным типом ASDU =        
+        
+          
+           
+                    1
+(положение выключателя с меткой времени).</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 289" alt ="Описание: 7" src="000.files/image025.jpg" width=567 height=346 ></p>
+
+<p class=MsoCaption><a name="_Ref117254729">Рисунок </a>21 – Добавление узла</p>
+
+<p class=MsoNormal>Для созданной группы ТС или ТИ необходимо установить номер
+функции и номер информации, эти параметры определены в стандарте IEC69870-5-103
+либо в документации к используемому для опроса устройству. В поле «Протокол»
+устанавливается «Номер функции», тип – «Объект протокола». На примере
+устанавливается номер функции 11.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 290" alt ="Описание: 10" src="000.files/image026.jpg" width=567 height=346 ></p>
+
+<p class=MsoCaption>Рисунок 22 – Добавление функции</p>
+
+<p class=MsoNormal>Далее, для созданного номера функции создаем узлы объектов
+информации. Для параметров из «Группа ТС» и «Группа ТИ» дальнейшее описание
+профиля будет отличаться.</p>
+
+<p class=MsoNormal>Для ТС (или ТУ) «Номер информации» создается в списке
+профильных точек, и заполняются поля «Тип» (выбирается «Базовый булевый» или
+любой другой тип состояния) и «Опции параметра» (выбирается «Мгновенные
+значения» для обычных ТС, или «Телеуправление однопозиционное» для сигналов
+ТУ).</p>
+
+<p class=MsoNormal>Для ТИ «Номер информации» создается в дереве профиля. И уже
+внутри узла с типом «Номер информации» добавляются точки измерения. При этом в
+качестве типа выбирается «Базовый аналоговый» (либо другой «аналоговый» тип) и
+в опциях параметра – «Мгновенные значения».</p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=643
+ style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; WIDTH: 17cm; BACKGROUND: #fedb8e; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; MARGIN-LEFT: 5.4pt; BORDER-LEFT: medium none">
+ <tr>
+  <td width=643 style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 17cm; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"    >
+  <p class=afc>внимание! </p>
+  <p class=MsoNormal>Нумерация номера информации для точки измерения ТИ ведет
+  отсчет с единицы.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG src="000.files/image027.jpg"
+ width=572 height=349 ></p>
+
+<p class=MsoCaption>Рисунок 23 – Добавление номера информации ТС</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 292" alt ="Описание: 13" src="000.files/image028.jpg" width=567 height=349 ></p>
+
+<p class=MsoCaption>Рисунок 24 – Добавление номера информации ТИ</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG src="000.files/image029.jpg"
+ width=567 height=347 ></p>
+
+<p class=MsoCaption>Рисунок 25 – Добавление точки измерения ТИ</p>
+
+<p class=MsoNormal>В результате выполнения этих шагов имеем сконфигурированный
+профиль устройства, работающего по МЭК протоколу.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG src="000.files/image030.jpg"
+ width=623 height=339 ></p>
+
+<p class=MsoCaption>Рисунок 26 – Просмотр профиля</p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc117858911"></a><a name="_Toc12457668">5
+</a><span style="POSITION: relative; Z-INDEX: 251698159"><span style="HEIGHT:
+ 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT:
+ 6px; WIDTH: 646px" src="000.files/image003.png" width=646 height=72 ></span></span>Добавление параметра в
+профиль счетчиков СПЕ, СПГ, СПТ</h1>
+
+<p class=MsoNormal>Для разных конфигураций счетчиков СПЕ/СПГ/СПТ может
+потребоваться выполнить описание различных профилей, содержащих специфическую
+адресацию измерений, которые необходимо запрашивать с устройства.</p>
+
+<p class=MsoNormal>Для добавления нового профиля в первую очередь необходимо
+добавить новое устройство через меню приложения «Справочники&nbsp;→&nbsp;Устройства
+сбора». В открывшемся окне «Устройства сбора» следует добавить устройство,
+вызвав контекстное меню правой кнопкой мыши.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 296" alt ="Описание: img2" src="000.files/image031.png" width=647 height=379 ></p>
+
+<p class=MsoCaption>Рисунок 27 – Добавление устройства</p>
+
+<p class=MsoNormal>Для добавляемого устройства в поле «Поддерживаемые
+протоколы», вызвав контекстное меню, необходимо добавить протокол СПЕ (Рисунок 28).</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 297" alt ="Описание: img3" src="000.files/image032.png" width=356 height=601 ></p>
+
+<p class=MsoCaption><a name="_Ref117255570">Рисунок </a>28 – Добавление протокола</p>
+
+<p class=MsoNormal>После описанных действий в Справочную информацию можно
+добавить новый профиль с помощью команды контекстного меню «Создать» в главном
+окне приложения <span class=af5>DAView</span>. В открывшемся окне «Элемент
+профиля устройства сбора» необходимо выбрать добавленное ранее устройство из
+списка «Устройство», а также заполнить название нового профиля в поле
+«Наименование».</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 298" alt ="Описание: img6" src="000.files/image033.png" width=643 height=410 ></p>
+
+<p class=MsoCaption>Рисунок 29 – Добавление профиля</p>
+
+<p class=MsoNormal>После создания узла с профилем необходимо добавить узел,
+указывающий на поддерживаемый устройством протокол. В свойствах элемента
+профиля в поле «Протокол» выбирается «СПЕ».</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 299" alt ="Описание: img7" src="000.files/image034.png" width=643 height=317 ></p>
+
+<p class=MsoCaption>Рисунок 30 – Добавление протокола в профиль</p>
+
+<p class=MsoNormal>Согласно стандарту протокола СПЕ, для опроса устройств в
+профиле РСДУ необходимо сконфигурировать набор каналов, а в каждом канале
+сконфигурировать набор параметров. </p>
+
+<p class=MsoNormal>Таким образом, в Справочную информацию по распределенной
+системе сбора данных для прибора необходимо добавить в первую очередь описание
+канала.</p>
+
+<p class=af8><span class=afb>Примечание</span>. Номера каналов и параметров
+определены в документации к конкретному прибору СП.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 300" alt ="Описание: img6" src="000.files/image035.jpg" width=509 height=269 ></p>
+
+<p class=MsoCaption>Рисунок 31 – Добавление канала</p>
+
+<p class=MsoNormal>В свойствах элемента «Канал» необходимо заполнить «Наименование»,
+«Протокол» («Канал»), «Квалификатор» (здесь указывается целое число – номер
+канала).</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 32" alt ="Описание: img1" src="000.files/image036.jpg" width=540 height=333 ></p>
+
+<p class=MsoCaption>Рисунок 32 – Окно добавления канала</p>
+
+<p class=MsoNormal>В результате описания может быть получен следующий набор
+каналов, представленный на Рисунок 33.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 33" alt ="Описание: img2" src="000.files/image037.png" width=586 height=258 ></p>
+
+<p class=MsoCaption><a name="_Ref117255843">Рисунок </a>33 – Результат
+добавления каналов</p>
+
+<p class=MsoNormal>Далее для конкретного канала добавляется набор параметров.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 34" alt ="Описание: img4" src="000.files/image038.png" width=586 height=350 ></p>
+
+<p class=MsoCaption>Рисунок 34 – Добавление параметров на канал</p>
+
+<p class=MsoNormal>В поле «Тип» указывается аналоговый тип величины (по
+умолчанию,&nbsp; может быть использовано «Базовый аналоговый»). В «Опции параметра»
+должно быть выбрано значение «Мгновенные значения». В поле «Квалификатор»
+устанавливается соответствующий документации номер параметра (в качестве
+примера был использован номер параметра – 156).</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 35" alt ="Описание: img8" src="000.files/image039.jpg" width=534 height=328 ></p>
+
+<p class=MsoCaption>Рисунок 35 – Окно добавления параметра</p>
+
+<p class=MsoNormal>В результате может быть получена схема параметров,
+представленная на Рисунок 36.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 36" alt ="Описание: img5" src="000.files/image040.jpg" width=535 height=318 ></p>
+
+<p class=MsoCaption><a name="_Ref117256024">Рисунок </a>36 – Схема параметров</p>
+
+<p class=MsoNormal>Для добавления массива параметров необходимо добавить новый
+параметр в нужный канал. Поле «Квалификатор» соответствует номеру массива,
+который определяется из документации на прибор, также как и номер канала. В «Тип
+параметра» устанавливается значение «Точка измерения».</p>
+
+<p class=MsoNormal>В качестве примера массив назван «Характеристики
+теплоносителя».</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 37" alt ="Описание: img1" src="000.files/image041.jpg" width=558 height=343 ></p>
+
+<p class=MsoCaption>Рисунок 37 – Добавление массива</p>
+
+<p class=MsoNormal>Для элемента массива добавляются элементы с указанием
+аналогового типа данных и опцией «Мгновенные значения». Поле «Квалификатор»
+определяет номер ячейки массива. Аналогичным образом необходимо добавить все
+остальные элементы массива параметров.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 38" alt ="Описание: img2" src="000.files/image042.png" width=638 height=293 ></p>
+
+<p class=MsoCaption>Рисунок 38 – Добавление элемента массива</p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc117858912"></a><a name="_Toc12457669">6
+</a><span style="POSITION: relative; Z-INDEX: 251700207"><span style="HEIGHT:
+ 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT:
+ 6px; WIDTH: 646px" src="000.files/image009.png" width=646 height=72 ></span></span>Добавление параметра в
+профиль протокола измерителей ИРТ</h1>
+
+<p class=MsoNormal>Реализованный в комплексе РСДУ протокол ИРТ позволяет
+осуществлять обмен с измерителями следующих типов:</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Измерители-регуляторы
+технологические: ИРТ1730D, ИРТ1730У, ИРТ1730D/А, ИРТ1730У/А;</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Термометр
+многоканальный: ТМ5103;</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Измерители-регуляторы
+технологические типа: ИРТ5920, ИРТ5930, ИРТ5922А;</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Регистраторы
+многоканальные технологические: РМТ49D/1, РМТ49D/3, РМТ39D/6, РМТ49DА/1, РМТ49DА/3,
+РМТ39DА/6.</p>
+
+<p class=MsoNormal>Как правило, с этих измерителей осуществляется чтение таких
+аналоговых величин, как температуры и других неэлектрических величин,
+преобразованных в электрические сигналы силы и напряжения постоянного тока.</p>
+
+<p class=MsoNormal>В справочной информации добавляется новое устройство с
+поддержкой протокола ИРТ через меню «Справочники&nbsp;→&nbsp;Устройства
+сбора». В открывшемся окне «Устройства сбора» следует добавить устройство,
+вызвав контекстное меню правой кнопкой мыши и выбрав из доступных протоколов –
+«ИРТ».</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 39" alt ="Описание: 2" src="000.files/image043.jpg" width=619 height=699 ></p>
+
+<p class=MsoCaption>Рисунок 39 – Добавление устройства</p>
+
+<p class=MsoNormal>После добавления устройства в Справочную информацию станет возможным
+добавление нового профиля с помощью команды контекстного меню «Добавить» в
+главном окне приложения <span class=af5>DAView</span>. В открывшемся окне
+«Элемент профиля устройства сбора» необходимо сначала выбрать добавленное ранее
+устройство из списка устройств и заполнить название нового профиля в поле
+«Наименование».</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;
+ 40" alt ="Описание: 4" src="000.files/image044.png" width=525 height=351 ></p>
+<p class=MsoCaption>Рисунок 40 – Добавление профиля</p>
+<p class=MsoNormal>После создания узла с профилем необходимо 
+добавить узел, указывающий на поддерживаемый устройством протокол. В свойствах 
+элемента профиля в поле «Протокол» должен быть выбран «ИРТ».</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 41" alt="Описание: 4" src="000.files/image045.png" width=504 height=398 ></p>
+<p class=MsoCaption>Рисунок 41 – Добавление протокола в 
+профиль</p>
+<p class=MsoNormal>Далее в структуре профиля протокола ИРТ 
+создаётся уровень «Параметр», для которого в поле «Квалификатор» указывается 
+номер канала, на котором доступны интересующие нас измерения. Информация по 
+составу каналов и их адресации может быть взята из описания к конкретному типу 
+измерителя.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image046.jpg" width=574 height=353 ></p>
+<p class=MsoCaption>Рисунок 42 – Добавление канала</p>
+<p class=MsoNormal>Например, для измерителей ИРТ 1730 
+актуальным для сбора является параметр температуры (с адресом 0). Описанный 
+профиль для этого параметра выглядит как на Рисунок 43.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image047.jpg" width=592 height=299 ></p>
+<p class=MsoCaption><a name=_Ref117070595>Рисунок </a>43 – Пример профиля</p>
+<h1 style="TEXT-INDENT: 0cm"><a name=_Toc117858913></a><a name=_Toc12457670>7 </a><span 
+style="POSITION: relative; Z-INDEX: 251702255"><span 
+style="HEIGHT: 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 3px; WIDTH: 646px" src="000.files/image009.png" width=646 height=72 ></span></span>Добавление параметра в 
+профиль протокола Modbus TCP</h1>
+<p class=MsoNormal>Для протокола Modbus TCP добавление 
+нового сигнала происходит аналогичным способом, как описано для протоколов, 
+представленных выше. Отличие состоит в описании структуры данного протокола. 
+Например, после создания устройства и протокола должна быть добавлена функция, а 
+в узле функции – регистр.</p>
+<p class=MsoNormal>Для того чтобы создать функцию, 
+необходимо вызвать контекстное меню на устройстве и выбрать пункт «Создать» (см. 
+Рисунок 44).</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image048.jpg" width=577 height=354 ></p>
+<p class=MsoCaption><a name=_Ref423701430>Рисунок </a>44 – Создание функции</p>
+<p class=MsoNormal>Затем необходимо создать регистр. Для 
+этого необходимо вызвать контекстное меню на функции и выбрать пункт «Создать» 
+(см. Рисунок 45).</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image049.jpg" width=574 height=352 ></p>
+<p class=MsoCaption><a name=_Ref423701440>Рисунок </a>45 – Создание регистра</p>
+<h1 style="TEXT-INDENT: 0cm"><a name=_Toc117858914></a><a name=_Toc12457671>8 </a><span 
+style="POSITION: relative; Z-INDEX: 251704303"><span 
+style="HEIGHT: 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 13px; WIDTH: 646px" src="000.files/image009.png" width=646 height=72 ></span></span>Добавление параметра в 
+профиль протокола ТЭКОН</h1>
+<p class=MsoNormal>Система позволяет описывать профили для 
+устройств ТЭКОН-17 и ТЭКОН-19. Поддерживается два вида транспорта <span 
+lang=EN-US>TCP</span><span lang=EN-US> 
+</span>и <span lang=EN-US>UDP</span>. Система позволяет 
+описывать два типа параметров: вещественные и целочисленные. Возможные параметры 
+(номера регистров) и их типы можно определить из документации на конкретную 
+модификацию прибора ТЭКОН.</p>
+<p class=MsoNormal>Создание и конфигурирование профиля 
+устройства производится с помощью инструмента <span class=af5>DAView</span> (Справочная информация по распределенной 
+системе сбора).</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 46" alt="Описание: профиль" src="000.files/image050.png" width=428 height=341 ></p>
+<p class=MsoCaption>Рисунок 46 – Просмотр информации о 
+протоколе</p>
+<p class=MsoNormal>В первую очередь необходимо добавить 
+описание нового измерителя с помощью следующих шагов:</p>
+<p class=MsoListNumber2>1.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</span>Выбрать в меню «Справочники» пункт «Протоколы». В открывшемся окне 
+«Протоколы» проверить, что информация о протоколе ТЭКОН внесена в список (как 
+ТЭКОН_<span lang=EN-US>TCP</span><span lang=EN-US> </span>или ТЭКОН_<span lang=EN-US>UDP</span>). Здесь определяется структура профиля 
+информационного объекта (точки);</p>
+<p class=MsoListNumber2>2.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</span>Выбрать в меню «Справочники» пункт «Устройства сбора». В открывшемся окне 
+«Устройства сбора» создать устройство, которое будет работать по протоколу ТЭКОН 
+(в контекстном меню выбрать команду «Добавить»). Добавить ТЭКОН_<span lang=EN-US>TCP </span>или ТЭКОН<span lang=EN-US>_UDP</span> в поддерживаемые протоколы.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 47" alt="Описание: 1" src="000.files/image051.jpg" width=321 height=436 ></p>
+<p class=MsoCaption>Рисунок 47 – Создание устройства</p>
+<p class=MsoNormal>Созданное устройство должно появиться в 
+списке «Устройства сбора».</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 48" alt="Описание: профиль_2" src="000.files/image052.jpg" width=415 height=274 ></p>
+<p class=MsoCaption>Рисунок 48 – Устройства сбора</p>
+<p class=MsoNormal>Создаем в корне дерева новый узел – 
+устройство. В свойствах узла выбираем устройство, которое создали в «Устройствах 
+сбора». Протокол не выбираем. Тип, квалификатор, наименование – любые.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 49" alt="Описание: 2" src="000.files/image053.jpg" width=588 height=360 ></p>
+<p class=MsoCaption>Рисунок 49 – Добавление профиля</p>
+<p class=MsoNormal>Для созданного устройства создаем узел – 
+протокол. Поле «Устройство»&nbsp; должно повторять родительское (на примере – 
+«ТЭКОН 19»). Назначаем протокол – ТЭКОН_19. Тип, квалификатор, наименование – 
+любые.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 50" alt="Описание: 3" src="000.files/image054.jpg" width=589 height=361 ></p>
+<p class=MsoCaption>Рисунок 50 – Добавление протокола в 
+профиль</p>
+<p class=MsoNormal>Для созданного узла устройства создаем 
+узел объекта, характеризующегося номером функции. Такие объекты могут быть двух 
+типов: 1 – Целые числа, 2 – Вещественные числа. Соответственно создаем узлы 
+необходимых типов на текущем уровне иерархии. В поле «Протокол» указываем – 
+«Номер функции». Поле «Устройство» должно повторять родительское. В качестве 
+квалификатора указываем тип данных (1 – Целые числа, 2 – Вещественные числа). 
+Тип, название – любые.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 51" alt="Описание: 5" src="000.files/image055.jpg" width=587 height=360 ></p>
+<p class=MsoCaption>Рисунок 51 – Добавление функции</p>
+<p class=MsoNormal>В поле «Тип» указывается аналоговый тип 
+величины – «Базовый аналоговый». В «Опции параметра» должно быть выбрано 
+значение «Мгновенные значения». В поле «Квалификатор» устанавливается 
+соответствующий документации номер регистра (см. документацию 
+оборудования).&nbsp; В примере используется номер регистра 0<span lang=EN-US>x</span>4310, что соответствует значению атмосферного 
+давления.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 52" alt="Описание: 6" src="000.files/image056.jpg" width=557 height=395 ></p>
+<p class=MsoCaption>Рисунок 52 – Добавление параметра</p>
+<p class=MsoNormal>Создание профиля для устройств ТЭКОН-17 и 
+ТЭКОН-19 полностью идентично, различие составляют только допустимые номера 
+регистров – параметров (см. документацию к соответствующему измерителю).</p>
+<h1 style="TEXT-INDENT: 0cm"><a name=_Toc117858915></a><a name=_Toc12457672>9 </a><span 
+style="POSITION: relative; Z-INDEX: 251706351"><span 
+style="HEIGHT: 106px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -11px"><IMG style="HEIGHT: 12px; WIDTH: 646px" src="000.files/image057.png" width=646 height=106 ></span></span>Добавление параметров в 
+систему сбора &nbsp;для передачи &nbsp;по &nbsp;протоколу&nbsp; <span lang=EN-US>Modbus</span><span lang=EN-US> 
+</span><span lang=EN-US>TCP</span></h1>
+<p class=MsoNormal>Для добавления параметров на передачу 
+необходима настроенная система сбора и профиль для устройства <span lang=EN-US>Modbus</span>, подготовленный с помощью приложения <span 
+class=af5>DAView</span>.</p>
+<p class=MsoNormal>Чтобы приступить к описанию конфигурации 
+сервера <span lang=EN-US>Modbus</span><span lang=EN-US> </span>в подсистеме сбора необходимо создать магистральный 
+интерфейс либо использовать существующий. При создании магистрального интерфейса 
+в свойствах указываем Тип интерфейса «Сетевые карты <span lang=EN-US>Ethernet</span>».</p>
+<p class=MsoNormal>Для выбранного магистрального интерфейса 
+добавляем узел с типом «Коммуникационный порт». В поле «Протокол» необходимо 
+выставить «<span lang=EN-US>Modbus</span><span lang=EN-US> </span><span lang=EN-US>TCP</span>». В 
+поле «Порт» устанавливаем номер <span lang=EN-US>TCP</span><span lang=EN-US> </span>порта 
+для входящих соединений. В Свойства параметра добавляется свойство «Сервер (ждем 
+соединения)».</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 53" alt="Описание: 4" src="000.files/image058.jpg" width=490 height=469 ></p>
+<p class=MsoCaption>Рисунок 53 – Коммуникационный порт</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>Следующим шагом добавляем измерительный 
+прибор в систему сбора. Для созданного порта добавляется прибор с указанием типа 
+из описанного ранее профиля. В примере выбран тип прибора «<span lang=EN-US>MOXA</span><span lang=EN-US> 
+</span><span lang=EN-US>iLOGIK</span>». </p>
+<p class=MsoNormal>Физический адрес соответствует адресу, 
+который будет использован на магистрали <span lang=EN-US>Modbus</span> для данного устройства (для примера установлен 
+адрес равный 1). На порту может быть только одно устройство сервер Modbus. В 
+случае описания нескольких устройств рабочим будет только первое устройство, 
+описанное на порту.</p>
+<p class=MsoNormal>Далее нужно определить точки профиля на 
+передачу. Для этого в окне «Выбор точек профиля», вызванном кнопкой «Профиль» в 
+Свойствах измерительного прибора, выбираем необходимые точки, описанные в 
+структуре профиля, как показано на Рисунок 54.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 54" alt="Описание: 5" src="000.files/image059.jpg" width=513 height=484 ></p>
+<p class=MsoCaption><a name=_Ref117675230>Рисунок </a>54 – Измерительный прибор и точки профиля</p>
+<p class=MsoNormal>После того как сформирован список точек 
+мониторинга для передачи, необходимо назначить источники данных для этих точек. 
+Для этого в Навигаторе БД в области просмотра точек для данного прибора вызываем 
+свойства для каждой точки (Рисунок 55).</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 55" alt="Описание: 10" src="000.files/image060.png" width=645 height=224 ></p>
+<p class=MsoCaption><a name=_Ref117688729>Рисунок </a>55 – Точки прибора</p>
+<p class=MsoNormal>В открывшемся окне на вкладке «Источники» 
+необходимо кнопкой «Добавить источник» добавить новый источник (список 
+допустимых источников конфигурируется для РСДУ заранее), и далее добавить для 
+него канал с помощью соответствующей кнопки. Результат операции добавления 
+канала представлен на Рисунок 56.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 56" alt="Описание: 8" src="000.files/image061.jpg" width=602 height=302 ></p>
+<p class=MsoCaption><a name=_Ref117688903>Рисунок </a>56 – Свойства точки мониторинга</p>
+<p class=MsoNormal>Для созданного канала необходимо выбрать 
+внешний источник значений, вызвав диалог с помощью кнопки «Свойства». В 
+открывшемся окне, с помощью кнопки «Добавить» следует выбрать нужный параметр, 
+значение которого требуется передавать.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 57" alt="Описание: 11" src="000.files/image062.jpg" width=645 height=193 ></p>
+<p class=MsoCaption>Рисунок 57 – Привязка источника 
+данных</p>
+<p class=MsoNormal>В результате привязки в свойствах канала 
+отображается добавленный источник данных.</p>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 58" alt="Описание: 9" src="000.files/image063.png" width=552 height=284 ></p>
+<p class=MsoCaption>Рисунок 58 – Внешний источник 
+значений</P>
+<p class=MsoNormal>На этом настройку параметра на передачу 
+можно считать завершенной. Настроенный порт начнет принимать входящие соединения 
+после перезапуска Коммуникационного сервера передачи данных (модуль сбора <span 
+lang=EN-US>dcsd</SPAN>).</P>
+<h2 style="PAGE-BREAK-BEFORE: always; MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name=_Toc117858916></A><a 
+name=_Toc12457673>9.1 Передача параметров с двойным 
+регистром</A></H2>
+<p class=MsoNormal>В реализованном протоколе <span 
+lang=EN-US>Modbus</SPAN> предусмотрена передача значений с 
+использованием двойного регистра, объединяя рядом стоящие регистры. Таким 
+образом, становится возможным передавать большие значения и вещественные числа, 
+не умещающиеся в стандартный размер регистра <span lang=EN-US>Modbus</SPAN>.</P>
+<p class=MsoNormal>Двойной регистр состоит из двух обычных 
+16-ти разрядных регистров, составляющих вместе 32 разрядный ТИ. При этом 
+возможны два варианта:</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>старший 16-разрядный регистр Modbus имеет адрес, следующий за 
+младшим (различающийся на единицу);</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>младший 16-разрядный регистр <span lang=EN-US>Modbus</SPAN><span lang=EN-US> 
+</SPAN>имеет адрес, следующий за старшим регистром (различающийся на 
+единицу).</P>
+<p class=MsoNormal>Для передачи двойного регистра 
+необходимо иметь профиль <span lang=EN-US>Modbus</SPAN><span lang=EN-US> 
+</SPAN>с двумя регистрами, описанными последовательно. В примере на Рисунок 59 
+показанные регистры с номерами 0 и 1 будут использоваться в качестве двойного 
+регистра с порядком следования байт [младший, старший].</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image064.jpg" width=643 height=349 ></P>
+<p class=MsoCaption><a name=_Ref117696792>Рисунок </A>59 – Профиль <span lang=EN-US>Modbus</SPAN></P>
+<p class=MsoNormal>В Навигаторе БД, в области просмотра 
+точек прибора, для регистра с наименьшим адресом необходимо установить свойство 
+«Двойной регистр <span lang=EN-US>Little</SPAN>-<span 
+lang=EN-US>endian</SPAN> в <span lang=EN-US>MODBUS</SPAN>» или свойство «Двойной регистр <span 
+lang=EN-US>Big</SPAN>-<span lang=EN-US>endian</SPAN><span lang=EN-US> 
+</SPAN>в <span lang=EN-US>MODBUS</SPAN>».</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image065.jpg" width=588 height=514 ></P>
+<p class=MsoCaption>Рисунок 60 – Двойной регистр в <span 
+lang=EN-US>Modbus</SPAN></P>
+<p class=MsoNormal>Для включения представления 
+32-разрядного значения параметра в вещественный формат дополнительно необходимо 
+включить свойство «Значение в формате (float) IEEE 754».</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image066.jpg" width=584 height=514 ></P>
+<p class=MsoCaption>Рисунок 61 – Значение в формате (float) 
+IEEE 754</P>
+<h1 style="TEXT-INDENT: 0cm"><a name=_Toc117858917></A><a name=_Toc12457674>10 </A><span 
+style="POSITION: relative; Z-INDEX: 251708399"><span 
+style="HEIGHT: 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 6px; WIDTH: 646px" src="000.files/image009.png" width=646 height=72 ></SPAN></SPAN>Добавление параметра в 
+профиль протокола Макет 80020 (АИИСКУЭ)</H1>
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858918></A><a name=_Toc12457675>10.1 Общие сведения</A></H2>
+<p class=MsoNormal>Макет 80020 представляет собой <span 
+lang=EN-US>XML</SPAN>-документ, используемый при передаче 
+данных из системы коммерческого учета электроэнергии предприятия в 
+информационные системы АО «АТС», АО «СО ЕЭС» и смежных субъектов.</P>
+<p class=MsoNormal>Формат и регламент отправки макета 80020 
+представлен в «Приложении № 11.1.1 к Положению о порядке получения статуса 
+субъекта оптового рынка и ведения реестра субъектов оптового рынка электрической 
+энергии и мощности».</P>
+<p class=MsoNormal>Комплекс РСДУ поддерживает получение 
+макета 80020 по электронной почте (либо сканированием сетевого каталога).</P>
+<p class=MsoNormal>Для приема и обработки макета необходимо 
+выполнить описание профиля макета с помощью приложения «Справочная информация по 
+распределенной системе сбора» (<span class=af5>DAView.exe</SPAN>) и настроить архивы для хранения 
+полученных данных с помощью приложения Навигатор БД в разделе «Комплекс 
+автоматики <span style='FONT-FAMILY: "Wingdings 3"'>"</SPAN>&nbsp;Распределенная система сбора».</P>
+<p class=MsoNormal>Настройки параметров подключения к 
+почтовому серверу и обработки электронных писем реализованы в локальных 
+настройках сервиса «Сервис приёма макетов 80020 АИИСКУЭ».</P>
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858919></A><a name=_Toc12457676>10.2 Описание профиля макета</A></H2>
+<h3 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858920>10.2.1 Описание структуры макета в 
+справочнике «Протоколы»</A></H3>
+<p class=MsoNormal>Макет 80020 представляет собой <span 
+lang=EN-US>XML</SPAN>-документ, содержащий информацию о 
+дате и времени подготовки макета, дате отчетных суток, отправителе, об объекте, 
+точках измерения объекта и измерительных каналах. Пример макета представлен на 
+Рисунок 62.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image067.jpg" width=607 height=513 ></P>
+<p class=MsoCaption><a name=_Ref501538303></A><a name=_Ref117082253>Рисунок 
+</A>62 – Пример макета 80020</P>
+<p class=MsoNormal>Полезная информация в документе 
+оформлена следующими тегами:</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN><span class=af5>&lt;datetime&gt;…&lt;/datetime&gt; </SPAN>– информация о 
+дате и времени формирования макета и отчетных суток;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN><span class=af5>&lt;sender&gt;…&lt;/sender&gt;</SPAN> – информация о 
+предприятии-отправителе макета;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN><span class=af5>&lt;area&gt;…&lt;/area&gt;</SPAN> – представляет набор 
+данных об измерениях:</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN><span class=af5>&lt;inn&gt;… &lt;/inn&gt; 
+</SPAN>и<span class=af5> &lt;name&gt;… &lt;/name&gt;</SPAN> 
+– информация об объекте;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN><span class=af5>&lt;measuringpoint&gt; 
+</SPAN>и<span class=af5> &lt;measuringchannel&gt;</SPAN> – 
+информация о точке измерения (точке учета) и ее измерительных каналах;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN><span class=af5>&lt;period&gt; </SPAN>и<span 
+class=af5> &lt;value&gt;</SPAN> – определяют метку времени 
+и значение измерения.</P><span 
+style='FONT-SIZE: 12pt; FONT-FAMILY: "Arial","sans-serif"'><br style="PAGE-BREAK-BEFORE: always" clear=all></SPAN>
+<p class=MsoNormal 
+style="MARGIN-BOTTOM: 0pt; TEXT-ALIGN: left; LINE-HEIGHT: normal" align=left>&nbsp;</P>
+<p class=MsoNormal>Структура макета 80020 в справочнике 
+«Протоколы» приложения «Справочная информация по распределенной системе сбора» 
+представляет собой следующую иерархию:</P>
+<table class=MsoNormalTable 
+style="MARGIN-BOTTOM: 4.85pt; WIDTH: 17cm; BORDER-COLLAPSE: collapse; MARGIN-LEFT: 6.8pt; MARGIN-RIGHT: 6.8pt" 
+cellSpacing=0 cellPadding=0 width=643 align=left border=0 
+  >
+  <tr style="HEIGHT: 15pt">
+    <td     style="HEIGHT: 15pt; WIDTH: 17cm; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=643 colSpan=3 noWrap>
+      <p class=ae>Элемент «Объект» (тип «Объект протокола») 
+      – содержит описание объекта учета – соответствует тегам <span class=af5 
+      >&lt;inn&gt; </SPAN>и <span class=af5 
+      >&lt;name&gt;</SPAN> в блоке <span class=af5 
+      >&lt;area&gt;</SPAN></P></TD></TR>
+  <tr style="HEIGHT: 15pt">
+    <td     style="BORDER-TOP: medium none; HEIGHT: 15pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 16.55pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     width=22 noWrap>
+      <p class=ae>&nbsp;</P></TD>
+    <td     style="HEIGHT: 15pt; WIDTH: 465.4pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=621 colSpan=2 noWrap>
+      <p class=ae>Элемент «Точка измерения» (тип «Объект 
+      протокола») – содержит описание точки учета – соответствует тегам <span 
+      class=af5>&lt;measuringpoint&gt;</SPAN></P></TD></TR>
+  <tr style="HEIGHT: 15pt">
+    <td     style="BORDER-TOP: medium none; HEIGHT: 15pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 16.55pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     width=22 noWrap>
+      <p class=ae>&nbsp;</P></TD>
+    <td     style="BORDER-TOP: medium none; HEIGHT: 15pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 23.7pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     width=32 noWrap>
+      <p class=ae>&nbsp;</P></TD>
+    <td     style="HEIGHT: 15pt; WIDTH: 441.7pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=589 noWrap>
+      <p class=ae>Элемент «Измерительный канал» (тип «Точка 
+      измерения») – содержит описание измерительного канала – соответствует 
+      тегам <span class=af5 
+      >&lt;measuringchannel&gt;</SPAN></P></TD></TR></TABLE>
+<p class=MsoNormal>Описание структуры макета в справочнике 
+«Протоколы» представлено на Рисунок 63.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 63" src="000.files/image068.jpg" width=388 height=448 ></P>
+<p class=MsoCaption><a name=_Ref501539226></A><a name=_Ref117082353>Рисунок 
+</A>63 – Просмотр информации о протоколе</P>
+<p class=MsoNormal>Необходимо проверить наличие описания 
+структуры макета в справочнике «Протоколы». Для этого необходимо открыть 
+приложение «Справочная информация по распределенной системе сбора» (<span 
+class=af5>daview.exe</SPAN>), выбрать в меню 
+«Справочники&nbsp;→&nbsp;Протоколы» и проверить наличие описания структуры 
+макета (элемент «Макет 80020»). Если описание структуры макета отсутствует, 
+необходимо установить пакет обновления БДТИ РСДУ <span class=af5>2017_06_13_MAKET_80020</SPAN>.</P>
+<p class=MsoNormal>Для обеспечения целостности справочников 
+распределенной системы сбора необходимо добавить описание элемента «Устройство 
+сбора», которое определяет информационную систему отправителя макета 80020 
+(например, система АСКУЭ «Телескоп» и т.п.).</P>
+<h3 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858921></A><a name=_Ref117697990>10.2.2 Описание устройства сбора (системы отправителя 
+макета)</A></H3>
+<p class=MsoNormal>Описание устройства сбора в справочниках 
+системы сбора РСДУ в данном случае определяет систему отправителя макета 80020, 
+например, систему АИИСКУЭ «Телескоп» или любую другую. </P>
+<p class=MsoNormal>Для добавления устройства сбора 
+необходимо выполнить следующие действия:</P>
+<p class=MsoListNumber2>1.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Выбрать в меню «Справочники» пункт «Устройства сбора»;</P>
+<p class=MsoListNumber2>2.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>В контекстном меню выбрать пункт «Создать». В окне «Устройство сбора» 
+указать название системы отправителя макета, выбрать «Отсутствует» в настройках 
+маршрутизации (маршрутизация при обработке макетов 80020 не используется);</P>
+<p class=MsoListNumber2>3.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Добавить в настройки поддерживаемых протоколов «Макет 80020»;</P>
+<p class=MsoListNumber2>4.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>По окончанию ввода нажать «ОК».</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 64" src="000.files/image069.jpg" width=324 height=435 ></P>
+<p class=MsoCaption>Рисунок 64 – Создание устройства</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 65" src="000.files/image070.jpg" width=409 height=421 ></P>
+<p class=MsoCaption>Рисунок 65 – Список устройств сбора</P>
+<h3 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858922>10.2.3 Описание профиля макета</A></H3>
+<p class=MsoNormal>Профиль макета 80020 содержит 
+древовидную структуру идентификационных данных макета, необходимую для его 
+разбора и выбора значений.</P>
+<p class=MsoNormal>Для удобства выполнения описания профиля 
+макета рекомендуется открыть <span lang=EN-US>XML</SPAN>-файл экземпляра макета 80020 в текстовом 
+редакторе или браузере.</P>
+<p class=MsoNormal>Для добавления нового профиля макета 
+необходимо выполнить следующие действия:</P>
+<p class=MsoListNumber2>1.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Создать корневой элемент профиля.</P>
+<p class=MsoListContinue2>В левой части окна приложения 
+выделить правой кнопкой мыши объект «Система сбора», в контекстном меню выбрать 
+пункт «Создать».</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 66" src="000.files/image071.jpg" width=506 height=297 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 66 
+– Создание элемента(ов) профиля устройства сбора</P>
+<p class=MsoListContinue2>В свойствах элемента профиля 
+указать устройство сбора (системы отправителя макета), описанное ранее, и задать 
+его наименование. Уровень протокола выбирать не нужно.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 67" src="000.files/image072.jpg" width=597 height=369 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 67 
+– Добавление профиля</P><span 
+style='FONT-SIZE: 12pt; FONT-FAMILY: "Arial","sans-serif"'><br style="PAGE-BREAK-BEFORE: always" clear=all></SPAN>
+<p class=MsoNormal 
+style="MARGIN-BOTTOM: 0pt; TEXT-ALIGN: left; LINE-HEIGHT: normal" align=left>&nbsp;</P>
+<p class=MsoListNumber2>2.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Создать элемент протокола.</P>
+<p class=MsoListContinue2>В левой части окна приложения 
+выделить правой кнопкой мыши необходимый корневой элемент, в контекстном меню 
+выбрать пункт «Создать».</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 68" src="000.files/image073.jpg" width=461 height=366 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 68 
+– Создание протокола</P>
+<p class=MsoListContinue2>В свойствах элемента указать:</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в воле «Наименование» ввести текст «Макет 80020»;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в воле «Устройство» будет указано используемое устройство сбора, 
+созданное ранее (см. п. «Описание устройства сбора (системы отправителя 
+макета)»);</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Уровень протокола» выбирается наименование протокола, 
+соответствующее значению «Макет 80020»;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>остальные поля заполнять не требуется.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 69" src="000.files/image074.jpg" width=597 height=371 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 69 
+– Добавление протокола в профиль</P>
+<p class=MsoListNumber2>3.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Создать объект(ы) типа «Объект протокола».</P>
+<p class=MsoListContinue2>В левой части окна приложения 
+выделить правой кнопкой мыши элемент протокола, в контекстном меню выбрать пункт 
+«Создать».</P>
+<p class=MsoListContinue2 style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center" 
+align=center><IMG id="Рисунок 70" src="000.files/image075.jpg" width=461 height=354 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 70 
+– Создание объекта протокола</P>
+<p class=MsoListContinue2>В открывшемся окне свойств 
+необходимо:</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Наименование» ввести название объекта протокола (значение 
+<span class=af5>name</SPAN> элемента <span class=af5>area</SPAN> из <span lang=EN-US>XML</SPAN>-файла макета);</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Имя атрибута» ввести код объекта протокола (значение <span 
+class=af5>inn</SPAN> элемента <span class=af5>area</SPAN> из <span lang=EN-US>XML</SPAN>-файла макета);</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>значение поля «Квалификатор» заполнять не требуется.</P>
+<p class=MsoListContinue2>Пример исходного <span lang=EN-US>XML</SPAN>-макета:</P>
+<p class=MsoListContinue2><IMG id="Рисунок 71" src="000.files/image076.jpg" width=311 height=48 ></P>
+<p class=MsoListContinue2>Пример заполнения свойств 
+элемента профиля на основе <span lang=EN-US>XML</SPAN>-файла представлен на Рисунок 71.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image077.jpg" width=600 height=370 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a 
+name=_Ref117084409>Рисунок </A>71 – Добавление объекта 
+протокола</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image078.jpg" width=524 height=221 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 72 
+– Вид дерева после проделанных изменений</P>
+<p class=MsoListNumber2>4.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Создать элемент «Точка измерения»</P>
+<p class=MsoListContinue2>В левой части окна приложения 
+выделить правой кнопкой мыши объект протокола и во всплывающем меню выбрать 
+пункт «Создать».</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 74" src="000.files/image079.jpg" width=503 height=409 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 73 
+– Создание точки измерения</P><span 
+style='FONT-SIZE: 12pt; FONT-FAMILY: "Arial","sans-serif"'><br style="PAGE-BREAK-BEFORE: always" clear=all></SPAN>
+<p class=MsoNormal 
+style="MARGIN-BOTTOM: 0pt; TEXT-ALIGN: left; LINE-HEIGHT: normal" align=left>&nbsp;</P>
+<p class=MsoListContinue2>В открывшемся окне свойств 
+необходимо:</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Наименование» ввести название точки измерения (значение 
+<span class=af5>name</SPAN> элемента <span class=af5>measuringpoint</SPAN> из <span lang=EN-US>XML</SPAN>-файла макета);</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Имя атрибута» ввести код точки измерения (значение <span 
+class=af5>code</SPAN> элемента <span class=af5>measuringpoint</SPAN> из <span lang=EN-US>XML</SPAN>-файла макета);</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>значение поля «Квалификатор» задавать не требуется.</P>
+<p class=MsoListContinue2>Пример исходного <span lang=EN-US>XML-</SPAN>макета:</P>
+<p class=MsoListContinue2><IMG id="Рисунок 75" src="000.files/image080.jpg" width=446 height=16 ></P>
+<p class=MsoListContinue2>Пример заполнения свойств 
+элемента профиля на основе <span lang=EN-US>XML</SPAN>-файла представлен на Рисунок 74.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image081.jpg" width=602 height=372 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a 
+name=_Ref117698425>Рисунок </A>74 – Свойства точки 
+измерения</P>
+<p class=MsoListNumber2>5.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Описать элемент типа «Измерительный канал»</P>
+<p class=MsoListContinue2>В правой части окна приложения 
+необходимо нажать правую кнопку мыши и во всплывающем меню выбирать пункт 
+«Создать».</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 77" src="000.files/image082.jpg" width=601 height=240 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 75 
+– Создание элемента типа «Измерительный канал»</P>
+<p class=MsoListContinue2>В открывшемся окне свойств 
+обязательно нужно указать тип элемента «Точка измерения»:</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>нажать на кнопку «Точка измерения» поля «Тип»;</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image083.jpg" width=597 height=370 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 76 
+– Настройка типа элемента «Точка измерения»</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в открывшемся окне «Выбор параметра» выбрать раздел 
+«Характеризующие параметры энергообъектов&nbsp;<span 
+style='FONT-FAMILY: "Wingdings 3"'>"</SPAN>&nbsp;Энергетические»;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>выбрать необходимый параметр (электроэнергия активная или 
+электроэнергия реактивная в описании измерительного канала) (см. Рисунок 
+77).</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image084.jpg" width=602 height=455 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a 
+name=_Ref502137108>Рисунок </A>77 – Выбор параметра для 
+точки измерения</P>
+<p class=MsoListContinue2>В поле «Квалификатор» ввести код 
+измерительного канала (значение <span class=af5>code</SPAN> 
+элемента <span class=af5>measuringchannel</SPAN> из <span 
+lang=EN-US>XML</SPAN>-файла макета).</P>
+<p class=MsoListContinue2>Пример исходного <span lang=EN-US>XML-</SPAN>макета:</P>
+<p class=MsoListContinue2><IMG id="Рисунок 80" src="000.files/image085.jpg" width=556 height=17 ></P>
+<p class=MsoListContinue2>Пример заполнения свойств 
+элемента профиля на основе <span lang=EN-US>XML</SPAN>-файла представлен на Рисунок 78.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image086.jpg" width=595 height=369 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a 
+name=_Ref117084886>Рисунок </A>78 – Свойства измерительного 
+канала</P>
+<p class=MsoNormal>Аналогичным образом следует выполнить 
+описание прочих точек измерения и измерительных каналов, представленных в 
+макете.</P>
+<p class=MsoNormal>В итоге, описание профиля макета 80020 
+со списком измерительных каналов может иметь вид, представленный на Рисунок 
+79.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 82" src="000.files/image087.jpg" width=643 height=349 ></P>
+<p class=MsoCaption><a name=_Ref531264421>Рисунок </A>79 – Описание профиля макета 80020</P>
+<h1 style="TEXT-INDENT: 0cm"><a name=_Toc117858923></A><a name=_Toc12457677>11 </A><span 
+style="POSITION: relative; Z-INDEX: 251710447"><span 
+style="HEIGHT: 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 7px; WIDTH: 646px" src="000.files/image003.png" width=646 height=72 ></SPAN></SPAN>Добавление параметра в 
+профиль протокола <span lang=EN-US>OPC</SPAN><span 
+lang=EN-US> </SPAN><span lang=EN-US>DA</SPAN></H1>
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858924></A><a name=_Toc12457678>11.1 Общие сведения</A></H2>
+<p class=MsoNormal>Технология OPC (<span lang=EN-US>Open</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>Platform</SPAN><span lang=EN-US> </SPAN><span lang=EN-US>Communications</SPAN>) — представляет собой семейство 
+программных технологий, предназначенных для управления объектами автоматизации и 
+технологическими процессами.</P>
+<p class=MsoNormal><span lang=EN-US>OPC</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>DA</SPAN> (Data Access) – 
+спецификация программных интерфейсов для обмена данными в реальном времени с 
+ПЛК, РСУ, ЧМИ, ЧМУ и другими устройствами.</P>
+<p class=MsoNormal><span lang=EN-US>OPC</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>DA</SPAN><span lang=EN-US> </SPAN>базируется на технологиях <span lang=EN-US>MS</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>Windows</SPAN>: OLE, ActiveX, 
+COM/DCOM.</P>
+<p class=MsoNormal>Комплекс РСДУ поддерживает 
+информационный обмен на основе спецификации <span lang=EN-US>OPC</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>DA</SPAN>.</P>
+<p class=MsoNormal>Для организации передачи данных из 
+комплекса РСДУ во внешние системы на основе спецификации <span lang=EN-US>OPC</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>DA</SPAN> необходимо выполнить 
+описание профиля протокола с помощью приложения «Справочная информация по 
+распределенной системе сбора» (<span class=af5>DAView.exe</SPAN>) и настроить источники данных с помощью 
+приложения Навигатор БД в разделе «Комплекс автоматики&nbsp;<span 
+style='FONT-FAMILY: "Wingdings 3"'>"</SPAN>&nbsp;Распределенная система сбора».</P>
+<p class=MsoNormal>Настройки и запуск сервера <span 
+lang=EN-US>OPC</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>DA</SPAN> представлены в документе 
+«Сервер передачи данных по OPC. Руководство администратора».</P>
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858925></A><a name=_Toc12457679>11.2 Описание профиля протокола</A></H2>
+<h3 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858926>11.2.1 Описание структуры протокола в 
+справочнике «Протоколы»</A></H3>
+<p class=MsoNormal>Структура протокола <span lang=EN-US>OPC</SPAN><span lang=EN-US> </SPAN>в 
+справочнике «Протоколы» приложения «Справочная информация по распределенной 
+системе сбора» представляет собой следующую иерархию:</P>
+<table class=MsoNormalTable 
+style="MARGIN-BOTTOM: 4.85pt; WIDTH: 17cm; BORDER-COLLAPSE: collapse; MARGIN-LEFT: 6.8pt; MARGIN-RIGHT: 6.8pt" 
+cellSpacing=0 cellPadding=0 width=643 align=left border=0 
+  >
+  <tr style="HEIGHT: 15pt">
+    <td     style="HEIGHT: 15pt; WIDTH: 17cm; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=643 colSpan=2 noWrap>
+      <p class=ae>Элемент «Группа» (тип «Объект протокола») 
+      – группа параметров </P></TD></TR>
+  <tr style="HEIGHT: 15pt">
+    <td     style="BORDER-TOP: medium none; HEIGHT: 15pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 16.55pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     width=22 noWrap>
+      <p class=ae>&nbsp;</P></TD>
+    <td     style="HEIGHT: 15pt; WIDTH: 465.4pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=621 noWrap>
+      <p class=ae>Элемент «Параметр» (тип «Точка 
+      измерения») – измерительный параметр (аналоговый или 
+  дискретный)</P></TD></TR></TABLE>
+<p class=MsoNormal>Описание структуры протокола в 
+справочнике «Протоколы» представлено на Рисунок 80.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image088.jpg" width=410 height=476 ></P>
+<p class=MsoCaption><a name=_Ref531184224>Рисунок </A>80 – Просмотр информации о протоколе</P>
+<p class=MsoNormal>Необходимо проверить наличие описания 
+структуры протокола в справочнике «Протоколы». Для этого необходимо открыть 
+приложение «Справочная информация по распределенной системе сбора» (<span 
+class=af5>daview.exe</SPAN>), выбрать в меню «Справочники» 
+пункт «Протоколы» и проверить наличие описания структуры протокола (элемент 
+«<span lang=EN-US>OPC</SPAN>»).</P>
+<p class=MsoNormal>В случае, если описание структуры 
+протокола отсутствует, необходимо ее описать вручную. Создание/удаление и 
+редактирования элементов структуры протокола осуществляется через контекстное 
+меню.</P>
+<h3 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858927>11.2.2 Описание устройства в справочнике 
+«Устройства сбора»</A></H3>
+<p class=MsoNormal>Спецификация <span lang=EN-US>OPC</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>DA</SPAN> определяет взаимодействие 
+по принципу клиент-сервер, при этом передача данных осуществляется от сервера к 
+клиенту.</P>
+<p class=MsoNormal>Для организации передачи (РСДУ выполняет 
+роль сервера) или получения (РСДУ выполняет роль клиента) данных в справочники 
+«Устройства сбора» необходимо добавить описание устройства.</P>
+<p class=MsoNormal>Описание устройства в справочниках 
+системы сбора РСДУ в данном случае определяет модуль комплекса, который 
+выполняет функции <span lang=EN-US>OPC</SPAN> сервера, или 
+внешние устройства, по отношению к которым комплекс РСДУ выполняет функции <span 
+lang=EN-US>OPC</SPAN><span lang=EN-US> 
+</SPAN>клиента.</P>
+<p class=MsoNormal>Для добавления устройства сбора 
+необходимо выполнить следующие действия:</P>
+<p class=MsoListNumber2>1.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Выбрать в меню «Справочники» пункт «Устройства сбора»;</P>
+<p class=MsoListNumber2>2.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>В контекстном меню выбрать пункт «Создать». В окне «Устройство сбора» 
+указать название <span lang=EN-US>OPC</SPAN><span 
+lang=EN-US> </SPAN>сервера, выбрать «Отсутствует» в 
+настройках маршрутизации (маршрутизация для протокола <span lang=EN-US>OPC</SPAN> не используется).</P>
+<p class=MsoListNumber2>3.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Добавить в настройки поддерживаемых протоколов «<span lang=EN-US>OPC</SPAN>».</P>
+<p class=MsoListNumber2>4.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>По окончанию ввода нажать «ОК».</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image089.jpg" width=341 height=459 ></P>
+<p class=MsoCaption>Рисунок 81 – Создание устройства</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image090.jpg" width=437 height=449 ></P>
+<p class=MsoCaption>Рисунок 82 – Список устройств сбора</P>
+<h3 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858928>11.2.3 Описание профиля 
+протокола</A></H3>
+<p class=MsoNormal>Профиль протокола <span lang=EN-US>OPC</SPAN> содержит древовидную структуру идентификационных 
+групп и параметров, необходимых для&nbsp; приема или передачи данных на основе 
+<span lang=EN-US>OPC</SPAN><span lang=EN-US> </SPAN><span lang=EN-US>DA</SPAN>.</P>
+<p class=MsoNormal>Для добавления нового профиля протокола 
+необходимо выполнить следующие действия:</P>
+<p class=MsoListNumber2>1.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Создать корневой элемент профиля.</P>
+<p class=MsoListContinue2>В левой части окна приложения 
+выделить правой кнопкой мыши объект «Система сбора», в контекстном меню выбрать 
+пункт «Создать».</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 86" src="000.files/image091.jpg" width=508 height=298 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 83 
+– Создание элемента(ов) профиля устройства сбора</P>
+<p class=MsoListContinue2>В свойствах элемента профиля 
+указать устройство сбора (<span lang=EN-US>OPC</SPAN><span 
+lang=EN-US> </SPAN>сервер), описанное ранее, и задать его 
+наименование. Уровень протокола выбирать не нужно.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 87" src="000.files/image092.jpg" width=597 height=370 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 84 
+– Добавление профиля</P><span 
+style='FONT-SIZE: 12pt; FONT-FAMILY: "Arial","sans-serif"'><br style="PAGE-BREAK-BEFORE: always" clear=all></SPAN>
+<p class=MsoNormal 
+style="MARGIN-BOTTOM: 0pt; TEXT-ALIGN: left; LINE-HEIGHT: normal" align=left>&nbsp;</P>
+<p class=MsoListNumber2>2.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Создать элемент протокола.</P>
+<p class=MsoListContinue2>В левой части окна приложения 
+выделить правой кнопкой мыши необходимый корневой элемент, в контекстном меню 
+выбрать пункт «Создать».</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 88" src="000.files/image093.jpg" width=523 height=483 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 85 
+– Создание протокола</P>
+<p class=MsoListContinue2>В свойствах элемента указать:</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в воле «Наименование» ввести название протокола;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Уровень протокола» ввести наименование протокола «<span 
+lang=EN-US>OPC</SPAN>»;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>остальные поля заполнять не требуется.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image094.jpg" width=599 height=370 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 86 
+– Добавление протокола в профиль</P><span 
+style='FONT-SIZE: 12pt; FONT-FAMILY: "Arial","sans-serif"'><br style="PAGE-BREAK-BEFORE: always" clear=all></SPAN>
+<p class=MsoNormal 
+style="MARGIN-BOTTOM: 0pt; TEXT-ALIGN: left; LINE-HEIGHT: normal" align=left>&nbsp;</P>
+<p class=MsoListNumber2>3.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Создать объект(ы) типа «Объект протокола».</P>
+<p class=MsoListContinue2>В левой части окна приложения 
+выделить правой кнопкой мыши элемент протокола, в контекстном меню выбрать пункт 
+«Создать».</P>
+<p class=MsoListContinue2 style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center" 
+align=center><IMG id="Рисунок 90" src="000.files/image095.jpg" width=522 height=477 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 87 
+– Создание объекта протокола</P>
+<p class=MsoListContinue2>В открывшемся окне свойств 
+необходимо:</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Наименование» ввести название группы OPC;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Уровень протокола» указать значение «Группа»;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>остальные поля заполнять не требуется.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image096.jpg" width=599 height=371 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 88 
+– Добавление объекта протокола</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 92" src="000.files/image097.jpg" width=227 height=69 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 89 
+– Вид дерева после проделанных изменений</P>
+<p class=MsoListNumber2>4.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Создать элемент «Точка измерения».</P>
+<p class=MsoListContinue2>В левой части окна приложения 
+выделить правой кнопкой мыши объект протокола и во всплывающем меню выбрать 
+пункт «Создать» или в правой части окна приложения нажать правую кнопку мыши и 
+во всплывающем меню выбирать пункт «Создать».</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 93" src="000.files/image098.jpg" width=575 height=493 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 90 
+– Создание точки измерения</P>
+<p class=MsoListContinue2>В открывшемся окне свойств 
+необходимо:</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Наименование» ввести название тэга <span lang=EN-US>OPC</SPAN>;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Уровень протокола» указать значение «Параметр»;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Тип» указать тип – «Базовый аналоговый» или «Базовый 
+булевый» в зависимости от передаваемых данных;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>в поле «Опции параметра» указать «Мгновенные значения ТИ» или 
+«Мгновенные значения ТС» в зависимости от выбранного типа;</P>
+<p class=MsoListBullet3><span 
+style='FONT-FAMILY: "Courier New"'>o<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; 
+</SPAN></SPAN>остальные поля заполнять не требуется.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image099.jpg" width=596 height=368 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt">Рисунок 91 
+– Создание точки измерения</P>
+<p class=MsoListContinue2>Пример заполнения свойств 
+элемента профиля представлен на Рисунок 92.</P>
+<p class=MsoListContinue2 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image100.jpg" width=600 height=372 ></P>
+<p class=MsoCaption style="MARGIN-LEFT: 35.45pt"><a 
+name=_Ref117770827>Рисунок </A>92 – Свойства параметра</P>
+<p class=MsoNormal>Пример профиля протокола <span 
+lang=EN-US>OPC</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>DA</SPAN> со списком параметров 
+представлен на Рисунок 93.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image101.jpg" width=646 height=464 ></P>
+<p class=MsoCaption><a name=_Ref531264556>Рисунок </A>93 – Описание профиля протокола <span 
+lang=EN-US>OPC</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>DA</SPAN></P>
+<p class=MsoNormal>&nbsp;</P>
+<h1 style="TEXT-INDENT: 0cm"><a name=_Toc117858929></A><a name=_Toc41984983></A><a 
+name=_Toc41713533></A><a name=_Toc41712929>12 </A><span style="POSITION: relative; Z-INDEX: 251632623"><span 
+style="HEIGHT: 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -7px"><IMG style="HEIGHT: 9px; WIDTH: 646px" src="000.files/image009.png" width=646 height=72 ></SPAN></SPAN><a name=_Toc12457680>Описание специальных функций сервера сбора (DCS)</A></H1>
+<p class=MsoNormal>Сервер сбора и передачи данных <span 
+lang=EN-US>DCS</SPAN> поддерживает следующие специальные 
+функции:</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>«Контроль каналов» – обеспечивает публикацию текущего состояния 
+канала передачи данных в виде дискретного сигнала;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>«Двухпозиционные ТС/ТУ» – обеспечивает поддержку работы с 
+двухпозиционными телесигналами и сигналами телеуправления;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>«Преобразование типов» – обеспечивает преобразование типов данных 
+из аналоговых значений в дискретные и наоборот.</P>
+<p class=MsoNormal>Доступ к специальным функциям сервера 
+<span lang=EN-US>DCS</SPAN> осуществляется на основе 
+виртуального устройства «Устройство доступа к функциям модуля» и протокола 
+«Доступ к функциям модулей».</P>
+<p class=MsoNormal>Виртуальный протокол «Доступ к функциям 
+модулей» представлен на Рисунок 94 и имеет следующую структуру:</P>
+<table class=MsoNormalTable 
+style="MARGIN-BOTTOM: 4.85pt; WIDTH: 17cm; BORDER-COLLAPSE: collapse; MARGIN-LEFT: 6.8pt; MARGIN-RIGHT: 6.8pt" 
+cellSpacing=0 cellPadding=0 width=643 align=left border=0 
+  >
+  <tr style="HEIGHT: 15pt">
+    <td     style="HEIGHT: 15pt; WIDTH: 17cm; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=643 colSpan=3 noWrap>
+      <p class=ae>«Доступ к функциям модулей» (тип – 
+      Протокол) – корневой элемент протокола </P></TD></TR>
+  <tr style="HEIGHT: 15pt">
+    <td     style="BORDER-TOP: medium none; HEIGHT: 15pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 16.55pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     width=22 noWrap>
+      <p class=ae>&nbsp;</P></TD>
+    <td     style="HEIGHT: 15pt; WIDTH: 465.4pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=621 colSpan=2 noWrap>
+      <p class=ae>«Функция» (тип – Объект протокола) – 
+      описывает выполняемую функцию </P></TD></TR>
+  <tr style="HEIGHT: 15pt">
+    <td     style="BORDER-TOP: medium none; HEIGHT: 15pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 16.55pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     width=22 noWrap>
+      <p class=ae>&nbsp;</P></TD>
+    <td     style="BORDER-TOP: medium none; HEIGHT: 15pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 23.7pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     width=32 noWrap>
+      <p class=ae>&nbsp;</P></TD>
+    <td     style="HEIGHT: 15pt; WIDTH: 441.7pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=589 noWrap>
+      <p class=ae>«Объект» (тип – Точка измерения) – 
+      описывает объект функции </P></TD></TR></TABLE>
+<p class=MsoNormal>&nbsp;</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image102.jpg" width=386 height=448 ></P>
+<p class=MsoCaption><a name=_Ref10801393>Рисунок </A>94 – Структура протокола «Доступ к функциям 
+модулей»</P>
+<p class=MsoNormal>Виртуальный прибор «Устройство доступа к 
+функциям модуля» поддерживает протокол «Доступ к функциям модулей» и должен быть 
+представлен в справочнике «Устройства сбора».</P>
+<p class=MsoNormal>Для доступа к специальным функциям 
+сервера сбора необходимо добавить описание профиля «Устройство доступа к 
+функциям модуля» в общий каталог системы сбора.</P>
+<p class=MsoNormal>Свойства элемента профиля «Устройство 
+доступа к функциям модуля» представлены на Рисунок 95.</P>
+<p class=MsoNormal>Свойства элемента «Доступ к функциям 
+модуля» представлены на Рисунок 96.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image103.jpg" width=646 height=389 ></P>
+<p class=MsoCaption><a name=_Ref10801540>Рисунок </A>95 – Свойства элемента профиля «Устройство 
+доступа к функциям модуля»</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image104.jpg" width=646 height=386 ></P>
+<p class=MsoCaption><a name=_Ref10801660>Рисунок </A>96 – Свойства элемента «Доступ к функциям 
+модуля»</P>
+<p class=MsoNormal>Элемент «Доступ к функциям модуля» 
+содержит в своем составе следующие функции:</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>«Контроль каналов» – квалификатор 1;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>«Двухпозиционные ТС/ТУ» – квалификатор 2;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>«Преобразование типов» – квалификатор 3.</P>
+<p class=MsoNormal>Ниже в документе представлена подробная 
+информация о настройке каждой специальной функции.</P>
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858930></A><a name=_Toc12457681>12.1 Описание функции «Контроль каналов»</A></H2>
+<p class=MsoNormal>Функция контроля каналов предназначена 
+для публикации текущего состояния канала в виде дискретного телесигнала в ОИК. 
+Дискретный сигнал о текущем состоянии канала может быть отображен штатными 
+средствами комплекса на панелях и схемах, использован в расчетах или передан по 
+каналам передачи данных.</P>
+<p class=MsoNormal>Функция «Контроль каналов» имеет 
+квалификатор – 1.</P>
+<p class=MsoNormal>Свойства функции «Контроль каналов» 
+представлены на Рисунок 97.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image105.jpg" width=646 height=387 ></P>
+<p class=MsoCaption><a name=_Ref10803236>Рисунок </A>97 – Свойства функции «Контроль каналов»</P>
+<p class=MsoNormal>Список параметров функции содержит 
+описание дискретных сигналов состояния каналов передачи данных или измерителей. 
+При этом в поле «Квалификатор» параметра задается идентификатор элемента типа 
+«Измерительный прибор» из каталога раздела «Распределенная система сбора», 
+состояние которого необходимо опубликовать.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 101" src="000.files/image106.jpg" width=646 height=289 ></P>
+<p class=MsoCaption>Рисунок 98 – Настройка дискретного 
+сигнала о состоянии канала</P>
+<p class=MsoNormal>Для работы с телесигналами состояния 
+каналов для каждого параметра из профиля функции «Контроль состояния каналов» 
+должны быть созданы соответствующие параметры в разделе «Распределенная система 
+сбора» (см. Рисунок 99).</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image107.jpg" width=645 height=319 ></P>
+<p class=MsoCaption><a name=_Ref11146750>Рисунок </A>99 – Свойства параметра состояния канала в 
+разделе «Распределенная система сбора»</P>
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858931></A><a name=_Toc12457682>12.2 Описание функции «Двухпозиционные ТС/ТУ»</A></H2>
+<p class=MsoNormal>Функция «Двухпозиционные ТС/ТУ» 
+используется для работы с двухпозиционными дискретными телесигналами и сигналами 
+телеуправления.</P>
+<p class=MsoNormal>Функция «Двухпозиционные ТС/ТУ» имеет 
+квалификатор – 2.</P>
+<p class=MsoNormal>Свойства функции «Двухпозиционные ТС/ТУ» 
+представлены на Рисунок 100.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image108.jpg" width=642 height=388 ></P>
+<p class=MsoCaption><a name=_Ref10803193>Рисунок </A>100 – Свойства функции «Двухпозиционные 
+ТС/ТУ»</P>
+<p class=MsoNormal>Список параметров функции содержит 
+перечень двухпозиционных телесигналов и двухпозиционных сигналов 
+телеуправления.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image109.jpg" width=477 height=202 ></P>
+<p class=MsoCaption>Рисунок 101 – Структура каталога 
+раздела «Распределенная система сбора» для работы с двухпозиционными ТС и ТУ</P>
+<p class=MsoNormal>В разделе «Распределенная система сбора» 
+для публикации двухпозиционных сигналов необходимо добавить порт и прибор в 
+каталоге раздела. Свойства порта и прибора представлены на Рисунок 102 и Рисунок 
+103.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image110.jpg" width=311 height=295 >&nbsp;&nbsp;&nbsp; 
+<IMG src="000.files/image111.jpg" width=309 height=295 ></P>
+<p class=MsoCaption><a name=_Ref11151720>Рисунок </A>102 – Свойства порта</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image112.jpg" width=310 height=295 >&nbsp;&nbsp;&nbsp; 
+<IMG src="000.files/image113.jpg" width=310 height=295 ></P>
+<p class=MsoCaption><a name=_Ref11151739>Рисунок </A>103 – Свойства прибора</P>
+<p class=MsoNormal>Двухпозиционные ТС/ТУ должно быть 
+описаны в виде параметров прибора. У параметра двухпозиционного ТС/ТУ в 
+настройках источников должны быть добавлены два телесигнала, определяющие 
+состояние нормально замкнутых и нормально разомкнутых контактов, а также задан 
+режим суммирования – «Двухпозиционный ТС» (см. Рисунок 104).</P>
+<p class=MsoNormal style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center" 
+align=center><IMG src="000.files/image114.jpg" width=645 height=382 ></P>
+<p class=MsoCaption style="MARGIN-TOP: 0cm"><a 
+name=_Ref11147635>Рисунок </A>104 – Свойства 
+двухпозиционного телесигнала</P>
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858932></A><a name=_Toc12457683>12.3 Описание функции «Преобразование типов»</A></H2>
+<p class=MsoNormal>Функция преобразования типов 
+используется в задачах преобразования значений аналоговых параметров в 
+дискретные и наоборот.</P>
+<p class=MsoNormal>Функция «Преобразование типов» имеет 
+квалификатор – 3.</P>
+<p class=MsoNormal>Свойства функции «Преобразование типов» 
+представлены на Рисунок 105.</P>
+<p class=MsoNormal>Для функции задается перечень параметров 
+преобразования.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image115.jpg" width=646 height=389 ></P>
+<p class=MsoCaption><a name=_Ref10803108>Рисунок </A>105 – Свойства функции преобразования типов</P>
+<p class=MsoNormal>Схема настройки преобразования из 
+дискретного значения в аналоговое:</P>
+<table class=MsoNormalTable 
+style="WIDTH: 496.15pt; BORDER-COLLAPSE: collapse; MARGIN-LEFT: 5.4pt" 
+cellSpacing=0 cellPadding=0 width=662 border=0>
+  
+  <tr>
+    <td     style="WIDTH: 5cm; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=189>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span style="FONT-SIZE: 11pt; LINE-HEIGHT: 115%" 
+      >Параметр (аналоговый)</SPAN></P></TD>
+    <td     style="WIDTH: 35.45pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=47>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span 
+      style='FONT-SIZE: 18pt; FONT-FAMILY: "Wingdings 3"; LINE-HEIGHT: 115%' 
+      >!</SPAN></P></TD>
+    <td     style="WIDTH: 127.6pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=170>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span style="FONT-SIZE: 11pt; LINE-HEIGHT: 115%" 
+      >Источник-канал (дискретный)</SPAN></P></TD>
+    <td     style="WIDTH: 35.4pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=47>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span 
+      style='FONT-SIZE: 18pt; FONT-FAMILY: "Wingdings 3"; LINE-HEIGHT: 115%' 
+      >!</SPAN></P></TD>
+    <td     style="WIDTH: 155.95pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=208>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span style="FONT-SIZE: 11pt; LINE-HEIGHT: 115%" 
+      >Источник-параметр 
+  (дискретный)</SPAN></P></TD></TR></TABLE>
+<p class=aff4>Схема настройки преобразования из аналогового 
+значения в дискретное:</P>
+<table class=MsoNormalTable 
+style="WIDTH: 496.15pt; BORDER-COLLAPSE: collapse; MARGIN-LEFT: 5.4pt" 
+cellSpacing=0 cellPadding=0 width=662 border=0>
+  
+  <tr>
+    <td     style="WIDTH: 5cm; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=189>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span style="FONT-SIZE: 11pt; LINE-HEIGHT: 115%" 
+      >Параметр (дискретный)</SPAN></P></TD>
+    <td     style="WIDTH: 35.45pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=47>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span 
+      style='FONT-SIZE: 18pt; FONT-FAMILY: "Wingdings 3"; LINE-HEIGHT: 115%' 
+      >!</SPAN></P></TD>
+    <td     style="WIDTH: 127.6pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=170>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span style="FONT-SIZE: 11pt; LINE-HEIGHT: 115%" 
+      >Источник-канал (аналоговый)</SPAN></P></TD>
+    <td     style="WIDTH: 35.4pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=47>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span 
+      style='FONT-SIZE: 18pt; FONT-FAMILY: "Wingdings 3"; LINE-HEIGHT: 115%' 
+      >!</SPAN></P></TD>
+    <td     style="WIDTH: 155.95pt; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; PADDING-RIGHT: 5.4pt"     width=208>
+      <p class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><span style="FONT-SIZE: 11pt; LINE-HEIGHT: 115%" 
+      >Источник-параметр 
+  (аналоговый)</SPAN></P></TD></TR></TABLE>
+<p class=aff4 style="TEXT-ALIGN: center" align=center><IMG src="000.files/image116.jpg" width=460 height=215 ></P>
+<p class=MsoCaption>Рисунок 106 – Структура каталога 
+раздела «Распределенная система сбора» для работы с преобразованием типов</P>
+<p class=MsoNormal>В разделе «Распределенная система сбора» 
+для публикации параметров преобразования типов необходимо добавить порт и прибор 
+в каталоге раздела. Свойства порта и прибора представлены на Рисунок 107 и 
+Рисунок 108.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image117.jpg" width=309 height=295 >&nbsp;&nbsp;&nbsp; 
+<IMG src="000.files/image118.jpg" width=311 height=295 ></P>
+<p class=MsoCaption><a name=_Ref11153568>Рисунок </A>107 – Свойства порта</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image119.jpg" width=312 height=295 >&nbsp;&nbsp; <IMG src="000.files/image120.jpg" width=313 height=295 ></P>
+<p class=MsoCaption><a name=_Ref11153588>Рисунок </A>108 – Свойства прибора</P>
+<p class=MsoNormal>Параметр преобразования ТС в ТИ имеет 
+аналоговый тип данных (например, БАналог), в настройках источников параметра 
+должен быть описан дискретный канал и добавлен один или более дискретных 
+параметров. Логика обработки дискретных параметров задается настройками режима 
+суммирования (см. Рисунок 109).</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image121.jpg" width=645 height=297 ></P>
+<p class=MsoCaption><a name=_Ref11157767>Рисунок </A>109 – Свойства параметра преобразования ТС в 
+ТИ</P>
+<p class=MsoNormal>Параметр преобразования ТИ в ТС имеет 
+дискретный тип данных (например, ББулевый), в настройках источников параметра 
+должен быть описан аналоговый канал и добавлен аналоговый параметр (см. Рисунок 
+110).</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image122.jpg" width=645 height=328 ></P>
+<p class=MsoCaption><a name=_Ref11158343>Рисунок </A>110 – Свойства параметра преобразования ТИ в 
+ТС</P>
+<h1 style="TEXT-INDENT: 0cm"><a name=_Toc117858933></A><a name=_Toc12457684>13 </A><span 
+style="POSITION: relative; Z-INDEX: 251712495"><span 
+style="HEIGHT: 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 10px; WIDTH: 646px" src="000.files/image003.png" width=646 height=72 ></SPAN></SPAN>Описание нового параметра в 
+распределенной системе сбора</H1>
+<p class=MsoNormal>Запустите приложение Навигатор БД (из 
+Панели оператора по кнопке «Прикладные программы» либо из каталога с ресурсами 
+РСДУ <span class=af5>R:\bin\</SPAN>).</P>
+<p class=MsoNormal>В разделе «Комплекс автоматики <span 
+style='FONT-FAMILY: "Wingdings 3"'>"</SPAN> Распределенная 
+Система Сбора» выберите сегмент сбора, для измерительного прибора которого 
+добавляется новый параметр.</P>
+<p class=MsoNormal>Добавьте новый параметр, вызвав 
+контекстное меню в правой части окна (содержащей список параметров) и выбрав 
+пункт «Создать». В открывшемся диалоговом окне следует указать:</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Имя;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Краткое наименование;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Точку профиля, выбирая соответствующий сигнал из профиля 
+устройства;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Класс напряжения;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Единицы измерения.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG src="000.files/image123.png" width=542 height=476 ></P>
+<p class=MsoCaption>Рисунок 111 – Создание параметра</P>
+<p class=MsoNormal>После нажатия кнопки «Далее» необходимо 
+ввести свойства (параметры) точки мониторинга:</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Коэффициент масштабирования;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Приоритет;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Апертура;</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Контроль недостоверности параметра (если задано значение «0», то 
+контроль отключен);</P>
+<p class=MsoListBullet2><span 
+style="FONT-FAMILY: Wingdings">ü<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp; 
+</SPAN></SPAN>Свойства параметра из прилагаемого списка.</P>
+<p class=MsoNormal style="TEXT-ALIGN: center" align=center><IMG id="Рисунок 1" src="000.files/image124.jpg" width=617 height=540 ></P>
+<p class=MsoCaption>Рисунок 112 – Ввод параметров точки 
+мониторинга</P>
+<p class=af8><span class=afb>Примечание</SPAN>. Выделение ТС из битовой строки в 
+протоколах <span lang=EN-US>MODBUS</SPAN> и 
+IEC60870-5-101(104).</P>
+<p class=af8>В протоколе IEC60870-5-101(104) при 
+использовании типов данных 7 или 33 (строка из 32 битов) масштабирующий 
+коэффициент для параметра ТС будет указывать на порядковый номер ТС, который 
+должен быть выделен из битового массива. При использовании отрицательного 
+коэффициента – значение бита будет инвертировано (то есть ноль будет 
+интерпретироваться как единица, а единица – как ноль). Допустимыми значениями 
+являются от -32 до -1 и от 1 до 32.</P>
+<p class=af8>В протоколе <span lang=EN-US>MODBUS</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>TCP</SPAN> (<span lang=EN-US>RTU</SPAN>) номер, прописанный в масштабирующем 
+коэффициенте, будет также выделять бит в этой позиции и возвращать либо 0 
+(ОТКЛ), либо 1 (ВКЛ). При использовании отрицательного коэффициента – значение 
+бита будет инвертировано (то есть ноль будет интерпретироваться как единица, а 
+единица – как ноль). Допустимыми значениями являются от -32 до -1 и от 1 до 
+32.</P>
+<p class=af8>После нажатия кнопки «Далее», на следующем 
+шаге, необходимо выбрать какие архивы параметра требуется хранить в БД 
+РСДУ5.</P>
+<p class=af8>После нажатия кнопки «Готово» созданный сигнал 
+будет отображен в списке параметров измерительного прибора.</P>
+<h1 style="TEXT-INDENT: 0cm"><a name=_Toc117858934></A><a name=_Toc12457685>14 </A><span 
+style="POSITION: relative; Z-INDEX: 251656175"><span 
+style="HEIGHT: 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 4px; WIDTH: 646px" src="000.files/image003.png" width=646 height=72 ></SPAN></SPAN>Применение изменений в 
+подсистеме сбора и передачи</H1>
+<p class=MsoNormal>Для того чтобы внесенные изменения 
+вступили в силу, например, чтобы новые параметры начали обрабатываться, 
+необходимо выполнить переинициализацию серверного модуля, ответственного за 
+обработку измененных параметров.</P>
+<p class=MsoNormal>В РСДУ5 реализация разных протоколов 
+сбора и передачи представлена в разных серверных модулях, поэтому может 
+потребоваться выполнить переинициализацию разных модулей.</P>
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a 
+name=_Toc117858935></A><a name=_Toc12457686>14.1 Перезагрузка модуля «Коммуникационный сервер сбора и 
+передачи»</A></H2>
+<p class=MsoNormal>Модуль «Коммуникационный сервер сбора и 
+передачи» обрабатывает протоколы <span lang=EN-US>ION</SPAN>, <span lang=EN-US>IEC</SPAN>101, <span lang=EN-US>IEC</SPAN>104, СПЕ/СПГ/СПТ, ИРТ, <span lang=EN-US>Modbus</SPAN><span lang=EN-US> 
+</SPAN><span lang=EN-US>TCP</SPAN>/<span lang=EN-US>RTU</SPAN>, ТЭКОН.</P>
+<p class=MsoNormal>Для перезагрузки серверного модуля 
+«Коммуникационный сервер сбора и передачи» (<span class=af5>dcsd</SPAN>) на соответствующем хосте сбора необходимо 
+выполнить следующие шаги:</P>
+<p class=MsoListNumber2>1.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Подключиться к хосту сбора по сетевому протоколу <span lang=EN-US>SSH</SPAN><span lang=EN-US> 
+</SPAN>(например, с помощью клиентской программы Putty).</P>
+<p class=MsoListNumber2>2.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Выполнить команду перезагрузки модуля сбора</P>
+<div 
+style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 38.25pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+<p class=16 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>ema reload dcsd 
+</SPAN></P></DIV>
+<p class=MsoListNumber2 
+style="MARGIN: 6pt 0cm 6pt 32.05pt; TEXT-INDENT: -17.85pt">3.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </SPAN>С помощью клиента сигнальной 
+системы <span lang=EN-US>CSignal</SPAN><span lang=EN-US> </SPAN>убедиться, что модуль сбора успешно стартовал, о 
+чем должно поступить сообщение в сигнальную систему РСДУ о загрузке модуля.</P>
+<p class=MsoListNumber2>4.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Перейти на хосте сбора в директорию <span class=af5>/var/log/ema</SPAN> и проверить лог-файл модуля <span 
+class=af5>dcsd</SPAN> на наличие ошибок. В лог-файле должны 
+отсутствовать строки со словом <span class=af5>Error</SPAN>. Допускается наличие предупреждений (строк со 
+словом <span class=af5>Warning</SPAN>).</P>
+<p class=MsoListNumber2>5.<span 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; 
+</SPAN>Если в лог-файле ошибок не обнаружено, то это может означать, что новый 
+сигнал с прибора теперь будет обрабатываться в комплексе РСДУ. Для просмотра 
+текущего значения нового параметра необходимо вывести данный параметр на панель 
+(см. «Картридж “Настройка информационных панелей”. Руководство администратора»), 
+либо воспользоваться клиентом коммуникационного сервера <span class=af5>DCSClient</SPAN>.</P>
+<h2 style="PAGE-BREAK-BEFORE: always; MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name=_Toc117858936></A><a 
+name=_Toc12457687>14.2 Перезагрузка модуля «Сервис приема 
+макетов 80020 АИИСКУЭ»</A></H2>
+<p class=MsoNormal>Модуль «Сервис приема макетов 80020 
+АИИСКУЭ» выполняет обработку макетов 80020 АИИСКУЭ.</P>
+<p class=MsoNormal>Информация о перезагрузке сервиса 
+представлена в документе «Сервис приема макетов 80020 АИИСКУЭ. Руководство 
+администратора».</P>
+<p class=MsoNormal>&nbsp;</P>
+<p class=MsoNormal>&nbsp;</P>
+<p class=MsoHeading7 style="TEXT-INDENT: 0cm"><a 
+name=_Toc117858937></A><a name=_Ref117004534>Приложение А. </A><span 
+style="POSITION: relative; Z-INDEX: 251716591"><span 
+style="HEIGHT: 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 11px; WIDTH: 646px" src="000.files/image009.png" width=646 height=72 ></SPAN></SPAN>Список возможных типов в 
+протоколе МЭК 870-5-101/104</P>
+<div align=right>
+<table class=MsoNormalTable 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+cellSpacing=0 cellPadding=0 border=1>
+  <thead>
+  <tr>
+    <td     style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=aff3>Значение</P></TD>
+    <td     style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=aff3>Описание</P></TD></TR></THEAD>
+  
+  <tr style="HEIGHT: 12.9pt">
+    <td     style="BORDER-TOP: medium none; HEIGHT: 12.9pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >0</P></TD>
+    <td     style="BORDER-TOP: medium none; HEIGHT: 12.9pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>не определяется</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >1</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>одноэлементная информация</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >2</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>одноэлементная информация с меткой 
+      времени</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >3</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>двухэлементная информация</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >4</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>двухэлементная информация с меткой 
+      времени</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >5</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>информация о положении отпаек</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >6</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>информация о положении отпаек с меткой 
+      времени</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >7</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>строка из 32 битов</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >8</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>строка из 32 битов с меткой 
+  времени</P></TD></TR>
+  <tr style="HEIGHT: 12.7pt">
+    <td     style="BORDER-TOP: medium none; HEIGHT: 12.7pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >9</P></TD>
+    <td     style="BORDER-TOP: medium none; HEIGHT: 12.7pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, 
+      нормализованное значение</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >10</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, 
+      нормализованное значение с меткой времени</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >11</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, 
+      масштабированное значение</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >12</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, 
+      масштабированное значение с меткой времени</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >13</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, короткий 
+      формат с плавающей запятой</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >14</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, короткий 
+      формат с плавающей запятой с меткой времени</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >15</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>интегральная сумма </P></TD></TR>
+  <tr style="HEIGHT: 12.5pt">
+    <td     style="BORDER-TOP: medium none; HEIGHT: 12.5pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >16</P></TD>
+    <td     style="BORDER-TOP: medium none; HEIGHT: 12.5pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>интегральная сумма с меткой 
+  времени</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >17</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>информация о работе релейной защиты с 
+      меткой времени</P></TD></TR>
+  <tr style="HEIGHT: 8.2pt">
+    <td     style="BORDER-TOP: medium none; HEIGHT: 8.2pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >18</P></TD>
+    <td     style="BORDER-TOP: medium none; HEIGHT: 8.2pt; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>упакованная информация о срабатывании 
+      пусковых органов защиты с меткой времени</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >19</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>упакованная информация о срабатывании 
+      выходных цепей защиты с меткой времени</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >20</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>упакованная одноэлементная информация с 
+      указателем изменения состояния </P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >21</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, 
+      нормализованное значение без описателя качества</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >30</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>одноэлементная информация с меткой 
+      времени СР56Время2а</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >31</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>двухэлементная информация с меткой 
+      времени СР56Время2а</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >32</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>информация о положении отпаек с меткой 
+      времени СР56Время2а</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >33</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>строка из 32 битов с меткой времени 
+      СР56Время2а</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >34</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, 
+      нормализованное значение с меткой времени СР56Время2а</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >35</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, 
+      масштабированное значение с меткой времени СР56Время2а</P></TD></TR>
+  <tr style="PAGE-BREAK-INSIDE: avoid">
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >36</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>значение измеряемой величины, короткий 
+      формат с плавающей запятой с меткой времени СР56Время2а</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >37</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>интегральная сумма с меткой времени 
+      СР56Время2а</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >38<A title="" href="#_ftn1" name=_ftnref1 ><span 
+      class=MsoFootnoteReference><span 
+      class=MsoFootnoteReference><span 
+      style='FONT-SIZE: 11pt; FONT-FAMILY: "Arial","sans-serif"; LINE-HEIGHT: 115%' 
+      >[1]</SPAN></SPAN></SPAN></A></P>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >&nbsp;</P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>информация о работе релейной защиты с 
+      меткой времени СР56Время2а</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >39<sup>1</SUP></P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>упакованная информация о срабатывании 
+      пусковых органов защиты с меткой времени СР56Время2а</P></TD></TR>
+  <tr>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 75.05pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"     vAlign=top width=100>
+      <p class=af style="TEXT-ALIGN: center" align=center 
+      >40<sup>1</SUP></P></TD>
+    <td     style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 409.3pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"     vAlign=top width=546>
+      <p class=af>упакованная информация о срабатывании 
+      выходных цепей защиты с меткой времени 
+СР56Время2а</P></TD></TR></TABLE></DIV>
+<p class=MsoNormal>&nbsp;</P>
+
+</div>
+<div><br clear=all>
+<hr align=left SIZE=1 width="33%">
+
+<div id=ftn1>
+<p class=af6><A title="" href="#_ftnref1" name=_ftn1 ><span class=MsoFootnoteReference><span class=MsoFootnoteReference><span 
+style='FONT-SIZE: 11pt; FONT-FAMILY: "Arial","sans-serif"; LINE-HEIGHT: 115%'>[1]</SPAN></SPAN></SPAN></A> в РСДУ5 тип не 
+поддерживается</P>
+<p class=af6>&nbsp;</P>
+<p class=af6>&nbsp;</P>
+<p class=af6>&nbsp;</P></DIV></DIV>
+
+</body>
+
+</html>

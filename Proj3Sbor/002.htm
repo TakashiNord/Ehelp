@@ -1,0 +1,2326 @@
+﻿<html>
+
+<head>
+<title>Оперативный расчет (на базе LUA) в коммуникационном сервере DCS. Руководство администратора</title>
+
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Bookshelf Symbol 7";
+	panose-1:5 1 1 1 1 1 1 1 1 1;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+h1
+	{margin-top:0cm;
+	margin-right:164.45pt;
+	margin-bottom:12.0pt;
+	margin-left:14.2pt;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-before:always;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Заголовок 2 Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+h3
+	{mso-style-link:"Заголовок 3 Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+h4
+	{mso-style-link:"Заголовок 4 Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:12.5pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+h5
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+h6
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:57.55pt;
+	text-align:justify;
+	text-indent:-57.55pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:normal;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{margin-top:0cm;
+	margin-right:164.45pt;
+	margin-bottom:12.0pt;
+	margin-left:14.2pt;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-before:always;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.55pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:48.2pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:61.25pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:44.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:55.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:66.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:77.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:88.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoNormalIndent, li.MsoNormalIndent, div.MsoNormalIndent
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:35.4pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Текст сноски Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-link:"Текст примечания Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Верхний колонтитул Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoPageNumber
+	{font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Текст концевой сноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListCxSpFirst, li.MsoListCxSpFirst, div.MsoListCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:14.15pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListCxSpMiddle, li.MsoListCxSpMiddle, div.MsoListCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:14.15pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListCxSpLast, li.MsoListCxSpLast, div.MsoListCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.05pt;
+	text-align:justify;
+	text-indent:-17.85pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:159.75pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
+	{mso-style-name:"Маркированный список 2\,р_мар1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.15pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
+	{mso-style-name:"Маркированный список 3\,р_мар2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:46.3pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListBullet4, li.MsoListBullet4, div.MsoListBullet4
+	{mso-style-name:"Маркированный список 4\,р_мар3";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:60.45pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
+	{mso-style-name:"Нумерованный список 2\,р_нум1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.15pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListNumber3, li.MsoListNumber3, div.MsoListNumber3
+	{mso-style-name:"Нумерованный список 3\,р_нум2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:46.3pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListNumber4, li.MsoListNumber4, div.MsoListNumber4
+	{mso-style-name:"Нумерованный список 4\,р_нум3";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:60.45pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoClosing, li.MsoClosing, div.MsoClosing
+	{mso-style-link:"Прощание Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:212.6pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Основной текст Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:8.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Основной текст с отступом Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	layout-grid-mode:line;}
+p.MsoListContinue2, li.MsoListContinue2, div.MsoListContinue2
+	{mso-style-name:"Продолжение списка 2\,р_прод1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.05pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListContinue3, li.MsoListContinue3, div.MsoListContinue3
+	{mso-style-name:"Продолжение списка 3\,р_прод2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:46.2pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListContinue4, li.MsoListContinue4, div.MsoListContinue4
+	{mso-style-name:"Продолжение списка 4\,р_прод3";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:60.4pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Основной текст 2 Знак";
+	margin-top:3.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Основной текст 3 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:8.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{mso-style-link:"Основной текст с отступом 3 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	layout-grid-mode:line;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+em
+	{font-family:Courier;
+	font-style:normal;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+address
+	{mso-style-link:"Адрес HTML Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+kbd
+	{font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-link:"Тема примечания Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:normal;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Текст выноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoQuote, li.MsoQuote, div.MsoQuote
+	{mso-style-link:"Цитата 2 Знак";
+	margin-top:10.0pt;
+	margin-right:43.2pt;
+	margin-bottom:8.0pt;
+	margin-left:43.2pt;
+	text-align:center;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	color:#404040;
+	font-style:italic;}
+span.MsoSubtleEmphasis
+	{color:#404040;
+	font-style:italic;}
+span.MsoIntenseEmphasis
+	{color:#284F8E;
+	font-style:italic;}
+span.MsoBookTitle
+	{letter-spacing:.25pt;
+	font-weight:bold;
+	font-style:italic;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:14.2pt;
+	margin-bottom:.0001pt;
+	text-indent:0cm;
+	line-height:107%;
+	font-size:16.0pt;
+	font-family:"Calibri Light","sans-serif";
+	color:#2F5496;}
+p.a, li.a, div.a
+	{mso-style-name:р_дисплейсерый;
+	mso-style-link:"р_дисплейсерый Знак";
+	margin-top:0cm;
+	margin-right:5.65pt;
+	margin-bottom:0cm;
+	margin-left:5.65pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	background:#C1C1C1;
+	border:none;
+	padding:0cm;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.a0, li.a0, div.a0
+	{mso-style-name:Маркированный;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:155.95pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.2, li.2, div.2
+	{mso-style-name:"Маркированный 2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:171.0pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.3, li.3, div.3
+	{mso-style-name:"Маркированный 3";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:186.0pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.a1, li.a1, div.a1
+	{mso-style-name:Нумерованный;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+span.a2
+	{mso-style-name:"Основной текст Знак";
+	mso-style-link:"Основной текст";
+	font-family:"Arial","sans-serif";}
+span.20
+	{mso-style-name:"Основной текст 2 Знак";
+	mso-style-link:"Основной текст 2";
+	font-family:"Arial","sans-serif";}
+span.30
+	{mso-style-name:"Основной текст 3 Знак";
+	mso-style-link:"Основной текст 3";
+	font-family:"Arial","sans-serif";}
+span.a3
+	{mso-style-name:"Основной текст с отступом Знак";
+	mso-style-link:"Основной текст с отступом";
+	font-family:"Arial","sans-serif";
+	layout-grid-mode:both;}
+span.31
+	{mso-style-name:"Основной текст с отступом 3 Знак";
+	mso-style-link:"Основной текст с отступом 3";
+	font-family:"Arial","sans-serif";
+	layout-grid-mode:both;
+	font-style:italic;}
+span.1
+	{mso-style-name:"Неразрешенное упоминание1";
+	color:#605E5C;
+	background:#E1DFDD;}
+p.a4, li.a4, div.a4
+	{mso-style-name:"Нумерованный список широкий";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:18.0pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+span.a5
+	{mso-style-name:"Текст сноски Знак";
+	mso-style-link:"Текст сноски";
+	font-family:"Arial","sans-serif";}
+span.a6
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Arial","sans-serif";}
+p.a7, li.a7, div.a7
+	{mso-style-name:р_определение;
+	mso-style-link:"р_определение Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.a8, li.a8, div.a8
+	{mso-style-name:"Обычный широкий";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+span.a9
+	{mso-style-name:"р_определение Знак";
+	mso-style-link:р_определение;
+	font-family:"Arial","sans-serif";}
+span.21
+	{mso-style-name:"Заголовок 2 Знак";
+	mso-style-link:"Заголовок 2";
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.32
+	{mso-style-name:"Заголовок 3 Знак";
+	mso-style-link:"Заголовок 3";
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.10
+	{mso-style-name:"Неразрешенное упоминание1";
+	color:#605E5C;
+	background:#E1DFDD;}
+span.4
+	{mso-style-name:"Заголовок 4 Знак";
+	mso-style-link:"Заголовок 4";
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.aa, li.aa, div.aa
+	{mso-style-name:Нумерация;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.2pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.ab, li.ab, div.ab
+	{mso-style-name:р_верхкол;
+	mso-style-link:"р_верхкол Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	border:none;
+	padding:0cm;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+span.11
+	{mso-style-name:"Неразрешенное упоминание1";
+	color:#605E5C;
+	background:#E1DFDD;}
+span.ac
+	{mso-style-name:"Верхний колонтитул Знак";
+	mso-style-link:"Верхний колонтитул";
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+span.ad
+	{mso-style-name:"р_верхкол Знак";
+	mso-style-link:р_верхкол;
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+p.ae, li.ae, div.ae
+	{mso-style-name:р_марИ;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	color:black;}
+p.af, li.af, div.af
+	{mso-style-name:р_табТекст;
+	mso-style-link:"р_табТекст Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.12, li.12, div.12
+	{mso-style-name:Стиль1;
+	mso-style-link:"Стиль1 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:14.2pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	color:white;
+	font-weight:bold;}
+p.13, li.13, div.13
+	{mso-style-name:р_тит1;
+	mso-style-link:"р_тит1 Знак";
+	margin-top:0cm;
+	margin-right:2.85pt;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:18.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	text-transform:uppercase;
+	font-weight:bold;}
+span.14
+	{mso-style-name:"Стиль1 Знак";
+	mso-style-link:Стиль1;
+	font-family:"Arial","sans-serif";
+	color:white;
+	font-weight:bold;}
+p.22, li.22, div.22
+	{mso-style-name:р_тит2;
+	mso-style-link:"р_тит2 Знак";
+	margin-top:0cm;
+	margin-right:2.85pt;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:18.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+span.15
+	{mso-style-name:"р_тит1 Знак";
+	mso-style-link:р_тит1;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	text-transform:uppercase;
+	font-weight:bold;}
+span.23
+	{mso-style-name:"р_тит2 Знак";
+	mso-style-link:р_тит2;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	text-transform:none;
+	font-weight:bold;}
+p.af0, li.af0, div.af0
+	{mso-style-name:"";
+	margin-right:0cm;
+	margin-left:0cm;
+	text-indent:14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	color:black;}
+p.af1, li.af1, div.af1
+	{mso-style-name:р_выделить;
+	mso-style-link:"р_выделить Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+p.af2, li.af2, div.af2
+	{mso-style-name:р_клав;
+	mso-style-link:"р_клав Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	text-transform:uppercase;}
+span.af3
+	{mso-style-name:"р_выделить Знак";
+	mso-style-link:р_выделить;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+span.af4
+	{mso-style-name:"р_клав Знак";
+	mso-style-link:р_клав;
+	font-family:"Arial","sans-serif";
+	text-transform:uppercase;}
+span.af5
+	{mso-style-name:р_дисплей;
+	font-family:"Courier New";}
+p.af6, li.af6, div.af6
+	{mso-style-name:р_выноска;
+	mso-style-link:"р_выноска Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+span.af7
+	{mso-style-name:р_БД;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-style:italic;}
+p.af8, li.af8, div.af8
+	{mso-style-name:р_примТекст;
+	mso-style-link:"р_примТекст Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.af9, li.af9, div.af9
+	{mso-style-name:р_прим;
+	mso-style-link:"р_прим Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	letter-spacing:1.0pt;
+	font-weight:bold;}
+span.afa
+	{mso-style-name:"р_примТекст Знак";
+	mso-style-link:р_примТекст;
+	font-family:"Arial","sans-serif";}
+span.afb
+	{mso-style-name:"р_прим Знак";
+	mso-style-link:р_прим;
+	font-family:"Arial","sans-serif";
+	letter-spacing:1.0pt;
+	font-weight:bold;}
+p.afc, li.afc, div.afc
+	{mso-style-name:р_пред;
+	mso-style-link:"р_пред Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	text-transform:uppercase;
+	letter-spacing:1.0pt;
+	font-weight:bold;}
+span.afd
+	{mso-style-name:"р_пред Знак";
+	mso-style-link:р_пред;
+	font-family:"Arial","sans-serif";
+	text-transform:uppercase;
+	letter-spacing:1.0pt;
+	font-weight:bold;}
+span.afe
+	{mso-style-name:"Текст концевой сноски Знак";
+	mso-style-link:"Текст концевой сноски";
+	font-family:"Arial","sans-serif";}
+span.aff
+	{mso-style-name:"Текст примечания Знак";
+	mso-style-link:"Текст примечания";
+	font-family:"Arial","sans-serif";}
+span.24
+	{mso-style-name:"Цитата 2 Знак";
+	mso-style-link:"Цитата 2";
+	font-family:"Arial","sans-serif";
+	color:#404040;
+	font-style:italic;}
+span.aff0
+	{mso-style-name:"р_дисплейсерый Знак";
+	mso-style-link:р_дисплейсерый;
+	font-family:"Courier New";
+	background:#C1C1C1;}
+p.aff1, li.aff1, div.aff1
+	{mso-style-name:р_содерж;
+	mso-style-link:"р_содерж Знак";
+	margin-top:0cm;
+	margin-right:7.0cm;
+	margin-bottom:24.0pt;
+	margin-left:14.2pt;
+	line-height:115%;
+	page-break-before:always;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+span.aff2
+	{mso-style-name:"р_содерж Знак";
+	mso-style-link:р_содерж;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+p.aff3, li.aff3, div.aff3
+	{mso-style-name:р_табЗаг;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.aff4, li.aff4, div.aff4
+	{mso-style-name:р_обычАбзац;
+	mso-style-link:"р_обычАбзац Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+span.aff5
+	{mso-style-name:"р_обычАбзац Знак";
+	mso-style-link:р_обычАбзац;
+	font-family:"Arial","sans-serif";}
+p.aff6, li.aff6, div.aff6
+	{mso-style-name:р_табНум;
+	mso-style-link:"р_табНум Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.aff7, li.aff7, div.aff7
+	{mso-style-name:р_нумТаб;
+	mso-style-link:"р_нумТаб Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	text-indent:0cm;
+	line-height:115%;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";}
+span.aff8
+	{mso-style-name:"р_табТекст Знак";
+	mso-style-link:р_табТекст;
+	font-family:"Arial","sans-serif";}
+span.aff9
+	{mso-style-name:"р_табНум Знак";
+	mso-style-link:р_табНум;
+	font-family:"Arial","sans-serif";}
+span.affa
+	{mso-style-name:"р_нумТаб Знак";
+	mso-style-link:р_нумТаб;
+	font-family:"Arial","sans-serif";}
+span.HTML
+	{mso-style-name:"Адрес HTML Знак";
+	mso-style-link:"Адрес HTML";
+	font-family:"Arial","sans-serif";
+	font-style:italic;}
+span.affb
+	{mso-style-name:"Прощание Знак";
+	mso-style-link:Прощание;
+	font-family:"Arial","sans-serif";}
+p.16, li.16, div.16
+	{mso-style-name:р_1дисплейсерый;
+	mso-style-link:"р_1дисплейсерый Знак";
+	margin-top:0cm;
+	margin-right:5.65pt;
+	margin-bottom:0cm;
+	margin-left:38.25pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	background:#C1C1C1;
+	border:none;
+	padding:0cm;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.25, li.25, div.25
+	{mso-style-name:р_2дисплейсерый;
+	mso-style-link:"р_2дисплейсерый Знак";
+	margin-top:0cm;
+	margin-right:5.65pt;
+	margin-bottom:0cm;
+	margin-left:52.45pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	background:#C1C1C1;
+	border:none;
+	padding:0cm;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+span.17
+	{mso-style-name:"р_1дисплейсерый Знак";
+	mso-style-link:р_1дисплейсерый;
+	font-family:"Courier New";
+	background:#C1C1C1;}
+span.26
+	{mso-style-name:"р_2дисплейсерый Знак";
+	mso-style-link:р_2дисплейсерый;
+	font-family:"Courier New";
+	background:#C1C1C1;}
+span.affc
+	{mso-style-name:"р_выноска Знак";
+	mso-style-link:р_выноска;
+	font-family:"Arial","sans-serif";}
+p.affd, li.affd, div.affd
+	{mso-style-name:р_обычный;
+	mso-style-link:"р_обычный Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:normal;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+span.affe
+	{mso-style-name:"р_обычный Знак";
+	mso-style-link:р_обычный;
+	font-family:"Arial","sans-serif";}
+p.afff, li.afff, div.afff
+	{mso-style-name:р_табОбъед;
+	mso-style-link:"р_табОбъед Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+span.afff0
+	{mso-style-name:"р_табОбъед Знак";
+	mso-style-link:р_табОбъед;
+	font-family:"Arial","sans-serif";}
+span.afff1
+	{mso-style-name:"Тема примечания Знак";
+	mso-style-link:"Тема примечания";
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.UnresolvedMention
+	{mso-style-name:"Unresolved Mention";
+	color:#605E5C;
+	background:#E1DFDD;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:3.0cm 2.0cm 70.9pt 2.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=RU link=blue vlink="#954f72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span style="POSITION: relative; Z-INDEX: 251659256"><span
+ style="HEIGHT: 38px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -4px"><IMG
+ style="HEIGHT: 9px; WIDTH: 646px" src="002.files/image001.png" width=646 height=38 ></span></span><a
+ name="_Toc521142556"></a><a name="_Toc41200689"></a><a name="_Toc41194303"></a><a
+ name="_Toc41190549"></a><a name="_Toc41190422"></a><a name="_Toc41151993"></a><a
+ name="_Toc41151875"></a><a name="_Toc41149718"></a><a name="_Toc41138842"></a><span
+ lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Содержание</p>
+
+<p class=MsoToc1><A
+ href="#_Toc125036304" >1 Общие сведения<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">2</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036305">1.1 Назначение оперативного расчета
+значений в сервере <span lang=EN-US>DCS</span><span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">2</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036306">1.2 Ссылки<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">2</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc125036307">2 Настройка оперативного расчета в
+сервере DCS<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">3</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036308">2.1 Конфигурирование профиля
+распределенной системы сбора для функций оперативного расчета в сервере <span
+ lang=EN-US>DCS</span><span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">3</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036309">2.2 Конфигурирование виртуального
+прибора оперативного расчета сервера DCS<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">9</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036310">2.3 Создание исполняемого скрипта
+оперативного расчета значений сервера DCS<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">&nbsp;&nbsp; </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">16</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc125036311">3 Описание функций, используемых в
+оперативном расчете сервера DCS<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">17</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036312">3.1 Служебные таблицы<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">17</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036313">3.2 Функции для объектов из таблицы
+data[]<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none"> </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">17</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036314">3.3 Операции для объектов из таблицы
+data[]<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none"> </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">18</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036315">3.4 Функции для работы со статусами
+для объектов из таблицы data[]<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none"> </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">18</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036316">3.5 Константы<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">20</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036317">3.6 Функции для вывода сообщений в
+лог-файл<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">20</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036318">3.7 Библиотеки<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">20</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036319">3.8 Полное описание функций расчета
+оперативных значений в сервере DCS<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">20</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc125036320">4 Примеры использования оперативного
+расчета в сервере DCS<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">21</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036321">4.1 Вычисление значений параметров и
+статусов<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">21</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036322">4.2 Работа с глобальным массивом
+global[]<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none"> </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">21</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036323">4.3 Телеуправление<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">22</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036324">4.4 Работа с файлами<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">22</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036325">4.5 Вывод сообщений в лог-файл<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">22</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc125036326">5 Администрирование конфигурационного
+файла оперативного расчета сервера DCS<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">&nbsp;&nbsp; </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">23</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc125036327"><span lang=EN-US>Приложение А.</span>
+Функции в РСДУ, реализованные с помощью <span lang=EN-US>LUA</span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">26</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc125036328">А.1 Расчет скорости изменения
+значения параметра<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">26</span></A></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc125036304">1 </a><span
+ style="POSITION: relative; Z-INDEX: 251652088"><span style="HEIGHT:
+ 38px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -4px"><IMG style="HEIGHT: 3px;
+ WIDTH: 646px" src="002.files/image002.png" width=646 height=38 ></span></span>Общие сведения</h1>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036305"></a><a
+ name="_Toc11145431"></a><a name="_Toc462055435">1.1 Назначение </a>оперативного
+расчета значений в сервере <span lang=EN-US>DCS</span></h2>
+
+<p class=MsoNormal><a name="_Toc11145432"></a><a name="_Toc462055436">Оперативный
+расчет значений в сервере </a><span lang=EN-US>DCS</span> предназначен для
+вычисления значений параметров распределенной системы сбора при помощи
+арифметических или логических выражений, вложенных подпрограмм и встроенных
+функций. Оперативный расчет значений в сервере <span lang=EN-US>DCS</span>
+реализован на базе скриптового языка программирования <span lang=EN-US>LUA</span>
+и позволяет использовать все его возможности. Функция оперативного расчета
+значений выполняется в каждом технологическом цикле сервера <span lang=EN-US>DCS</span>.
+При каждом запуске происходит считывание и выполнение подготовленного скрипта,
+содержащего формулы и алгоритмы расчета. Результатом работы скрипта являются
+вычисленные значения параметров распределенной системы сбора. Все внесенные
+изменения в скрипт с формулами и алгоритмами принимаются «на лету» и становятся
+актуальными уже на следующем технологическом цикле сервера <span lang=EN-US>DCS</span>.</p>
+
+<p class=MsoNormal>В Приложение А приведен перечень функционала РСДУ, реализованного
+с помощью оперативного расчета значений в сервере <span lang=EN-US>DCS</span>.</p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036306">1.2 Ссылки</a></h2>
+
+<p class=MsoNormal>В руководстве используются ссылки на следующую документацию
+к комплексу РСДУ:</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>&nbsp;«Описание параметров
+в подсистеме сбора и передачи РСДУ. Руководство администратора»<span
+ lang=EN-US>;</span></p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>«Справочная информация
+по распределенной системе сбора данных. Руководство пользователя»<span
+ lang=EN-US>;</span></p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>«Картридж
+"Распределенная подсистема сбора данных". Руководство администратора»<span
+ lang=EN-US>;</span></p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>«Lua 5.3. Справочник
+администратора»<span lang=EN-US>.</span></p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc125036307">2 </a><span
+ style="POSITION: relative; Z-INDEX: 251667448"><span style="HEIGHT:
+ 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 12px;
+ WIDTH: 646px" src="002.files/image003.png" width=646 height=72 ></span></span>Настройка оперативного расчета в
+сервере DCS</h1>
+
+<p class=MsoNormal>Настройка оперативного расчета значений выполняется в три
+этапа:</p>
+
+<p class=MsoListNumber2>1.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Конфигурирование профиля распределенной системы сбора для функций
+оперативного расчета в сервере DCS;</p>
+
+<p class=MsoListNumber2>2.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Конфигурирование виртуального прибора оперативного расчета сервера <span
+ lang=EN-US>DCS</span>;</p>
+
+<p class=MsoListNumber2>3.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>Создание исполняемого скрипта оперативного расчета значений.</p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036308">2.1 Конфигурирование
+профиля распределенной системы сбора для функций оперативного расчета в сервере
+</a><span lang=EN-US>DCS</span></h2>
+
+<p class=MsoNormal>Функция оперативного расчета значений является внутренней
+функцией сервера распределенной системы сбора DCS. Создание параметров,
+значения которых должны рассчитываться, начинается с описания профиля
+виртуального прибора «Дорасчет» в приложении «Справочная информация по
+распределенной системе сбора данных» (<span class=af5>DAView.exe</span>) &nbsp;(см.
+документ «Описание параметров в подсистеме сбора и передачи РСДУ. Руководство
+администратора»).</p>
+
+<p class=MsoNormal>Перед началом работы следует проверить наличие протокола
+«Доступ к функциям модулей» в справочнике протоколов. Проверка выполняется
+вызовом пункта «Протоколы» в меню «Справочники» в приложении «Справочная информация
+по распределенной системе сбора данных».</p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=643
+ style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; WIDTH: 17cm; BACKGROUND: #fedb8e; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; MARGIN-LEFT: 5.4pt; BORDER-LEFT: medium none">
+ <tr>
+  <td width=643 style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 17cm; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"    >
+  <p class=afc style="PAGE-BREAK-AFTER: auto"><a name="_Hlk124498922">внимание! </a></p>
+  <p class=aff4><a name="_Hlk124498845">Протокол «Доступ к функциям модулей»
+  должен иметь в справочнике </a><span class=af7><span lang=EN-US>DA</span></span><span
+  class=af7>_<span lang=EN-US>PROTO</span></span><span class=af7>_<span
+  lang=EN-US>DESC</span></span><span class=af7><span lang=EN-US> </span></span>идентификатор
+  72. </p>
+  <p class=aff4>Из любого клиента <span lang=EN-US>Oracle</span><span
+  lang=EN-US> </span>необходимо выполнить запрос: <a name="_Hlk124498885"><span
+  class=af5>select name from da_proto_desc where id=72</span></a></p>
+  <p class=aff4>Если под этим идентификатором зарегистрирован другой протокол,
+  необходимо сообщить разработчикам, чтобы актуализировали описание в
+  справочнике подсистемы сбора. </p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 10" src ="002.files/image004.jpg" width=417 height=484 ></p>
+
+<p class=MsoCaption>Рисунок 1 – Иерархия описания протокола</p>
+
+<p class=MsoNormal>Далее необходимо проверить и, при отсутствии, создать Устройство
+сбора с функцией дорасчета. Проверка выполняется вызовом пункта «Устройства
+сбора» в меню «Справочники» в приложении «Справочная информация по
+распределенной системе сбора данных». </p>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Arial","sans-serif"'><br clear=all
+ style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<p class=MsoNormal align=left style="MARGIN-BOTTOM:
+ 0pt; TEXT-ALIGN: left; LINE-HEIGHT: normal">&nbsp;</p>
+
+<p class=MsoNormal>При отсутствии устройства необходимо его создать с
+произвольным именем, указав в качестве поддерживаемого протокола&nbsp; «Доступ к
+функциям модулей».</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 18" src ="002.files/image005.jpg" width=642 height=338 ></p>
+
+<p class=MsoCaption>Рисунок 2 – Описание устройства</p>
+
+<p class=MsoNormal><a name="_Hlk124498522">Затем в левой части справочника DAView
+необходимо описать прибор с произвольным названием (например, «Дорасчет (</a><span
+ lang=EN-US>LUA</span>) ИКЗ») на основе устройства с протоколом «Доступ к
+функциям модулей». </p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 15" src ="002.files/image006.jpg" width=642 height=339 ></p>
+
+<p class=MsoCaption>Рисунок 3 – Описание прибора профиля прибора</p>
+
+<p class=MsoNormal>Как правило, названия присваиваются в соответствии с
+назначением данного прибора в системе. В приведенном примере данный прибор
+будет выполнять все функции по расчетам значений для индикаторов короткого
+замыкания ИКЗ. </p>
+
+<p class=MsoNormal>Тип и квалификатор для прибора не имеют значения,
+рекомендуется их оставлять значениями по умолчанию – «Сеть» и 0.</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 24" src ="002.files/image007.png" width=567 height=352 ></p>
+
+<p class=MsoCaption>Рисунок 4 – Свойства прибора в профиле</p>
+
+<p class=MsoNormal>Далее на созданном приборе необходимо описать выполняемую
+функцию и объект протокола.</p>
+
+<p class=MsoNormal>Для функции выбираем тип «Протокол», квалификатор 1.
+Наименование значения не имеет, рекомендуется присвоить «Доступ к функциям
+модулей».</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 17" src ="002.files/image008.jpg" width=567 height=351 ></p>
+
+<p class=MsoCaption>Рисунок 5 – Свойства протокола в профиле</p>
+
+<p class=MsoNormal>Объект протокола создается с квалификатором 4 – <a
+ name="_Hlk124501806">соответствует типу внутренней функции модуля </a><span
+ lang=EN-US>DCS</span><span lang=EN-US> </span>«Дорасчет <span lang=EN-US>LUA</span>».</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 19" src ="002.files/image009.jpg" width=567 height=351 ></p>
+
+<p class=MsoCaption>Рисунок 6 – Свойства функции в профиле</p>
+
+<p class=MsoNormal>Далее на созданном приборе в правой части приложения «Справочная
+информация по распределенной системе сбора данных» создаются точки, являющиеся
+выходными параметрами дорасчета. Точки создаются с типом «Базовый булевый» и
+опцией «Мгновенные значения» для дискретных параметров, с типом «Базовый
+аналоговый» и опцией «Мгновенные значения» для аналоговых параметров. Значения
+квалификаторов создаваемых точек могут быть произвольными, но на отдельно
+взятом узле они должны быть уникальными.</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 20" src ="002.files/image010.jpg" width=642 height=339 ></p>
+
+<p class=MsoCaption>Рисунок 7 – Параметры профиля</p>
+
+<p class=MsoNormal>Пример свойств точки дорасчета с типом «Базовый булевый».</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 22" src ="002.files/image011.jpg" width=495 height=306 ></p>
+
+<p class=MsoCaption>Рисунок 8 – Свойство точки с типом «Базовый булевый»</p>
+
+<p class=MsoNormal>Пример свойств точки дорасчета с типом «Базовый аналоговый».</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 23" src ="002.files/image012.jpg" width=495 height=306 ></p>
+
+<p class=MsoCaption>Рисунок 9 – Свойство точки с типом «Базовый аналоговый»</p>
+
+<p class=MsoNormal>При создании точек допускаются операции экспорта/импорта, а
+также копирование существующих точек в новые, включая групповое копирование. </p>
+
+<p class=MsoNormal>Работа с приложением описана в документе «Справочная
+информация по распределенной системе сбора данных. Руководство пользователя».</p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036309">2.2 Конфигурирование
+виртуального прибора оперативного расчета сервера DCS</a></h2>
+
+<p class=MsoNormal>После заполнения профиля распределенной системы сбора для
+функций оперативного расчета можно приступить к созданию параметров в сегменте
+сбора, который обслуживается соответствующим <a name="_Hlk124509979">модулем
+коммуникационного сервера сбора и передачи </a>DCS. Значения созданных
+параметров будут вычисляться в каждом технологическом цикле. Данные параметры,
+как и любые другие параметры распределенной системы сбора, могут быть
+использованы в качестве значений параметров электрического режима,
+коммутационных аппаратов, СРЗиА и других технологических серверов. При
+необходимости, рассчитываемые параметры можно сохранять в архивах
+распределенной системы сбора.</p>
+
+<p class=MsoNormal>Проверьте наличие виртуального прибора в выбранном сегменте
+сбора, протоколом которого является «Расчет значений параметров». При
+отсутствии такого прибора или при необходимости разнести функции дорасчета по
+нескольким приборам, такой прибор надо создать. Никаких дополнительных настроек
+в описании порта для данного прибора и самого прибора не требуется (см.
+документ «Картридж "Распределенная подсистема сбора данных".
+Руководство администратора»).</p>
+
+<p class=af8><span class=afb>Примечание</span>. Количество приборов на основе
+протокола «Расчет значений параметров» не ограничено.</p>
+
+<p class=MsoNormal style="PAGE-BREAK-AFTER: avoid"><IMG id="Рисунок 26"
+ src ="002.files/image013.jpg" width=642 height=339 ></p>
+
+<p class=MsoCaption>Рисунок 10 – Описание прибора и параметров в распределенной
+подсистеме сбора и передачи данных</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 27" src ="002.files/image014.jpg" width=416 height=393 ></p>
+
+<p class=MsoCaption>Рисунок 11 – Свойства прибора на вкладке «Общие» </p>
+
+<p class=MsoNormal>В свойствах прибора необходимо из профиля выбрать те
+параметры, которые нужны в работе настраиваемого прибора. Кроме выбора
+обрабатываемых параметров никаких других настроек у прибора не требуется.</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 28" src ="002.files/image015.jpg" width=416 height=393 ></p>
+
+<p class=MsoCaption>Рисунок 12 – Свойства прибора на вкладке «Свойства прибора»</p>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Arial","sans-serif"'><br clear=all
+ style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<p class=MsoNormal align=left style="MARGIN-BOTTOM:
+ 0pt; TEXT-ALIGN: left; LINE-HEIGHT: normal">&nbsp;</p>
+
+<p class=MsoNormal>Пример выбора параметров из профиля прибора:</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 29" src ="002.files/image016.png" width=539 height=481 ></p>
+
+<p class=MsoCaption>Рисунок 13 – Окно выбора параметров из профиля прибора</p>
+
+<p class=MsoNormal>Выбор опций для прибора не требуется.</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 30" src ="002.files/image017.png" width=354 height=171 ></p>
+
+<p class=MsoCaption>Рисунок 14 – Информационное окно</p>
+
+<p class=MsoNormal>При первоначальном создании прибора и выборе требуемых
+параметров из профиля все необходимые точки измерения на приборе будут созданы
+автоматически, никаких дополнительных настроек для них не требуется.</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;&#13;&#10;
+ 31" src ="002.files/image018.jpg" width=462 height=407 ></p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 288" src ="002.files/image019.jpg" width=462 height=407 ></p>
+
+<p class=MsoCaption>Рисунок 15 – Свойства созданного параметра</p>
+
+<p class=MsoNormal>Имеется возможность получать данные для точки измерения не
+только путем выполнения вычислений модулем дорасчета, но и стандартными
+средствами РСДУ5 для обмена данными между технологическими серверами. Данная
+функция может потребоваться, если в сервере <span lang=EN-US>DCS</span>
+отсутствует параметр, необходимый для выполнения расчета, но он может быть
+получен от серверов электрического режима, коммутационных аппаратов и т.д. </p>
+
+<p class=MsoNormal>Для этого на закладке «Источники» добавляется в качестве источника
+значений технологический сервер и выполняется настройка на его параметр.</p>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Arial","sans-serif"'><br clear=all
+ style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<p class=MsoNormal align=left style="MARGIN-BOTTOM:
+ 0pt; TEXT-ALIGN: left; LINE-HEIGHT: normal">&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;&#13;&#10;
+ 289" src ="002.files/image020.jpg" width=464 height=409 ></p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 290" src ="002.files/image021.jpg" width=445 height=365 ></p>
+
+<p class=MsoCaption>Рисунок 16 – Настройка источника для параметра</p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036310">2.3 Создание
+исполняемого скрипта оперативного расчета значений сервера DCS</a></h2>
+
+<p class=MsoNormal>Исполняемый скрипт является текстовым файлом и может
+создаваться любым текстовым редактором. Имя текстового файла должно
+соответствовать имени загружаемого модуля <span lang=EN-US>DCS</span>.
+Расширение файла – <span lang=EN-US>LUA</span>. Например, если на хосте
+работают несколько модулей <span lang=EN-US>DCS</span><span lang=EN-US> </span>&nbsp;с
+именами <span class=af5>dcs_main</span>, <span class=af5>dcs_test</span>, <span
+ class=af5>dcs_ktp</span>, то каждый из них должен иметь собственный файл с
+именами соответственно <span class=af5>dcs_main.lua</span>, <span class=af5>dcs_test.lua</span>,
+<span class=af5>dcs_ktp.lua</span>.</p>
+
+<p class=MsoNormal>Исполняемые скрипты располагаются в папке <span class=af5>/</span><span
+ class=af5><span lang=EN-US>home</span></span><span class=af5>/</span><span
+ class=af5><span lang=EN-US>ema</span></span> на сервере, на котором работают
+модули <span lang=EN-US>DCS</span>.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc125036311"></a><a name="_Toc41984983"></a><a
+ name="_Toc41713533"></a><a name="_Toc41712929">3 </a><span style="POSITION:
+ relative; Z-INDEX: 251645944"><span style="HEIGHT:
+ 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -7px"><IMG style="HEIGHT: 6px;
+ WIDTH: 646px" src="002.files/image003.png" width=646 height=72 ></span></span>Описание функций, используемых в
+оперативном расчете сервера DCS</h1>
+
+<p class=MsoNormal>Дорасчет <span lang=EN-US>LUA</span> в <span lang=EN-US>DCS</span><span
+ lang=EN-US> </span>позволяет использовать все возможности скриптового языка <span
+ lang=EN-US>LUA</span>. Далее приведены основные наиболее часто востребованные
+функции и примеры их применения в РСДУ5. </p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036312">3.1 Служебные
+таблицы</a></h2>
+
+<p class=MsoNormal>data[] – глобальная таблица для доступа к параметрам, ключом
+является идентификатор из подсистемы сбора и передачи. Читать данные или
+статусы можно из любого параметра подсистемы сбора и передачи, запись возможна
+только в параметры, которые не имеют источников данных.</p>
+
+<p class=MsoNormal>global[] – глобальная таблица для нужд пользователя, её
+содержимое не сбрасывается по окончанию технологического цикла. В случае если
+по заданному ключу в таблице нет данных, возвращается 0.</p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036313">3.2 Функции
+для объектов из таблицы data[]</a></h2>
+
+<p class=MsoNormal><span class=af5>getStatus()</span> – возвращает текущий
+статус параметра.</p>
+
+<p class=MsoNormal><span class=af5>getValue()</span> – возвращает текущие
+данные параметра.</p>
+
+<p class=MsoNormal><span class=af5>setStatus(number status)</span> – сбрасывает
+все установленные ранее статусы параметра и устанавливает новый указанный
+статус.</p>
+
+<p class=MsoNormal><span class=af5>setValue(number value)</span> – задаёт новое
+значение данных для параметра. В случае попытки установить значение <span
+ class=af5>INF</span> или <span class=af5>NaN</span>, значение принимает 0, и
+устанавливается статус «Данные недостоверны».</p>
+
+<p class=MsoNormal><span class=af5>update()</span> – отсылка новых статусов и
+данных параметра, эту функцию необходимо вызывать после окончания всех операции
+с помощью функций <span class=af5>setStatus</span> и <span class=af5>setValue</span>.</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">--Установить статус параметра с <span lang=EN-US>id</span>
+518 как побитовое ИЛИ статусов </p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">--из параметров с <span lang=EN-US>id</span> 73 и 74</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data[518]:setStatus(data[73]:getStatus()
+| data[74]:getStatus())</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US></span>&nbsp;</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">--Вычисление данных для параметра с <span lang=EN-US>id</span>
+518 из данных параметров с <span lang=EN-US>id</span> 73 и 74</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data[518]:setValue((data[73]:getValue()^2
++ data[74]:getValue()^2)^0.5/2)</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US></span>&nbsp;</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">--Передать выше сделанные изменения для параметра с <span
+ lang=EN-US>id</span> 518</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data</span>[518]:<span lang=EN-US>update</span>()</p>
+
+</div>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Arial","sans-serif"'><br clear=all
+ style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<p class=MsoNormal align=left style="MARGIN-BOTTOM:
+ 0pt; TEXT-ALIGN: left; LINE-HEIGHT: normal">&nbsp;</p>
+
+<p class=aff4>Также существует более простой способ работы с данными, используя
+непосредственное обращение к объектам из таблицы data[]. Все операции
+выполняются со значениями, вычисление статуса происходит автоматически путём
+побитового ИЛИ между статусами операндов, а также происходит автоматическая
+отсылка обновления. </p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">--Вычисление данных для параметра с <span lang=EN-US>id</span>
+519 из данных параметров с <span lang=EN-US>id</span> 73 и 74, вычисление
+статуса и отсылка обновления происходят автоматически</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data</span>[519] =    (<span lang=EN-US>data</span>[73]^2
++ <span lang=EN-US>data</span>[74]^2)^0.5/2</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">--Данные параметра с <span lang=EN-US>id</span> 520
+принимает 42, все статусы сбрасываются, изменения </p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">--автоматически переданы</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data</span>[520] =    42</p>
+
+</div>
+
+<p class=aff4><span class=af5>setControl(boolean value)</span> – задать
+состояние параметра телеуправления. Отсылка обновления будет произведена
+автоматически.</p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036314">3.3 Операции
+для объектов из таблицы data[]</a></h2>
+
+<p class=MsoNormal>С объектами из таблицы data[] возможны следующие операции:</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Арифметические:</p>
+
+<p class=MsoListContinue2>«+»<span lang=EN-US> – </span>сложение</p>
+
+<p class=MsoListContinue2>«<span lang=EN-US>-</span>» <span lang=EN-US>– </span>вычитание</p>
+
+<p class=MsoListContinue2>«<span lang=EN-US>*</span>» <span lang=EN-US>– </span>умножение</p>
+
+<p class=MsoListContinue2>«<span lang=EN-US>/</span>» – деление</p>
+
+<p class=MsoListContinue2>«<span lang=EN-US>^</span>» – возведение в степень</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Логические: </p>
+
+<p class=MsoListContinue2>«<span lang=EN-US>|</span>»<span lang=EN-US> –</span>
+логическое ИЛИ</p>
+
+<p class=MsoListContinue2>«<span lang=EN-US>&amp;</span>»<span lang=EN-US> –</span>
+логическое И</p>
+
+<p class=MsoListContinue2>«<span lang=EN-US>~</span>»<span lang=EN-US> –</span>
+инверсия</p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036315">3.4 Функции
+для работы со статусами для объектов из таблицы data[]</a></h2>
+
+<p class=MsoNormal><span class=af5>setValueNoCorrect()</span> – установить
+статус «Данные недостоверны».</p>
+
+<p class=MsoNormal><span class=af5>setNoPresent()</span> – установить статус
+«Источник данных отсутствует».</p>
+
+<p class=MsoNormal><span class=af5>setDeratingWarning()</span> – установить
+статус «Нарушены предупредительные уставки».</p>
+
+<p class=MsoNormal><span class=af5>setDeratingAlarm()</span> – установить
+статус «Нарушены аварийные уставки».</p>
+
+<p class=MsoNormal><span class=af5>setNoScanned()</span> – установить статус
+«Выведен из работы».</p>
+
+<p class=MsoNormal><span class=af5>setManual()</span> – установить статус
+«Ручной ввод значения».</p>
+
+<p class=MsoNormal><span class=af5>setSlaveSend()</span> – установить статус «Ведется
+передача во внешние системы».</p>
+
+<p class=MsoNormal><span class=af5>setSubstitution()</span> – установить статус
+«Признак замещения параметра».</p>
+
+<p class=MsoNormal><span class=af5>setSrcNoCorrect()</span> – установить статус
+«Признак некорректной работы драйвера».</p>
+
+<p class=MsoNormal><span class=af5>setDevNoCorrect()</span> – установить статус
+«Признак некорректного источника данных».</p>
+
+<p class=MsoNormal>После установки всех необходимых статусов нужно отослать
+итоговый обновлённый статус с помощью функции <span lang=EN-US>update</span>.</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>if data[523]:getValue() &gt; 225 then
+</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp; data[523]: setDeratingWarning()</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp; data[523]: setValueNoCorrect()</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>else</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp; data[523]: setStatus(0)</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>end</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data</span>[523]:<span lang=EN-US>update</span>()</p>
+
+</div>
+
+<p class=aff4><span class=af5>isValueNoCorrect()</span> – проверка статуса
+«Данные недостоверны».</p>
+
+<p class=MsoNormal><span class=af5>isNoPresent()</span> – проверка статуса «Источник
+данных отсутствует».</p>
+
+<p class=MsoNormal><span class=af5>isDeratingWarning()</span> – проверка
+статуса «Нарушены предупредительные уставки».</p>
+
+<p class=MsoNormal><span class=af5>isDeratingAlarm()</span> – проверка статуса
+«Нарушены аварийные уставки».</p>
+
+<p class=MsoNormal><span class=af5>isNoScanned()</span> – проверка статуса
+«Выведен из работы».</p>
+
+<p class=MsoNormal><span class=af5>isManual()</span> – проверка статуса «Ручной
+ввод значения».</p>
+
+<p class=MsoNormal><span class=af5>isSlaveSend()</span> – проверка статуса «Ведется
+передача во внешние системы».</p>
+
+<p class=MsoNormal><span class=af5>isSubstitution()</span> – проверка статуса «Признак
+замещения параметра».</p>
+
+<p class=MsoNormal><span class=af5>isSrcNoCorrect()</span> – проверка статуса «Признак
+некорректной работы драйвера».</p>
+
+<p class=MsoNormal><span class=af5>isDevNoCorrect()</span> – проверка статуса «Признак
+некорректного источника данных».</p>
+
+<h2 style="PAGE-BREAK-BEFORE: always; MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a
+ name="_Toc125036316">3.5 Константы</a></h2>
+
+<p class=MsoNormal>Для описания условий с параметрами, имеющими тип
+телесигнализация, можно использовать предопределённые константы <span
+ lang=EN-US>ON</span><span lang=EN-US> </span>и <span lang=EN-US>OFF</span>.</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">-- Проверка условия ТС включён</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>if</span><span lang=EN-US> </span><span
+ lang=EN-US>data</span>[88] == <span lang=EN-US>ON</span><span lang=EN-US> </span><span
+ lang=EN-US>then</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;&nbsp;&nbsp;&nbsp; <span lang=EN-US>data</span>[520] = <span
+ lang=EN-US>data</span>[73]+<span lang=EN-US>data</span>[74]</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>end</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">-- Проверка условия ТС выключен</p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>if data[88] == OFF then</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; data[520] =       data[73]*data[74]</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>end</span></p>
+
+</div>
+
+<h2 style="MARGIN:
+ 12pt 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036317">3.6 Функции для вывода сообщений в
+лог-файл</a></h2>
+
+<p class=MsoNormal><span class=af5>info(message)</span> – вывести сообщение в
+лог-файл со статусом «Информация».</p>
+
+<p class=MsoNormal><span class=af5>warning(message)</span> – вывести сообщение
+в лог-файл со статусом «Предупреждение».</p>
+
+<p class=MsoNormal><span class=af5>error(message)</span> – вывести сообщение в
+лог-файл со статусом «Ошибка».<b> </b></p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036318">3.7 Библиотеки</a></h2>
+
+<p class=MsoNormal>Для скрипта дорасчёта по умолчанию включены следующие <span
+ lang=EN-US>Lua</span> библиотеки:</p>
+
+<p class=MsoListBullet2><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-US>math</span><span
+ lang=EN-US> </span>– библиотека математических функций </p>
+
+<p class=MsoListContinue2><A
+ href="https://www.lua.org/manual/5.3/manual.html#6.7" >https://www.lua.org/manual/5.3/manual.html#6.7</A></p>
+
+<p class=MsoListBullet2><span lang=EN-US style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-US>os</span>
+– библиотека функции операционной системы</p>
+
+<p class=MsoListContinue2><span class=MsoHyperlink><span lang=EN-US>https://www.lua.org/manual/5.3/manual.html#6.9
+</span></span></p>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036319">3.8 Полное
+описание функций расчета оперативных значений в сервере DCS</a></h2>
+
+<p class=MsoNormal>Полное описание скриптового языка <span lang=EN-US>LUA</span><span
+ lang=EN-US> </span>приведено на сайте <A
+ href="https://www.lua.org/manual/5.3/manual.html" >https://www.lua.org/manual/5.3/manual.html</A>
+и в документе «Lua 5.3. Справочник администратора».</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc41984984"></a><a name="_Toc41713534"></a><a
+ name="_Toc41712930"></a><a name="_Toc125036320">4 </a><span style="POSITION:
+ relative; Z-INDEX: 251671544"><span style="HEIGHT:
+ 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 12px;
+ WIDTH: 646px" src="002.files/image003.png" width=646 height=72 ></span></span>Примеры использования оперативного
+расчета в сервере DCS</h1>
+
+<h2 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036321">4.1 Вычисление
+значений параметров и статусов</a></h2>
+
+<p class=MsoNormal>Сложный метод, полностью ручное управление</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data[518]:setStatus(data[73]:getStatus()
+| data[74]:getStatus())</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data[518]:setValue((data[73]:getValue()^2
++ data[74]:getValue()^2)^0.5/2)</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data</span>[518]:<span lang=EN-US>update</span>()</p>
+
+</div>
+
+<p class=aff4>Простой метод, статусы будут сложены побитовым ИЛИ</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data</span>[519] =    <span lang=EN-US>data</span>[73]^2
++ <span lang=EN-US>data</span>[74]^2)^0.5/2</p>
+
+</div>
+
+<p class=aff4>Проверка значения ТС</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>if data[86] == ON then</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; data[520] =       data[73]+data[74]</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>else</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; data[520] = data[73]*3</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>end</span></p>
+
+</div>
+
+<p class=aff4>Вывод<span lang=EN-US> timestamp </span>в значение</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data[521] =    os.time()</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data[521]:DeratingWarning()</span></p>
+
+</div>
+
+<p class=aff4>Ввод случайных данных</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data</span>[522] =    <span lang=EN-US>math</span>.<span
+ lang=EN-US>random</span>(1,1000)</p>
+
+</div>
+
+<p class=aff4>Циклическое задание данных</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>for</span><span lang=EN-US> </span><span
+ lang=EN-US>id</span> = 528, 1022 <span lang=EN-US>do</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;&nbsp;&nbsp;&nbsp; <span lang=EN-US>data[id] = 
+(math.random(1,1000)^2+math.random(1,1000)^2)^0.5/2</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; data[id] = data[73] + data[74]</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>end</span></p>
+
+</div>
+
+<p class=aff4>Логические операции</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data[525] = ~data[88] | data[89]</span></p>
+
+</div>
+
+<h2 style="MARGIN:
+ 12pt 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036322">4.2 Работа с глобальным массивом
+global[]</a></h2>
+
+<p class=MsoNormal>Работая с <span lang=EN-US>global</span><span lang=EN-US> </span>массивом,
+<span lang=EN-US>count</span><span lang=EN-US> </span>будет увеличиваться на 1
+каждый цикл</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>global['count'] =    global['count'] + 1</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>data[528] =    global['test']<b> </b></span></p>
+
+</div>
+
+<h2 style="PAGE-BREAK-BEFORE: always; MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a
+ name="_Toc125036323">4.3 Телеуправление</a></h2>
+
+<p class=MsoNormal>Т<span lang=EN-US>елеуправление</span></p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>if global['count']%4 == 0 then</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; data[386]:setControl(false)</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>else</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; data[386]:setControl(true)</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>end</span></p>
+
+</div>
+
+<h2 style="MARGIN:
+ 12pt 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036324">4.4 Работа с файлами</a></h2>
+
+<p class=MsoNormal>Суммарные технические потери по фидеру Л-2 ПС Окладнево</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>local f,err =  
+io.open("/var/run/dms/432.dat","r")</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>if f then </span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>--data[1021757] =    0</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; data[1021757] =  
+f:read("*n") </span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; f:close()</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>end</span></p>
+
+</div>
+
+<h2 style="MARGIN:
+ 12pt 0cm; TEXT-INDENT: 0cm"><a name="_Toc125036325">4.5 Вывод сообщений в лог-файл</a></h2>
+
+<p class=MsoNormal>Вывод предупреждающего сообщения в лог-файл</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>warning("For data " .. id
+.. "is last count")</span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-US></span>&nbsp;</p>
+
+<h1 style="TEXT-INDENT: 0cm"><a name="_Toc125036326"></a><a name="_Toc41984987"></a><a
+ name="_Toc41713538"></a><a name="_Toc41712934">5 </a><span style="POSITION:
+ relative; Z-INDEX: 251656184"><span style="HEIGHT:
+ 106px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -11px"><IMG style="HEIGHT: 9px;
+ WIDTH: 646px" src="002.files/image022.png" width=646 height=106 ></span></span>Администрирование конфигурационного
+файла оперативного расчета сервера DCS</h1>
+
+<p class=MsoNormal>Администратору комплекса РСДУ5 необходимо контролировать
+актуальность и идентичность исполняемых скриптов на основном и резервном полукомплекте
+РСДУ5. Для этого рекомендуется хранить текстовый файл скрипта на сервере
+ресурсов в папке <span class=af5>R:\lua</span>. Редактирование файла выполняется
+текстовым редактором <span lang=EN-US>Notepad</span>++. Для его последующей рассылки
+на серверы с работающими <span lang=EN-US>DCS</span> рекомендуется подготовить
+командный файл <span class=af5>Lua.bat</span>:</p>
+
+<div style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext
+ 1pt solid; BACKGROUND: #c1c1c1; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 4pt; MARGIN-LEFT: 5.65pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 4pt; MARGIN-RIGHT: 5.65pt">
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>pscp -P 22 -scp -pw passme
+R:\lua\dcsd.lua root@10.5.165.20:/home\ema\dcsd.lua</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>pscp -P 22 -scp -pw passme
+R:\lua\dcsd.lua root@10.5.165.30:/home\ema\dcsd.lua</span></p>
+
+<p class=a style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; BACKGROUND: #c1c1c1; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; MARGIN: 0cm 0cm 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span lang=EN-US>pause</span></p>
+
+</div>
+
+<p class=aff4>где <span class=af5>10.5.165.20, 10.5.165.30</span> – <span
+ lang=EN-US>IP</span>-адреса основного и резервного хостов, на которых работает
+сервер <span lang=EN-US>dcsd</span>, <span class=af5>root</span> – пользователь
+для подключения к хосту по <span lang=EN-US>SSH</span>.</p>
+
+<p class=aff4>Командный файл <span class=af5>lua.bat</span> можно описать в
+программном обеспечении РСДУ5 и осуществлять его запуск из Панели оператора,
+настроив предпочтения (Рисунок 17, Рисунок 18). Также возможно настроить его
+запуск с кнопок с информационной панели. В таком случае командный файл <span
+ class=af5>lua.bat</span> необходимо располагать в папке <span class=af5>R:\BIN</span>.</p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=643
+ style="BORDER-TOP:
+ medium none; BORDER-RIGHT: medium none; WIDTH: 17cm; BACKGROUND: #fedb8e; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; MARGIN-LEFT: 5.4pt; BORDER-LEFT: medium none">
+ <tr>
+  <td width=643 style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 17cm; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt"    >
+  <p class=afc>внимание! </p>
+  <p class=MsoNormal>При расположении файла <span class=af5>lua.bat</span> в
+  каталоге <span class=af5>R:\bin</span> необходимо его сохранять перед
+  установкой нового релиза РСДУ и выкладывать в каталог после окончания
+  установки, т.к. данный каталог полностью перезаписывается при установке
+  нового релиза.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style="TEXT-ALIGN: center"><IMG id="Рисунок&#13;&#10;&#13;&#10;
+ 292" border=0 src ="002.files/image023.jpg" width=643 height=341 ></p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 293" border=0 src ="002.files/image024.png" width=478 height=475 ></p>
+
+<p class=MsoCaption><a name="_Ref125033345">Рисунок </a>17 – Описание вызова
+скрипта <br>
+в разделе программного обеспечения РСДУ</p>
+
+<p class=MsoNormal align=center style="PAGE-BREAK-AFTER: avoid; TEXT-ALIGN: center"><IMG
+ id="Рисунок 32" border=0 src ="002.files/image025.jpg" width=375 height=711 ></p>
+
+<p class=MsoCaption><a name="_Ref125033347">Рисунок </a>18 – Возможность
+настройки и вызова с Панели оператора</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoHeading7 style="TEXT-INDENT: 0cm"><a name="_Toc125036327"></a><a
+ name="_Ref125036222"><span lang=EN-US>Приложение А. </span>Функции в РСДУ, </a><span
+ style="POSITION: relative; Z-INDEX: 251673592"><span style="HEIGHT:
+ 72px; WIDTH: 646px; POSITION: absolute; LEFT: 0px; TOP: -8px"><IMG style="HEIGHT: 7px;
+ WIDTH: 646px" src="002.files/image003.png" width=646 height=72 ></span></span>реализованные с помощью <span
+ lang=EN-US>LUA</span></p>
+
+<p class=MsoHeading8 style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm"><a
+ name="_Toc125036328">А.1 Расчет скорости изменения значения параметра</a></p>
+
+<p class=MsoNormal>Описание конфигурирования расчета скорости изменения
+значения параметра представлено в документе «Расчет скорости изменения значения
+параметра. Руководство администратора». </p>
+
+<p class=MsoNormal>    
+        
+   </p>
+
+<p class=MsoNormal>    
+        
+  ------------------------------------------------------------ </p>
+
+<p class=MsoNormal>    
+        
+   </p>
+
+</div>
+
+</body>
+
+</html>
