@@ -21,4 +21,4 @@ variation files of format chm \ docs
 
   **Установка и настройка RabbitMQ**  - e3-Установка и настройка RabbitMQ
 
-  
+  **Установка и настройка iSmsWeb**  - эскиз iSmsWeb chm-формат.(chm)

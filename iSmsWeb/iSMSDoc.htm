@@ -1,0 +1,1199 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>Руководство администратора ПТК телемеханики iSMS</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:OpenSymbol;}
+@font-face
+	{font-family:"WenQuanYi Micro Hei";}
+@font-face
+	{font-family:"Lohit Hindi";}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@WenQuanYi Micro Hei";}
+@font-face
+	{font-family:"\@Lohit Hindi";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+h1
+	{mso-style-link:"Заголовок 1 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	background:#4A88D2;
+	font-size:16.0pt;
+	font-family:"Cambria","serif";
+	color:white;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Заголовок 2 Знак";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:1.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#0070C0;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Заголовок 3 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:2.0cm;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Заголовок 4 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:2.0cm;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+h5
+	{mso-style-link:"Заголовок 5 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:2.0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:13.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+h6
+	{mso-style-link:"Заголовок 6 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:2.0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Заголовок 7 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:6.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:1.0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:3.0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-style:italic;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Текст сноски Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-link:"Текст примечания Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Верхний колонтитул Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Нижний колонтитул Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:23.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
+	{mso-style-name:"Маркированный список 2\,р_мар1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:32.15pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
+	{mso-style-name:"Маркированный список 3\,р_мар2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:46.3pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
+	{mso-style-name:"Нумерованный список 2\,р_нум1";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:32.15pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListNumber2CxSpFirst, li.MsoListNumber2CxSpFirst, div.MsoListNumber2CxSpFirst
+	{mso-style-name:"Нумерованный список 2\,р_нум1CxSpFirst";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:32.15pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListNumber2CxSpMiddle, li.MsoListNumber2CxSpMiddle, div.MsoListNumber2CxSpMiddle
+	{mso-style-name:"Нумерованный список 2\,р_нум1CxSpMiddle";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:32.15pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListNumber2CxSpLast, li.MsoListNumber2CxSpLast, div.MsoListNumber2CxSpLast
+	{mso-style-name:"Нумерованный список 2\,р_нум1CxSpLast";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:32.15pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-18.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Основной текст Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Основной текст с отступом Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	text-align:left;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListContinue2, li.MsoListContinue2, div.MsoListContinue2
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:28.3pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListContinue2CxSpFirst, li.MsoListContinue2CxSpFirst, div.MsoListContinue2CxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:28.3pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListContinue2CxSpMiddle, li.MsoListContinue2CxSpMiddle, div.MsoListContinue2CxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:28.3pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListContinue2CxSpLast, li.MsoListContinue2CxSpLast, div.MsoListContinue2CxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:28.3pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListContinue3, li.MsoListContinue3, div.MsoListContinue3
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:42.45pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListContinue3CxSpFirst, li.MsoListContinue3CxSpFirst, div.MsoListContinue3CxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:42.45pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListContinue3CxSpMiddle, li.MsoListContinue3CxSpMiddle, div.MsoListContinue3CxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:42.45pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListContinue3CxSpLast, li.MsoListContinue3CxSpLast, div.MsoListContinue3CxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:42.45pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:2.0cm;
+	text-align:justify;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+pre
+	{mso-style-link:"Стандартный HTML Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+tt
+	{font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-link:"Тема примечания Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Текст выноски Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"Без интервала Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoRMPane, li.MsoRMPane, div.MsoRMPane
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+span.MsoIntenseEmphasis
+	{color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	background:#4A88D2;
+	font-size:16.0pt;
+	font-family:"Cambria","serif";
+	color:white;
+	font-weight:bold;}
+span.1
+	{mso-style-name:"Заголовок 1 Знак";
+	mso-style-link:"Заголовок 1";
+	font-family:"Cambria","serif";
+	color:white;
+	background:#4A88D2;
+	font-weight:bold;}
+span.2
+	{mso-style-name:"Заголовок 2 Знак";
+	mso-style-link:"Заголовок 2";
+	font-family:"Cambria","serif";
+	color:#0070C0;
+	font-weight:bold;}
+span.a
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Tahoma","sans-serif";}
+span.a0
+	{mso-style-name:"Верхний колонтитул Знак";
+	mso-style-link:"Верхний колонтитул";}
+span.a1
+	{mso-style-name:"Нижний колонтитул Знак";
+	mso-style-link:"Нижний колонтитул";}
+span.a2
+	{mso-style-name:"Без интервала Знак";
+	mso-style-link:"Без интервала";
+	font-family:"Times New Roman","serif";}
+span.3
+	{mso-style-name:"Заголовок 3 Знак";
+	mso-style-link:"Заголовок 3";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+span.4
+	{mso-style-name:"Заголовок 4 Знак";
+	mso-style-link:"Заголовок 4";
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+span.a3
+	{mso-style-name:"Текст сноски Знак";
+	mso-style-link:"Текст сноски";}
+p.a4, li.a4, div.a4
+	{mso-style-name:"Заголовок содержания";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:left;
+	page-break-before:always;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.5
+	{mso-style-name:"Заголовок 5 Знак";
+	mso-style-link:"Заголовок 5";
+	font-family:"Times New Roman","serif";
+	font-weight:bold;
+	font-style:italic;}
+span.6
+	{mso-style-name:"Заголовок 6 Знак";
+	mso-style-link:"Заголовок 6";
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+span.a5
+	{mso-style-name:"Текст примечания Знак";
+	mso-style-link:"Текст примечания";}
+span.a6
+	{mso-style-name:"Тема примечания Знак";
+	mso-style-link:"Тема примечания";
+	font-weight:bold;}
+p.233E5CD5853943F4BD7E8C4B124C0E1D, li.233E5CD5853943F4BD7E8C4B124C0E1D, div.233E5CD5853943F4BD7E8C4B124C0E1D
+	{mso-style-name:233E5CD5853943F4BD7E8C4B124C0E1D;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:left;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.7
+	{mso-style-name:"Заголовок 7 Знак";
+	mso-style-link:"Заголовок 7";}
+span.apple-converted-space
+	{mso-style-name:apple-converted-space;}
+span.WW8Num1z3
+	{mso-style-name:WW8Num1z3;
+	font-family:Symbol;}
+span.WW8Num2z3
+	{mso-style-name:WW8Num2z3;
+	font-family:Symbol;}
+span.Absatz-Standardschriftart
+	{mso-style-name:Absatz-Standardschriftart;}
+span.a7
+	{mso-style-name:"Символ нумерации";}
+span.a8
+	{mso-style-name:"Маркеры списка";
+	font-family:OpenSymbol;}
+p.a9, li.a9, div.a9
+	{mso-style-name:Заголовок;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";}
+span.aa
+	{mso-style-name:"Основной текст Знак";
+	mso-style-link:"Основной текст";
+	font-family:"Times New Roman","serif";}
+p.10, li.10, div.10
+	{mso-style-name:Указатель1;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.ab, li.ab, div.ab
+	{mso-style-name:"Содержимое врезки";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.HTML
+	{mso-style-name:"Стандартный HTML Знак";
+	mso-style-link:"Стандартный HTML";
+	font-family:"Courier New";}
+span.sql1-reservedword1
+	{mso-style-name:sql1-reservedword1;
+	color:blue;
+	font-weight:bold;}
+span.sql1-space
+	{mso-style-name:sql1-space;}
+span.sql1-delimitedidentifier1
+	{mso-style-name:sql1-delimitedidentifier1;
+	color:olive;}
+span.sql1-function1
+	{mso-style-name:sql1-function1;
+	color:navy;
+	font-weight:bold;}
+span.sql1-symbol1
+	{mso-style-name:sql1-symbol1;
+	color:blue;}
+span.sql1-identifier1
+	{mso-style-name:sql1-identifier1;
+	color:olive;}
+span.sql1-tablename1
+	{mso-style-name:sql1-tablename1;
+	color:fuchsia;}
+span.sql1-string1
+	{mso-style-name:sql1-string1;
+	color:green;}
+p.CodeCourier, li.CodeCourier, div.CodeCourier
+	{mso-style-name:"Code \(Courier\,10\)";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.NumberingListL1TNR, li.NumberingListL1TNR, div.NumberingListL1TNR
+	{mso-style-name:"NumberingList L1 \(TNR\,12\,BT+6\)";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.55pt;
+	margin-bottom:.0001pt;
+	text-align:left;
+	text-indent:-21.25pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.NumberingListL2, li.NumberingListL2, div.NumberingListL2
+	{mso-style-name:"NumberingList L2";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:42.8pt;
+	margin-bottom:.0001pt;
+	text-align:left;
+	text-indent:-1.0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.NumberingListL3, li.NumberingListL3, div.NumberingListL3
+	{mso-style-name:"NumberingList L3";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:64.05pt;
+	margin-bottom:.0001pt;
+	text-align:left;
+	text-indent:-35.4pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.sql1-conditionalcomment1
+	{mso-style-name:sql1-conditionalcomment1;
+	color:gray;
+	font-style:italic;}
+p.Default, li.Default, div.Default
+	{mso-style-name:Default;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Verdana","sans-serif";
+	color:black;}
+span.ac
+	{mso-style-name:"Основной текст с отступом Знак";
+	mso-style-link:"Основной текст с отступом";}
+p.ad, li.ad, div.ad
+	{mso-style-name:запрос;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:5.0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:11.0pt;
+	font-family:"Courier New";}
+span.rvts12
+	{mso-style-name:rvts12;
+	font-weight:bold;
+	text-decoration:underline;}
+span.rvts13
+	{mso-style-name:rvts13;
+	font-weight:bold;}
+span.rvts14
+	{mso-style-name:rvts14;
+	font-style:italic;}
+span.rvts15
+	{mso-style-name:rvts15;
+	font-family:"Courier New";}
+span.rvts19
+	{mso-style-name:rvts19;
+	font-family:"Courier New";
+	color:lime;}
+p.iSMS, li.iSMS, div.iSMS
+	{mso-style-name:"Маркированный список iSMS";
+	mso-style-link:"Маркированный список iSMS Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:106.3pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-21.25pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.ae, li.ae, div.ae
+	{mso-style-name:"Текст в таблице";
+	mso-style-link:"Текст в таблице Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+span.iSMS0
+	{mso-style-name:"Маркированный список iSMS Знак";
+	mso-style-link:"Маркированный список iSMS";}
+p.af, li.af, div.af
+	{mso-style-name:"Заголовок в таблице";
+	mso-style-link:"Заголовок в таблице Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+span.af0
+	{mso-style-name:"Текст в таблице Знак";
+	mso-style-link:"Текст в таблице";}
+p.iSMS1, li.iSMS1, div.iSMS1
+	{mso-style-name:"Нумерованный список iSMS";
+	mso-style-link:"Нумерованный список iSMS Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:247.55pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-20.7pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	color:black;}
+span.af1
+	{mso-style-name:"Заголовок в таблице Знак";
+	mso-style-link:"Заголовок в таблице";
+	font-weight:bold;}
+p.af2, li.af2, div.af2
+	{mso-style-name:Важно;
+	mso-style-link:"Важно Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	background:#D9D9D9;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+span.iSMS2
+	{mso-style-name:"Нумерованный список iSMS Знак";
+	mso-style-link:"Нумерованный список iSMS";
+	color:black;}
+p.-, li.-, div.-
+	{mso-style-name:"ЭМА - Обычный";
+	mso-style-link:"ЭМА - Обычный Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+span.af3
+	{mso-style-name:"Важно Знак";
+	mso-style-link:Важно;
+	background:#D9D9D9;}
+p.-1, li.-1, div.-1
+	{mso-style-name:"ЭМА - Заголовок 1";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:left;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+p.-2, li.-2, div.-2
+	{mso-style-name:"ЭМА - Заголовок 2";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+p.-10, li.-10, div.-10
+	{mso-style-name:"ЭМА - Нумерованный список 1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:21.55pt;
+	text-align:justify;
+	text-indent:-21.25pt;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.-100, li.-100, div.-100
+	{mso-style-name:"ЭМА - Нумерованный список 1 + Слева\:  0 см Первая с\.\.\.";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:35.45pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.-119, li.-119, div.-119
+	{mso-style-name:"Стиль ЭМА - Нумерованный список 1 + Слева\:  19 см Первая строка\: \.\.\.";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:49.6pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.-0, li.-0, div.-0
+	{mso-style-name:"ЭМА - Скриншот\.";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+span.-3
+	{mso-style-name:"ЭМА - Обычный Знак";
+	mso-style-link:"ЭМА - Обычный";}
+p.-20, li.-20, div.-20
+	{mso-style-name:"ЭМА - Нумерованный список 2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:35.45pt;
+	text-align:justify;
+	text-indent:-21.25pt;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	font-style:italic;}
+p.-11, li.-11, div.-11
+	{mso-style-name:"ЭМА - Ненумерованный список 1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:35.45pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-21.25pt;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.af4, li.af4, div.af4
+	{mso-style-name:р_выноска;
+	mso-style-link:"р_выноска Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+span.af5
+	{mso-style-name:"р_выноска Знак";
+	mso-style-link:р_выноска;
+	font-family:"Arial","sans-serif";}
+p.30, li.30, div.30
+	{mso-style-name:"Маркированный 3";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:186.0pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.af6, li.af6, div.af6
+	{mso-style-name:р_выделить;
+	mso-style-link:"р_выделить Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+span.af7
+	{mso-style-name:"р_выделить Знак";
+	mso-style-link:р_выделить;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+p.af8, li.af8, div.af8
+	{mso-style-name:р_табТекст;
+	mso-style-link:"р_табТекст Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+span.af9
+	{mso-style-name:"р_табТекст Знак";
+	mso-style-link:р_табТекст;
+	font-family:"Arial","sans-serif";}
+p.afa, li.afa, div.afa
+	{mso-style-name:Маркированный;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:155.95pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";}
+p.afb, li.afb, div.afb
+	{mso-style-name:р_табЗаг;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.afc, li.afc, div.afc
+	{mso-style-name:р_табНум;
+	mso-style-link:"р_табНум Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+span.afd
+	{mso-style-name:"р_табНум Знак";
+	mso-style-link:р_табНум;
+	font-family:"Arial","sans-serif";}
+p.20, li.20, div.20
+	{mso-style-name:р_тит2;
+	mso-style-link:"р_тит2 Знак";
+	margin-top:0cm;
+	margin-right:2.85pt;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:left;
+	line-height:115%;
+	font-size:18.0pt;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+span.21
+	{mso-style-name:"р_тит2 Знак";
+	mso-style-link:р_тит2;
+	font-family:"Arial","sans-serif";
+	color:#17365D;
+	font-weight:bold;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.55pt 2.0cm 2.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+@page WordSection2
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.55pt 2.0cm 2.0cm;}
+div.WordSection2
+	{page:WordSection2;}
+@page WordSection3
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 49.6pt 2.0cm 49.6pt;}
+div.WordSection3
+	{page:WordSection3;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=RU link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><a name="_Toc358117542"></a><a name="_Toc399773212"></a><a
+name="_Toc399770714"></a><a name="_Toc399511320"></a><a name="_Toc399503210"></a><a
+name="_Toc399485857"></a><a name="_Toc399430557"></a><a name="_Toc399145473"></a><a
+name="_Ref398024646">&nbsp;</a></p>
+
+<h1><a name="_Toc86743764">Оглавление</a></h1>
+
+<p class=MsoToc1><a href="#_Toc86743764">Оглавление<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc86743765">Общие сведения<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc86743766">Назначение<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc86743767">Необходимые знания<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc86743768">Установка приложения<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+<span style='font-size:12.0pt;line-height:115%;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection2>
+
+<h1><a name="_Toc86743765">Общие сведения</a></h1>
+
+<h2><a name="_Toc86743766">Назначение</a></h2>
+
+<p class=MsoNormal>Руководство описывает установку ПО <span lang=EN-US>Docker</span>
+в ОС <span lang=EN-US>Linux</span>.</p>
+
+<p class=MsoNormal>ПО <span lang=EN-US>Docker</span><span lang=EN-US> </span>предназначено
+для подготовки и запуска приложений внутри песочницы, называемой контейнером. Приложение
+со всеми зависимостями преобразуется в стандартизированный модуль. Модуль
+запускается внутри контейнера на любой операционной системе, которая
+поддерживает контейнеризацию Docker. Контейнер изолирует приложение от операционной
+системы. Приложение внутри контейнера получает однотипную среду и работает
+одинаково независимо от окружающей инфраструктуры.</p>
+
+<p class=MsoNormal>Описана установка ПО Docker 18.06.3 на ОС Debian 8.5 для ПО
+«ПТК телемеханики iSMS» версий 1.19.1.х.</p>
+
+<h2><a name="_Toc86743767">Необходимые знания</a></h2>
+
+<p class=MsoNormal>Для выполнения действий, описанных в руководстве, требуются
+следующие знания:</p>
+
+<p class=iSMS><span style='font-family:Wingdings'>&uuml;<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Адрес компьютера для установки ПО <span lang=EN-US>Docker</span>;</p>
+
+<p class=iSMS><span style='font-family:Wingdings'>&uuml;<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Пароль пользователя <i><span lang=EN-US>root</span></i><span
+lang=EN-US>.</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+<span style='font-size:12.0pt;line-height:115%;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection3>
+
+<h1><a name="_Toc86743768">Установка приложения</a></h1>
+
+<p class=MsoNormal>Установка производится от имени пользователя <i><span
+lang=EN-US>root</span></i>.</p>
+
+<p class=MsoNormal><span class=MsoIntenseEmphasis>Порядок установки</span></p>
+
+<p class=MsoNormal>1.  Установить библиотеки:</p>
+
+<p class=af2># <span lang=EN-US>dpkg</span> -<span lang=EN-US>i</span><span
+lang=EN-US> </span><span lang=EN-US>libltdl</span>7_2.4.6-2_<span lang=EN-US>amd</span>64.<span
+lang=EN-US>deb</span></p>
+
+<p class=af2><span lang=EN-US># dpkg -i libseccomp2_2.3.1-2.1+deb9u1_amd64.deb</span></p>
+
+<p class=MsoNormal><span lang=EN-US>2.  </span>Установить ПО <span lang=EN-US>Docker:</span></p>
+
+<p class=af2><span lang=EN-US># dpkg -i containerd.io_1.2.6-3_amd64.deb</span></p>
+
+<p class=af2><span lang=EN-US># dpkg -i
+docker-ce_18.06.3~ce~3-0~debian_amd64.deb</span></p>
+
+<p class=MsoNormal><span lang=EN-US>3.  </span>Проверить установку<span
+lang=EN-US>:</span></p>
+
+<p class=af2><span lang=EN-US># docker --version</span></p>
+
+<p class=af2><span lang=EN-US>Docker version 18.06.3-ce, build d7080c1</span></p>
+
+<p class=-0 align=left style='margin-top:6.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:2.0cm;margin-bottom:.0001pt;text-align:left'><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:0cm'><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

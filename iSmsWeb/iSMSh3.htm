@@ -1,0 +1,157 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Текст Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.5pt;
+	font-family:Consolas;}
+span.a
+	{mso-style-name:"Текст Знак";
+	mso-style-link:Текст;
+	font-family:Consolas;}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 66.75pt 2.0cm 66.7pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=RU>
+
+<div class=WordSection1>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>1. Выбираем
+панели, которые необходимо отображать в WEB и помещаем их в предпочтения
+пользователя.</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>PS. Имя файла
+панели должно иметь только латинские буквы! </span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>    Иначе
+необходимо выполнить переименование имени файла панели на сервере ресурсов и
+исправить это название в таблице VP_PANEL.</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>2. Копируем
+uir-файлы в каталог с утилитой преобразования панелей.</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>3. Генерируем
+WEB-панели с помощью приложения CviPanelParser.exe (запуск через bat-файл
+AllUir2Js.bat)</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>На выходе должны
+быть файлы с расширением *.js</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>4. Копируем файлы
+в каталог на сервере WEB-iSMS в каталог
+/home/www-data/www/htdocs/WASUTP/public/resource/panels/</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>5. Даем файлам
+права на чтение с помощью команды </span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>chmod +r *.js</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>6. Если
+необходимо сгенерировать отображение &quot;сложной&quot; схемы с подложкой, то
+необходимо отдельно сгенерировать</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>&quot;голую&quot;
+панель с отображением ТИ и подолжку в виде картинки.</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>6.1 Чтобы
+сгенерировать панель только с ТИ, то нужно в файле AllUir2Js.bat использовать
+вариант запуска утилиты с опцией n</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>6.2 Фотографируем
+панель и сохраняем картику в формате *.png</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>6.3 Прописываем в
+файле *.js путь до картинки (см. пример)</span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-family:"Courier New"'>Ext.define('MyPanels.ATEC_TAI_KOMDIS',
+{</span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-family:"Courier New"'>id:
+'ATEC_TAI_KOMDIS',</span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-family:"Courier New"'>title:
+'</span><span style='font-family:"Courier New"'>Р</span><span lang=EN-US
+style='font-family:"Courier New"'>­</span><span style='font-family:"Courier New"'>РєСЂР</span><span
+lang=EN-US style='font-family:"Courier New"'>°</span><span style='font-family:
+"Courier New"'>РЅ</span><span lang=EN-US style='font-family:"Courier New"'>',</span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-family:"Courier New"'>width:
+1216,</span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-family:"Courier New"'>height:
+672,</span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-family:"Courier New"'>layout:
+{ type: 'absolute'},</span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-family:"Courier New"'>bodyStyle:
+'background:#000000 url(&quot;/ISMSBACK.png&quot;) left top no-repeat;',</span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>6.4 Помещаем файл
+подложки в директорию /home/www-data/www/htdocs/WASUTP/public/ </span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>7. Заходим в
+WEB-портал от имени того пользователи, чьи панели необходимо просматривать.</span></p>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>PS. Если были
+обновлены файлы WEB-панелей, то необходимо обновить страницу, сбросив
+закешированные в WEB-браузере картинки, нажав Ctrl+F5.</span></p>
+
+</div>
+
+</body>
+
+</html>

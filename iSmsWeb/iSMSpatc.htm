@@ -1,0 +1,1005 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>Making a patch for iSMS database</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+h1
+	{mso-style-link:"Заголовок 1 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Cambria","serif";}
+h2
+	{mso-style-link:"Заголовок 2 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	font-style:italic;}
+h3
+	{mso-style-link:"Заголовок 3 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";}
+h4
+	{mso-style-link:"Заголовок 4 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Calibri","sans-serif";}
+h5
+	{mso-style-link:"Заголовок 5 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	font-size:13.0pt;
+	font-family:"Calibri","sans-serif";
+	font-style:italic;}
+h6
+	{mso-style-link:"Заголовок 6 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Заголовок 7 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"Заголовок 8 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-style:italic;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"Заголовок 9 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	font-size:11.0pt;
+	font-family:"Cambria","serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-variant:small-caps;
+	color:#283138;
+	letter-spacing:.3pt;
+	font-weight:bold;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Название Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"Подзаголовок Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";}
+em
+	{font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"Без интервала Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoQuote, li.MsoQuote, div.MsoQuote
+	{mso-style-link:"Цитата 2 Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-style:italic;}
+p.MsoIntenseQuote, li.MsoIntenseQuote, div.MsoIntenseQuote
+	{mso-style-link:"Выделенная цитата Знак";
+	margin-top:0cm;
+	margin-right:36.0pt;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+span.MsoSubtleEmphasis
+	{color:#5A5A5A;
+	font-style:italic;}
+span.MsoIntenseEmphasis
+	{font-weight:bold;
+	font-style:italic;
+	text-decoration:underline;}
+span.MsoSubtleReference
+	{text-decoration:underline;}
+span.MsoIntenseReference
+	{font-weight:bold;
+	text-decoration:underline;}
+span.MsoBookTitle
+	{font-family:"Cambria","serif";
+	font-weight:bold;
+	font-style:italic;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+span.a
+	{mso-style-name:"?????? ?????????";}
+p.a0, li.a0, div.a0
+	{mso-style-name:?????????;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Calibri","sans-serif";}
+p.a1, li.a1, div.a1
+	{mso-style-name:?????????;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+span.1
+	{mso-style-name:"Заголовок 1 Знак";
+	mso-style-link:"Заголовок 1";
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+span.2
+	{mso-style-name:"Заголовок 2 Знак";
+	mso-style-link:"Заголовок 2";
+	font-family:"Cambria","serif";
+	font-weight:bold;
+	font-style:italic;}
+span.3
+	{mso-style-name:"Заголовок 3 Знак";
+	mso-style-link:"Заголовок 3";
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+span.4
+	{mso-style-name:"Заголовок 4 Знак";
+	mso-style-link:"Заголовок 4";
+	font-weight:bold;}
+span.5
+	{mso-style-name:"Заголовок 5 Знак";
+	mso-style-link:"Заголовок 5";
+	font-weight:bold;
+	font-style:italic;}
+span.6
+	{mso-style-name:"Заголовок 6 Знак";
+	mso-style-link:"Заголовок 6";
+	font-weight:bold;}
+span.7
+	{mso-style-name:"Заголовок 7 Знак";
+	mso-style-link:"Заголовок 7";}
+span.8
+	{mso-style-name:"Заголовок 8 Знак";
+	mso-style-link:"Заголовок 8";
+	font-style:italic;}
+span.9
+	{mso-style-name:"Заголовок 9 Знак";
+	mso-style-link:"Заголовок 9";
+	font-family:"Cambria","serif";}
+span.a2
+	{mso-style-name:"Название Знак";
+	mso-style-link:Название;
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+span.a3
+	{mso-style-name:"Подзаголовок Знак";
+	mso-style-link:Подзаголовок;
+	font-family:"Cambria","serif";}
+span.20
+	{mso-style-name:"Цитата 2 Знак";
+	mso-style-link:"Цитата 2";
+	font-style:italic;}
+span.a4
+	{mso-style-name:"Выделенная цитата Знак";
+	mso-style-link:"Выделенная цитата";
+	font-weight:bold;
+	font-style:italic;}
+span.a5
+	{mso-style-name:"Без интервала Знак";
+	mso-style-link:"Без интервала";}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:35.45pt 35.35pt 42.55pt 70.9pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=RU>
+
+<div class=WordSection1>
+
+<h1>Инструкция по созданию патчей БД <span lang=EN-US>iSMS</span><span
+lang=EN-US> </span>для пакетов автоматического обновления БД</h1>
+
+<h2>Правила формирования имени файла патча</h2>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;имя_патча&gt;
+= '[</span><span lang=EN-US style='font-family:"Times New Roman","serif"'>a</span><span
+style='font-family:"Times New Roman","serif"'>-</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>zA</span><span style='font-family:
+"Times New Roman","serif"'>-</span><span lang=EN-US style='font-family:"Times New Roman","serif"'>Z</span><span
+style='font-family:"Times New Roman","serif"'>0-0_-]*'</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;ГОД&gt;
+= [0-9][0-9][0-9][0-9] (год 0000-9999)</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;МЕСЯЦ&gt;
+= 0[1-9]|1[0-2](месяц 01-12)</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;ДЕНЬ&gt;=
+0[1-9]|1[0-9]|2[0-9]|3[0-1] (день 01-31)</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;идентификатор_патча&gt;
+= '&lt;ГОД&gt;&lt;МЕСЯЦ&gt;&lt;ДЕНЬ&gt;-&lt;имя_патча&gt;'</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;имя_файла_патча&gt;
+= '&lt;идентификатор_патча&gt;.</span><span lang=EN-US style='font-family:"Times New Roman","serif"'>sql</span><span
+style='font-family:"Times New Roman","serif"'>'</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;имя_файла_теста&gt;
+= '&lt;идентификатор_патча&gt;_</span><span lang=EN-US style='font-family:"Times New Roman","serif"'>test</span><span
+style='font-family:"Times New Roman","serif"'>.</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>sql</span><span style='font-family:
+"Times New Roman","serif"'>'</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;ПОКОЛЕНИЕ&gt;
+= [1-9]</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;ГОД_РЕЛИЗА&gt;
+= [0-9][0-9] (Год выпуска релиза. 00-99)</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;ВЕРСИЯ&gt;
+= [1-9] (Версия релиза в указанном году)</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;МОДИФИКАЦИЯ&gt;
+= [1-9] (Номер модификации указанной версии релиза)</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;НОМЕР_РЕЛИЗА&gt;
+= &lt;ПОКОЛЕНИЕ&gt;.&lt;ГОД_РЕЛИЗА&gt;.&lt;ВЕРСИЯ&gt;.&lt;МОДИФИКАЦИЯ&gt;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;имя_файла_релиза&gt;
+= '</span><span lang=EN-US style='font-family:"Times New Roman","serif"'>release</span><span
+style='font-family:"Times New Roman","serif"'>-&lt;НОМЕР_РЕЛИЗА&gt;-</span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>files</span><span
+style='font-family:"Times New Roman","serif"'>.</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>list</span><span
+style='font-family:"Times New Roman","serif"'>'</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&lt;имя_файла_дампа_БД&gt;
+= '</span><span lang=EN-US style='font-family:"Times New Roman","serif"'>rsduadmin</span><span
+style='font-family:"Times New Roman","serif"'>-&lt;НОМЕР_РЕЛИЗА&gt;.</span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>sql</span></p>
+
+<h2>Формирование списка патчей для определённого релиза</h2>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Файлы со
+списками патчей для релизов располагаются в директории </span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>Update</span><span
+style='font-family:"Times New Roman","serif"'>/</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>sql</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Добавить
+&lt;имя_файла_патча&gt; в список патчей для релиза находящийся в файле
+&lt;имя_файла_релиза&gt;.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Если
+файла релиза со списком патчей нет, то его необходимо создать.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Файл со
+списком патчей представляет из себя обычный текстовый файл, где на каждой
+строке указано только имя файла патча '&lt;имя_файла_патча&gt;'</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Если в
+рамках релиза патчи БД отсутствуют, то создаётся просто пустой файл.</span></p>
+
+<h2>Создание патча</h2>
+
+<h3>Создать файл патча <span lang=EN-US>c</span> именем &lt;имя_файла_патча&gt;
+в директории <span lang=EN-US>Update</span>/<span lang=EN-US>sql</span>/<span
+lang=EN-US>patches</span></h3>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Патч
+должен после своего выполнения изменить БД в соответствии с требованиями, либо
+вернуть БД в исходное состояние.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Патч
+должен в результате выдавать таблицу из одного поля со статусом применения
+патча. (Например: </span><span lang=EN-US style='font-family:"Times New Roman","serif"'>SELECT</span><span
+style='font-family:"Times New Roman","serif"'> '-1')</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Статус
+может принимать следующие значения:</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>'-1'
+–  Патч не удалось применить. При этом БД должна быть возвращена в исходное
+состояние</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>'0' –
+  Патч был применён успешно. При этом по окончании выполнения патча все
+необходимые изменения в БД должны уже присутствовать. В таблицу '</span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>rsdu</span><span
+style='font-family:"Times New Roman","serif"'>_</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>update</span><span
+style='font-family:"Times New Roman","serif"'>' должна быть добавлена запись с
+информацией о применении патча.</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>'1' –
+  Патч был применён ранее. При этом по окончании выполнения патча все
+необходимые изменения в БД должны уже присутствовать.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'><span style='font-family:"Times New Roman","serif"'>В
+'</span><span lang=EN-US style='font-family:"Times New Roman","serif"'>rsdu</span><span
+style='font-family:"Times New Roman","serif"'>_</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>update</span><span
+style='font-family:"Times New Roman","serif"'>' должна быть добавлена запись об
+установке патча: </span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>`</span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>id</span><span
+style='font-family:"Times New Roman","serif"'>_</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>parent</span><span
+style='font-family:"Times New Roman","serif"'>`= </span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>NULL</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>`</span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>dt</span><span
+style='font-family:"Times New Roman","serif"'>1970` = дата/время выполнения
+патча</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>`</span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>state</span><span
+style='font-family:"Times New Roman","serif"'>`= Состояние выполнения патча (0 –
+патч установлен успешно в полном объёме)</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>`</span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>name</span><span
+style='font-family:"Times New Roman","serif"'>` = Имя патча</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>`</span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>define</span><span
+style='font-family:"Times New Roman","serif"'>_</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>alias</span><span
+style='font-family:"Times New Roman","serif"'>` = Идентификатор патча
+(соответствует &lt;идентификатор_патча&gt; из названия файла)</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>`server_name`= ''</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>`schema_name`= ''</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>`applications` = NULL</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>`description`= Текстовое описание
+патча</span></p>
+
+<h2>Создание теста, определяющего наличие исправлений в БД, которые должен
+вносить патч</h2>
+
+<h3>Создать файл теста с именем &lt;имя_файла_теста&gt; в директории <span
+lang=EN-US>Update</span>/<span lang=EN-US>sql</span>/<span lang=EN-US>tests</span></h3>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Файл
+теста должен проверять, необходимо ли применять патч к данной БД.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Тест
+должен в результате выдавать таблицу из одного поля со статусом теста.
+(Например: </span><span lang=EN-US style='font-family:"Times New Roman","serif"'>SELECT</span><span
+style='font-family:"Times New Roman","serif"'> '-1')</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Статус
+может принимать следующие значения:</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>'-1'
+–  Применение патча к текущему состоянию БД невозможно. </span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>'0' –
+  Можно начать применение патча.</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>'1' –
+  Применение патча не требуется. Патч уже был применён ранее в полном объёме.</span></p>
+
+<p class=MsoNormal style='margin-left:14.2pt'><span style='font-family:"Times New Roman","serif"'>'2' –
+  Применение патча не требуется. Патч уже был применён ранее в полном объёме,
+но о применении патча нет записи в таблице '</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>rsdu</span><span
+style='font-family:"Times New Roman","serif"'>_</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>update</span><span
+style='font-family:"Times New Roman","serif"'>'.</span></p>
+
+<h2>Подготовка обновленного полного дампа конфигурационной БД</h2>
+
+<h3>Создать полный дамп БД, необходимый для начальной установки, в котором был
+применён добавляемый патч</h3>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Полный
+дамп должен быть помещён в директорию </span><span lang=EN-US style='font-family:
+"Times New Roman","serif"'>Update</span><span style='font-family:"Times New Roman","serif"'>/</span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>sql</span><span
+style='font-family:"Times New Roman","serif"'>/</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>fulldb</span><span
+style='font-family:"Times New Roman","serif"'>. Имя файла дампа БД должно быть
+&lt;имя_файла_дампа_БД&gt;</span></p>
+
+<b><span style='font-size:16.0pt;font-family:"Cambria","serif"'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1>Приложение 1. Пример патча.</h1>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+@dbp_name='Patch 20180316-link_timeout_for_modbus';<i> <span style='color:#4F81BD'>/*имя
+патча*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+@dbp_alias='20180316-link_timeout_for_modbus'; <i><span style='color:#4F81BD'>/*алиас
+патча*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+@dbp_desc=NULL;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+@nNewId=NULL;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DELIMITER
+$$</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*Вспомогательная процедура для проверки доступности
+идентификатора</span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>Возвращает в переменную сессии @nNewId значение идентификатора,
+если он свободен, или max(id)+1 */</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>drop
+procedure if exists test_id_p;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>create
+procedure test_id_p (nTestid int, sTable_name text) </span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'> 
+deterministic</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>begin</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+@Qry = CONCAT(&quot;select count(id) into @nNewId from 
+&quot;,sTable_name,&quot; where id =&quot;,nTestid ,&quot;;&quot;);</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>PREPARE
+stmt FROM @Qry;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>EXECUTE
+stmt;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>if
+@nNewId =0 then </span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>  
+SET @nNewId = nTestid;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'> else 
+</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>                SET
+@Qry = CONCAT(&quot;select max(id)+1 into @nNewId from 
+&quot;,sTable_name,&quot;;&quot;);</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>                PREPARE
+stmt FROM @Qry;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>                EXECUTE
+stmt;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>end
+if;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>end$$</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*Процедура обновления БД*/</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DROP
+PROCEDURE IF EXISTS update_isms_db;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>CREATE
+PROCEDURE update_isms_db()</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>BEGIN</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DECLARE
+`_count` INT DEFAULT 0;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DECLARE
+`_rollback` BOOL DEFAULT 0;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DECLARE
+CONTINUE HANDLER FOR SQLEXCEPTION SET `_rollback` = 1; <i><span
+style='color:#4F81BD'>/*в случае ошибки при выполнении инструкции SQL
+переменная `_ rollback`  устанавливается в значение '1' */</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*отключаем автокоммит*/</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+autocommit=0; </span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#92D050'>&nbsp;</span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*проверяем наличие регистрации обновления*/</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>select
+count(`id`) into _count from `rsdu_update` where `define_alias`=@dbp_alias
+limit 1; </span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>&nbsp;</span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*если обновление еще не было установлено*/</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>IF
+_count = 0 THEN</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>&nbsp;</span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*открываем транзакцию и пробуем выполнить обновление*/</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'> 
+START TRANSACTION; </span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>--
+--[ Patch body ]--------------------------------------------------------------</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>/*дополнение
+справочника da_dev_optdesc*/</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>call
+test_id_p (82 , 'da_dev_optdesc') ;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>INSERT
+INTO da_dev_optdesc (id, name, description) values (@nNewId,  
+'BUFFER_LENGTH_TS','Буферизация ТС');</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>--
+--[ Patch body. End ]---------------------------------------------------------</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'> 
+IF `_rollback` THEN <i><span style='color:#4F81BD'>/*если в процессе обновления
+произошла ошибка – выполняем откат*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+ROLLBACK;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+select '-1';</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'> 
+ELSE <i><span style='color:#4F81BD'>/*иначе – регистрируем обновление и
+выполняем коммит*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+INSERT INTO `rsdu_update`(`id`, `id_parent`, `dt1970`, `state`, `name`,
+`define_alias`, `server_name`, `schema_name`, `applications`, `description`)</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>     
+VALUES(0,</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>            
+NULL,</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>            
+UNIX_TIMESTAMP(),</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>            
+0,</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>            
+@dbp_name,</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>            
+@dbp_alias,</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>            
+'',</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>            
+'',</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>            
+NULL,</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>      
+      @dbp_desc)</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>                ON
+DUPLICATE KEY UPDATE `dt1970`=UNIX_TIMESTAMP(), `state`=0; </span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+COMMIT;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+select '0';</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'> 
+END</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'> 
+IF;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>ELSE
+<i><span style='color:#4F81BD'>/*если обновление уже установлено*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+select '1';</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>END</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>IF;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*включаем обратно автокоммит*/</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+autocommit=1;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>END$$</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DELIMITER
+;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>CALL
+update_isms_db();</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DROP
+PROCEDURE IF EXISTS update_isms_db;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<b><span style='font-size:9.0pt;font-family:"Cambria","serif"'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<h1>Приложение 2. Пример теста.</h1>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+@dbp_name='Patch 20170523-send_hpsp_ratio';</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+@dbp_alias='20170523-send_hpsp_ratio';</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+@dbp_desc=NULL;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DELIMITER
+$$</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>drop
+function if exists check_upd_applied;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*вспомогательня функция для проверки наличия изменений,
+производимых обновлением*/</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>create
+function check_upd_applied() returns integer</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>begin</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DECLARE
+`_ruCnt` INT DEFAULT 0;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DECLARE
+`_nCnt` INT DEFAULT 0;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DECLARE
+`_nCnt1` INT DEFAULT 0;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DECLARE
+`_nErr` INT DEFAULT 0;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*в переменную _ruCnt  сохраняем результаты проверки наличия
+регистрации обновления*/</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>select
+count(`id`) into _ruCnt from `rsdu_update` where `define_alias`=@dbp_alias
+limit 1;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>--
+--[ Test body ]--------------------------------------------------------------</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*далее, для каждого изменения в БД, выполняем запрос, 
+результат которого сохраняем в переменной _nCnt1 */</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>SET
+_nCnt1 = (select count(1) from da_dev_optdesc where name = 'SEND_HPSP_RATIO');</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*Если полученное значение совпадает с ожидаемым количеством –
+увеличиваем «счетчик изменений» (_nCnt) на величину _nCnt1, иначе  -
+увеличиваем счетчик ошибок _nErr */</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>if
+_nCnt1 &lt;&gt; 1 then</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>  
+SET _nErr = _nErr + 1;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'> 
+else</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>  
+SET _nCnt = _nCnt + _nCnt1; </span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>end
+if;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>--
+--[ Test body. End ]--------------------------------------------------------------</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*блок финальной проверки*/</span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>/*если изменений, выполняемых данным обновлением в БД, не
+найдено – возвращает 0,</span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;font-family:"Cambria","serif";
+color:#4F81BD'>если количество совпадает с ожидаемым и есть запись в
+rsdu_update  - 1, нет записи в rsdu_update  - 2 и т.д.*/</span></i></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>case
+_nCnt </span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>  
+when  0 then   return (0);<i><span style='color:#4F81BD'> /*не выполнялось или
+выполнилось с ошибками*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>  
+when  1 then</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>  
+      if _nErr = 0 then</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>  
+                if _ruCnt = 0 then</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+                     return (2); <i><span style='color:#4F81BD'>/*применено
+успешно, но нет записи в rsdu_update*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>    
+                 else</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>      
+                  return (1); <i><span style='color:#4F81BD'>/*применено
+успешно*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+               end if;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+         else</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>      
+            return (-1); <i><span style='color:#4F81BD'>/*не все объекты
+обновлены*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+      end if;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   else
+</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>   
+   return (-1); <i><span style='color:#4F81BD'>/*не все объекты обновлены*/</span></i></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>end
+case;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>end$$</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>DELIMITER
+;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>select
+check_upd_applied();</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>drop
+function if exists check_upd_applied;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;font-family:"Cambria","serif"'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

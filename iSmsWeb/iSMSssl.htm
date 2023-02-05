@@ -1,0 +1,222 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Текст Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.5pt;
+	font-family:Consolas;}
+span.a
+	{mso-style-name:"Текст Знак";
+	mso-style-link:Текст;
+	font-family:Consolas;}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 66.75pt 2.0cm 66.7pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=RU>
+
+<div class=WordSection1>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>###############################################################################################<br>
+##################### АВТОРИЗАЦИЯ С ПОМОЩЬЮ КЛИЕНТСКИХ SSL СЕРТИФИКАТОВ
+#######################<br>
+###############################################################################################<br>
+<br>
+# Перед началом необходимо: <br>
+# установить программу openssl, содержащуюся в пакете openssl<br>
+</span><span lang=EN-US style='font-family:"Courier New"'>apt-get update<br>
+apt-get install openssl<br>
+<br>
+</span><span style='font-family:"Courier New"'># включить модуль apache2
+mod_ssl<br>
+a2enmod ssl<br>
+<br>
+# создать каталог /etc/apache2/ssl и перейти в него<br>
+</span><span lang=EN-US style='font-family:"Courier New"'>mkdir -p
+/etc/apache2/ssl &amp;&amp; cd /etc/apache2/ssl<br>
+<br>
+</span><span style='font-family:"Courier New"'>###############################################################################################<br>
+########### 1. Создание собственного самоподписанного доверенного сертификата. </span><span
+lang=EN-US style='font-family:"Courier New"'>(CA) ###########<br>
+###############################################################################################<br>
+openssl req -new -newkey rsa:1024 -nodes -keyout ca.key -x509 \<br>
+-subj /C=RU/ST=Msk/L=Msk/O=EMA/OU=ORPR/CN=admin/emailAddress=usr@dom.ru \<br>
+</span><span style='font-family:"Courier New"'>-out ca.crt<br>
+<br>
+###############################################################################################<br>
+########################### 2. Создание клиентских сертификатов
+###############################<br>
+###############################################################################################<br>
+# Создание конфиг. файла ca.config для подписи запроса на сертификат (CSR)
+<br>
+# с помощью доверенного сертификата (CA)<br>
+# со следующим содержимым<br>
+[ ca ]<br>
+default_ca        = CA_CLIENT<br>
+<br>
+</span><span lang=EN-US style='font-family:"Courier New"'>[ CA_CLIENT ]<br>
+dir                    = ./db<br>
+certs                  = $dir/certs<br>
+new_certs_dir          = $dir/newcerts<br>
+database               = $dir/index.txt<br>
+serial                 = $dir/serial<br>
+certificate            = ./ca.crt<br>
+private_key            = ./ca.key<br>
+default_days           = 3660<br>
+default_crl_days       = 7<br>
+default_md             = md5<br>
+policy                 = policy_anything<br>
+<br>
+[ policy_anything ]<br>
+countryName            = optional<br>
+stateOrProvinceName    = optional<br>
+localityName           = optional<br>
+organizationName       = optional<br>
+organizationalUnitName = optional<br>
+</span><span style='font-family:"Courier New"'>commonName             =
+supplied<br>
+emailAddress           = optional<br>
+<br>
+# Создание каталогов для сертификатов и служебных файлов<br>
+</span><span lang=EN-US style='font-family:"Courier New"'>mkdir -p db/certs
+&amp;&amp; mkdir -p db/newcerts &amp;&amp; touch db/index.txt &amp;&amp; echo
+&quot;01&quot; &gt; db/serial<br>
+<br>
+</span><span style='font-family:"Courier New"'># Создание клиентского закрытого
+ключа и запроса на сертификат (CSR)<br>
+</span><span lang=EN-US style='font-family:"Courier New"'>openssl req -new
+-newkey rsa:1024 -nodes -keyout client01.key \<br>
+-subj /C=RU/ST=Msk/L=Msk/O=KOLENERGO/OU=SES/CN=isms/emailAddress=admin@ema.ru
+\<br>
+</span><span style='font-family:"Courier New"'>-out client01.csr<br>
+<br>
+# Подпись запроса на сертификат (CSR) с помощью доверенного сертификата
+(CA).<br>
+</span><span lang=EN-US style='font-family:"Courier New"'>openssl ca -config
+ca.config -in client01.csr -out client01.crt -batch<br>
+<br>
+</span><span style='font-family:"Courier New"'># Подготовка данных для передачи
+клиенту.<br>
+# параметр pass указывает пароль, который необходимо будет ввести при импорте
+сертификата в браузере<br>
+</span><span lang=EN-US style='font-family:"Courier New"'>openssl pkcs12
+-export -in client01.crt -inkey client01.key \<br>
+-certfile ca.crt -out client01.p12 -passout pass:iSmSPassw0rd<br>
+<br>
+</span><span style='font-family:"Courier New"'>###############################################################################################<br>
+#################################### 3. Настройка веб-сервера.
+################################<br>
+###############################################################################################<br>
+# Найдите в конфиге веб-сервера apache2 секцию VirtualHost отвечающую за
+iSMS<br>
+# (обычно это файл /etc/apache2/sites-available/wasutp.conf)<br>
+# и сконфигурируйте в соостветствии с конфигом ниже:<br>
+</span><span lang=EN-US style='font-family:"Courier New"'>&lt;VirtualHost
+*:80&gt;<br>
+        ServerName wasutp.loc<br>
+        ServerAlias www.wasutp.loc<br>
+        ServerAdmin spendlively@mail.ru<br>
+        DocumentRoot /home/www-data/www/htdocs/WASUTP/public/<br>
+        ErrorLog ${APACHE_LOG_DIR}/error.log<br>
+        CustomLog ${APACHE_LOG_DIR}/access.log combined<br>
+        &lt;Directory /home/www-data/www/htdocs/WASUTP/public/&gt;<br>
+                AllowOverride All<br>
+                Options +FollowSymLinks +Indexes<br>
+                Order deny,allow<br>
+            Require all granted # </span><span style='font-family:"Courier New"'>для</span><span
+lang=EN-US style='font-family:"Courier New"'> apache2 &gt;= 2.4<br>
+#           Allow from all # </span><span style='font-family:"Courier New"'>для</span><span
+lang=EN-US style='font-family:"Courier New"'> apache2 &lt; 2.4<br>
+        &lt;/directory&gt;<br>
+&lt;/VirtualHost&gt;<br>
+<br>
+&lt;VirtualHost *:443&gt;<br>
+    ServerName wasutp.loc<br>
+    ServerAlias www.wasutp.loc<br>
+    DocumentRoot /home/www-data/www/htdocs/WASUTP/public/<br>
+    &lt;Directory /home/www-data/www/htdocs/WASUTP/public/&gt;<br>
+        AllowOverride All<br>
+        Options +FollowSymLinks<br>
+        Order Deny,Allow<br>
+      Require all granted # </span><span style='font-family:"Courier New"'>для</span><span
+lang=EN-US style='font-family:"Courier New"'> apache2 &gt;= 2.4<br>
+#     Allow from all # </span><span style='font-family:"Courier New"'>для</span><span
+lang=EN-US style='font-family:"Courier New"'> apache2 &lt; 2.4<br>
+        SSLVerifyClient require<br>
+    &lt;/Directory&gt;<br>
+        SSLEngine on<br>
+        SSLVerifyClient require<br>
+        SSLCertificateKeyFile /etc/apache2/ssl/ca.key<br>
+        SSLCertificateFile    /etc/apache2/ssl/ca.crt<br>
+        SSLCACertificateFile /etc/apache2/ssl/ca.crt<br>
+</span><span style='font-family:"Courier New"'>&lt;/VirtualHost&gt;<br>
+<br>
+# Импорт пользовательского сертификата в браузер google chrome:<br>
+# Настройки -&gt; Показать дополнительные настройки -&gt; HTTPS/SSL -&gt;
+Импорт<br>
+# Далее необходимо перейти в каталог ssl (/etc/apache2/ssl) и выюрать в нем
+файл client01.p12 (либо другой файл с расширением .p12)<br>
+<br>
+# Чтобы изменения вступили в силу, необходимо перезагрузить веб-сервер
+apache2<br>
+<br>
+# Если необходимо, чтобы все запросы по протоколу http перенаправлялись на
+https<br>
+# необходимо в файле .htaccess (WASUTP/public/.htaccess) раскомментировать
+строки:<br>
+</span><span lang=EN-US style='font-family:"Courier New"'>#RewriteCond
+%{SERVER_PORT} 80<br>
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]<br>
+<br>
+</span><span style='font-family:"Courier New"'># При первом входе на сайт по
+протоколу https<br>
+# браузер отобразит предупреждение о безопасности, <br>
+# т.к. сертификат является самоподписанным.<br>
+# Чтобы войти на сайт, выберите:<br>
+Дополнительно -&gt; Перейти на сайт [адрес сайта] (небезопасно)<br>
+<br>
+# для получения более подробной информации
+http://www.opennet.ru/base/sec/ssl_cert.txt.html<br>
+ &nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

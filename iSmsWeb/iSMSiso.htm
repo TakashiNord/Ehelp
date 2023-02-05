@@ -1,0 +1,413 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Liberation Mono";}
+@font-face
+	{font-family:"Droid Sans";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Droid Sans";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Droid Sans";
+	font-style:italic;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Droid Sans";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Droid Sans";}
+span.a
+	{mso-style-name:"?????? ?????????";}
+p.a0, li.a0, div.a0
+	{mso-style-name:?????????;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Droid Sans";}
+p.a1, li.a1, div.a1
+	{mso-style-name:?????????;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Droid Sans";}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 2.0cm 2.0cm 2.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=RU>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:12.0pt'><span style='font-size:16.0pt;
+font-family:"Times New Roman","serif"'>Инструкция по подготовке образа диска с системой
+iSMS.</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'><b><span style='font-family:
+"Times New Roman","serif"'>Для сборки потребуются следующие компоненты:</span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'><span
+style='font-family:"Times New Roman","serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman","serif"'>Установленная
+ОС Linux (протестировано для ОС Debian 7.6).</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'><span
+style='font-family:"Times New Roman","serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman","serif"'>Установленный
+пакет apt-ftparchive (для генерации списка пакетов в дистрибутиве).</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'><span
+style='font-family:"Times New Roman","serif"'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman","serif"'>Установленный
+пакет genisoimage (для создания iso-образа).</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:"Times New Roman","serif"'>Архив с подготовленной структурой
+директорий для образа диска.</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'><b><span style='font-family:
+"Times New Roman","serif"'>Содержимое каталога сборщика:</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:5.4pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=104 valign=top style='width:78.0pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i><span lang=EN-US style='font-family:"Times New Roman","serif"'>d</span></i><i><span
+  style='font-family:"Times New Roman","serif"'>istrib/</span></i></p>
+  </td>
+  <td width=546 valign=top style='width:409.3pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>шаблон
+  образа диска</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=104 valign=top style='width:78.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i><span style='font-family:"Times New Roman","serif"'>indices</span></i><i><span
+  lang=EN-US style='font-family:"Times New Roman","serif"'>/</span></i></p>
+  </td>
+  <td width=546 valign=top style='width:409.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>базовое
+  описание пакетов Debian (исправлять не рекомендуется)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=104 valign=top style='width:78.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i><span style='font-family:"Times New Roman","serif"'>isms</span></i><i><span
+  lang=EN-US style='font-family:"Times New Roman","serif"'>/</span></i></p>
+  </td>
+  <td width=546 valign=top style='width:409.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>директория
+  с пакетами iSMS, которые будут добавляться в образ (из этой директории пакеты
+  будут копироваться в директорию шаблона образа диска)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=104 valign=top style='width:78.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i><span lang=EN-US style='font-family:"Times New Roman","serif"'>apt.conf</span></i></p>
+  <p class=MsoNormal><i><span lang=EN-US style='font-family:"Times New Roman","serif"'>isms-inst.conf</span></i></p>
+  <p class=MsoNormal><i><span lang=EN-US style='font-family:"Times New Roman","serif"'>isms.conf</span></i></p>
+  </td>
+  <td width=546 valign=top style='width:409.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>конфигурационные
+  файлы для создания описания пакетов для инсталлятора (исправлять не рекомендуется)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=104 valign=top style='width:78.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i><span style='font-family:"Times New Roman","serif"'>makeiso.sh</span></i></p>
+  </td>
+  <td width=546 valign=top style='width:409.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>скрипт
+  создания образа</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span style='font-family:"Times New Roman","serif"'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
+margin-left:0cm'><b><span style='font-family:"Times New Roman","serif"'>Формат запуска
+скрипта сборки образа:</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Liberation Mono"'>makeiso.sh
+[-|&lt;package_dir_name&gt; [-|&lt;distrib_dir_name&gt; </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Liberation Mono"'>[-|&lt;result_dir_name&gt;
+[-|&lt;result_file_name&gt;]]]]</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>где:</span></p>
+
+<p class=MsoNormal style='margin-left:14.25pt'><span style='font-family:"Times New Roman","serif"'>&lt;package_dir_name&gt;
+– имя папки, откуда будут браться пакеты iSMS для добавления в дистрибутив; по умолчанию
+будет использовано имя <b>isms</b>.</span></p>
+
+<p class=MsoNormal style='margin-left:14.25pt'><span style='font-family:"Times New Roman","serif"'>&lt;distrib_dir_name&gt;
+– имя папки, где хранится шаблон дистрибутива; по умолчанию будет использовано
+имя <b>distrib.</b></span></p>
+
+<p class=MsoNormal style='margin-left:14.25pt'><span style='font-family:"Times New Roman","serif"'>&lt;result_dir_name&gt;
+– директория, куда будет сохраняться готовый образ; по умолчанию будет
+использовано имя <b>iso.</b></span></p>
+
+<p class=MsoNormal style='margin-left:14.25pt'><span style='font-family:"Times New Roman","serif"'>&lt;result_file_name&gt;
+– имя результирующего файла образа диска; по умолчанию будет использовано имя <b>isms-1.0.iso.</b></span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><i><span style='font-family:"Times New Roman","serif"'>Примечание1</span></i></b><span
+style='font-family:"Times New Roman","serif"'>. Скрипт <i>makeiso.sh</i>
+автоматически находит самые новые пакеты в директории &lt;package_dir_name&gt;
+(определяется по времени последнего обновления файлов) и копирует их в шаблон
+дистрибутива.</span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
+margin-left:0cm'><b><i><span style='font-family:"Times New Roman","serif"'>Примечание2</span></i></b><b><span
+style='font-family:"Times New Roman","serif"'>. </span></b><span
+style='font-family:"Times New Roman","serif"'>Если требуется изменить только
+один параметр и предыдущие параметры оставить по умолчанию, то вместо них необходимо
+поставить символ прочерка '–'.</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Times New Roman","serif"'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'><b><span style='font-family:
+"Times New Roman","serif"'>Изменение сценариев работы инсталлятора:</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman","serif"'>Файл <i>distrib/install.386/preseed.conf</i>
+содержит автоматические ответы на вопросы, задаваемые инсталлятором при
+установке. Также в нём содержатся некоторые выполняемые при разбивке дисков
+скрипты и другие настройки системы, выполняемые после окончания установки.</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'><b><span style='font-family:
+"Times New Roman","serif"'>Стандартный алгоритм создания образа:</span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'><span
+style='font-family:"Times New Roman","serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman","serif"'>Скопировать
+пакеты iSMS в директорию <i>isms</i>.</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'><span
+style='font-family:"Times New Roman","serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman","serif"'>Выполнить
+скрипт <i>makeiso.sh</i>.</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:"Times New Roman","serif"'>Получить готовый образ диска <i>iso/iSMS-1.0.iso</i>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:6.0pt'><b><span style='font-family:
+"Times New Roman","serif"'>Подготовка загрузочного </span></b><b><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>USB-</span></b><b><span
+style='font-family:"Times New Roman","serif"'>носителя:</span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'><span
+style='font-family:"Times New Roman","serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman","serif"'>Загрузочный </span><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>USB</span><span
+style='font-family:"Times New Roman","serif"'>-носитель подготавливается с
+помощью свободно распространяемой кроссплатформенной утилиты </span><b><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>UNetbootin</span></b><span
+style='font-family:"Times New Roman","serif"'>.</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'><span
+style='font-family:"Times New Roman","serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman","serif"'>В программе </span><b><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>UNetbootin</span></b><span
+style='font-family:"Times New Roman","serif"'> выбирается пункт «Образ диска» с
+опцией «Стандарт </span><span lang=EN-US style='font-family:"Times New Roman","serif"'>ISO</span><span
+style='font-family:"Times New Roman","serif"'>» и выбирается файл образа диска.</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'><span
+style='font-family:"Times New Roman","serif"'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman","serif"'>В качестве
+исходного файла берется подготовленный ранее .</span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>ISO</span><span style='font-family:
+"Times New Roman","serif"'>-образ диска (например, </span><i><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>iSMS</span></i><i><span
+style='font-family:"Times New Roman","serif"'>-1.0.</span></i><i><span
+lang=EN-US style='font-family:"Times New Roman","serif"'>iso</span></i><span
+style='font-family:"Times New Roman","serif"'>).</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt'><span
+style='font-family:"Times New Roman","serif"'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman","serif"'>После
+завершения работы утилиты необходимо заменить файл </span><i><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>syslinux</span></i><i><span
+style='font-family:"Times New Roman","serif"'>.</span></i><i><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>cfg</span></i><span lang=EN-US
+style='font-family:"Times New Roman","serif"'> </span><span style='font-family:
+"Times New Roman","serif"'>в корне диска, поскольку по умолчанию при
+инициализации </span><span lang=EN-US style='font-family:"Times New Roman","serif"'>USB</span><span
+style='font-family:"Times New Roman","serif"'>-носителя будет помещено свое
+загрузочное меню, которое не оптимизировано для </span><span lang=EN-US
+style='font-family:"Times New Roman","serif"'>iSMS</span><span
+style='font-family:"Times New Roman","serif"'>.</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'>&nbsp;</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;background:#D9D9D9;border-collapse:collapse;
+ border:none'>
+ <tr>
+  <td width=621 valign=top style='width:466.0pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>default
+  /isolinux/vesamenu.c32</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  background /isolinux/splash.png</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color title    * #FF101040 * none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color border   * #00000000 #00000000 none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color unsel    * #ff101040 #00000000 none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color hotkey   * #ff801020 #00000000 none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color sel      * #ff101040 #a0406080 none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color hotsel   * #ff801020 #a0406080 none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color tabmsg   * #ff101040 #00000000 none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color help     * #ff101040 #00000000 none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color cmdline </span><span lang=EN-US style='font-size:10.0pt;font-family:
+  "Calibri","sans-serif"'>  </span><span lang=EN-US style='font-size:10.0pt;
+  font-family:Courier'>* #ff101040 #00000000 none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  color cmdmark </span><span style='font-size:10.0pt;font-family:"Calibri","sans-serif"'>  </span><span
+  lang=EN-US style='font-size:10.0pt;font-family:Courier'>* #ff101040 #00000000
+  none</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>&nbsp;</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>#
+  XXX When adjusting vshift, take care that rows is set to a small</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>#
+  enough value so any possible menu will fit on the screen,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>#
+  rather than falling off the bottom.</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  vshift 6</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  rows 10</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  helpmsgrow 13</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>#
+  The command line must be at least one line from the bottom.</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  cmdlinerow 13</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  timeoutrow 13</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  tabmsgrow 19</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  tabmsg Press ENTER to boot or TAB to edit a menu entry</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>&nbsp;</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>prompt
+  0</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  title iSMS instalation disk.</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>timeout
+  100</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>&nbsp;</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>label
+  ubnentry0</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>menu
+  label Install iSMS</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>kernel
+  /install.386/vmlinuz</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Courier'>append
+  initrd=/install.386/initrd.gz vga=788 file=/cdrom/install.386/preseed.conf 
+  -- quiet</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

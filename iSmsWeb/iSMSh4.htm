@@ -1,0 +1,163 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Текст Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.5pt;
+	font-family:Consolas;}
+span.a
+	{mso-style-name:"Текст Знак";
+	mso-style-link:Текст;
+	font-family:Consolas;}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 66.75pt 2.0cm 66.7pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=RU>
+
+<div class=WordSection1>
+
+<p class=MsoPlainText><span style='font-family:"Courier New"'>Обновление MySQL
+до версии 5.7.22 и PHP до версии 5.6.32<br>
+(требуется, чтобы обновить старые версии iSMS (до 1.18.2.0) пакетами).<br>
+<br>
+Перед выполнением обновления обязательно сделать резервную копию конфигурации
+(выгрузить текущую конфигурацию)!<br>
+<br>
+Порядок обновления:<br>
+<br>
+1. Скопировать архив на удаленную isms по SCP:<br>
+</span><span lang=EN-US style='font-family:"Courier New"'># scp
+debian7debs.tar.gz ismsadmin@remote-isms:~<br>
+<br>
+</span><span style='font-family:"Courier New"'>2. Зайти на isms и стать
+суперпользователем, пароль passme:<br>
+</span><span lang=EN-US style='font-family:"Courier New"'># ssh
+ismsadmin@remote-isms<br>
+ismsadmin@isms# su<br>
+<br>
+3. </span><span style='font-family:"Courier New"'>Извлечь</span><span
+style='font-family:"Courier New"'> </span><span style='font-family:"Courier New"'>архив</span><span
+lang=EN-US style='font-family:"Courier New"'> <br>
+# tar -xvf debian7debs.tar.gz<br>
+<br>
+</span><span style='font-family:"Courier New"'>4. Остановить модули iSMS, и
+проверить что все сервисы not running.<br>
+  Если запущены, то еще раз ema stopww<br>
+</span><span lang=EN-US style='font-family:"Courier New"'># ema stopww
+&amp;&amp; ema status<br>
+   ...<br>
+   elregd                                                      Not
+running<br>
+   pwswtd                                                      Not
+running<br>
+   sysmond                                                     Not
+running<br>
+   </span><span style='font-family:"Courier New"'>==================================<br>
+   The state is UNKNOWN!<br>
+   ==================================<br>
+<br>
+5. Начать устанавливать новые версии, завершится с ошибкой.<br>
+Во время установки будет задан вопрос про уже существующий файл php.ini,<br>
+нужно</span><span style='font-family:"Courier New"'> </span><span
+style='font-family:"Courier New"'>выбрать</span><span style='font-family:"Courier New"'>
+</span><span style='font-family:"Courier New"'>пункт</span><span
+style='font-family:"Courier New"'> </span><span style='font-family:"Courier New"'>меню</span><span
+lang=EN-US style='font-family:"Courier New"'> &quot;install the package
+maintainer's version&quot;<br>
+</span><span style='font-family:"Courier New"'>или в русском варианте
+&quot;установить версию из пакета&quot;.<br>
+При установке возникнет много конфликтов пакетов. Так и должно быть, на шаге 7
+они разрешатся.<br>
+</span><span lang=EN-US style='font-family:"Courier New"'># dpkg -i
+debian7debs/*.deb<br>
+<br>
+6. </span><span style='font-family:"Courier New"'>Удалить</span><span
+style='font-family:"Courier New"'> </span><span style='font-family:"Courier New"'>старые</span><span
+style='font-family:"Courier New"'> </span><span style='font-family:"Courier New"'>версии</span><span
+lang=EN-US style='font-family:"Courier New"'> mysql-server<br>
+# dpkg -r mysql-client-5.5 mysql-server-5.5 mysql-server-core-5.5 <br>
+<br>
+</span><span style='font-family:"Courier New"'>7. Установить новые
+версии.<br>
+   Во время установки попросит ввести новый пароль для root от базы данных -
+ввести passme 2 раза.<br>
+   После этого шага все конфликты разрешатся.<br>
+# dpkg -i debian7debs/*.deb<br>
+<br>
+8. Запустить скрипт обновления базы (пароль passme).<br>
+</span><span lang=EN-US style='font-family:"Courier New"'># mysql_upgrade -u
+root -p --force<br>
+   </span><span style='font-family:"Courier New"'>В конце вывода должны быть строки:<br>
+   </span><span lang=EN-US style='font-family:"Courier New"'>...<br>
+   Upgrade process completed successfully.<br>
+   Checking if update is needed.<br>
+<br>
+</span><span style='font-family:"Courier New"'>9. Проверить версию mysql,
+должна быть 5.7.22. Если версия не совпадает, звони ЕМА<br>
+# mysql --version<br>
+<br>
+10. Проверить версию php, должна быть 5.6.32. Если версия не совпадает, звони
+EMA<br>
+</span><span lang=EN-US style='font-family:"Courier New"'># php --version<br>
+<br>
+11. </span><span style='font-family:"Courier New"'>Перезапустить</span><span
+lang=EN-US style='font-family:"Courier New"'> mysql<br>
+# service mysql restart<br>
+<br>
+</span><span style='font-family:"Courier New"'>12. Запустить серверные модули и
+проверить, что они все запустились (Running)<br>
+</span><span lang=EN-US style='font-family:"Courier New"'># ema start<br>
+# ema status<br>
+  ...<br>
+  arcwrite                                                    Running<br>
+  dcsd                                                        Running<br>
+  elregd                                                      Running<br>
+  pwswtd                                                      Running<br>
+  sysmond                                                     Running<br>
+  ==================================<br>
+  The state is MASTER!<br>
+  </span><span style='font-family:"Courier New"'>==================================<br>
+ &nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

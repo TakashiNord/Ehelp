@@ -1,0 +1,576 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Текст сноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Текст выноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Segoe UI","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.a
+	{mso-style-name:"Текст сноски Знак";
+	mso-style-link:"Текст сноски";}
+span.a0
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Segoe UI","sans-serif";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=RU link="#0563C1" vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b>Дорасчёт</b></p>
+
+<p class=MsoNormal>Функция дорасчёта предназначена для вычисления значении
+параметров при помощи арифметических или логических выражений. В <span
+lang=EN-US>iSMS</span><span lang=EN-US> </span>функция дорасчёта реализована с
+помощью скриптового языка программирования <span lang=EN-US>Lua</span>. Один
+раз в технологический цикл, происходит запуск скрипта дорасчёта, результатом
+работы которого является вычисленное значение параметров. Полный путь скрипта
+дорасчёта:</p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=623 valign=top style='width:467.25pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>/<span lang=EN-US>home</span>/<span lang=EN-US>ema</span>/<span
+  lang=EN-US>dcs</span>.<span lang=EN-US>lua</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>После правки формул дорасчёта применение изменений не
+требуется. В случае отсутствия скрипта, функция дорасчёта не запускается. По
+умолчанию скрипт дорасчёта отсутствует. Для создания параметров источником
+данных для которых является дорасчёт, необходимо создать профиль общих функций
+и выбрать функцию дорасчёта. Далее на основании полученного профиля создаётся виртуальный
+прибор, параметры которого можно использовать как источники для параметров на
+передачу.</p>
+
+<p class=MsoNormal><b>Служебные таблицы</b></p>
+
+<p class=MsoNormal><span lang=EN-US>data</span>[] – глобальная таблица для
+доступа к параметрам, ключом является идентификатор из подсистемы сбора и
+передачи. Читать данные или статусы можно из любого параметра подсистемы сбора
+и передачи, запись возможна только в параметры которые не имеют источников
+данных.</p>
+
+<p class=MsoNormal><span lang=EN-US>global</span>[] – глобальная таблица для
+нужд пользователя, её содержимое не сбрасывается по окончанию технологического
+цикла. В случае если по заданному ключу в таблице нет данных возвращается 0.</p>
+
+<p class=MsoNormal><b>Функции для объектов из таблицы </b><b><span lang=EN-US>data</span>[]</b></p>
+
+<p class=MsoNormal><span lang=EN-US>getStatus</span>()-возвращает текущий
+статус параметра.</p>
+
+<p class=MsoNormal><span lang=EN-US>getValue</span>()-возвращает текущие данные
+параметра.</p>
+
+<p class=MsoNormal><span lang=EN-US>setStatus</span>(<span lang=EN-US>number</span><span
+lang=EN-US> </span><span lang=EN-US>status</span>) – сбрасывает все
+установленные ранее статусы параметра и устанавливает новый указанный статус</p>
+
+<p class=MsoNormal><span lang=EN-US>setValue</span>(<span lang=EN-US>number</span><span
+lang=EN-US> </span><span lang=EN-US>value</span>) – задаёт новое значение
+данных для параметра. В случае попытки установить значение <span lang=EN-US>INF</span><span
+lang=EN-US> </span>или <span lang=EN-US>NaN</span>, значение принимает 0 и
+устанавливается статус “Данные недостоверны”.</p>
+
+<p class=MsoNormal><span lang=EN-US>update</span>() –отсылка новых статусов и
+данных параметра, эту функцию необходимо вызывать после окончания всех операции
+с помощью функций <span lang=EN-US>setStatus</span> и <span lang=EN-US>setValue</span>.</p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=623 valign=top style='width:467.25pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><i>--Установить статус параметра с </i><i><span lang=EN-US>id</span>
+  518 как побитовое ИЛИ статусов </i></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><i>--из параметров с </i><i><span lang=EN-US>id</span> 73 и 74</i></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data[518]:setStatus(data[73]:getStatus() |
+  data[74]:getStatus())</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><i>--Вычисление данных для параметра с </i><i><span lang=EN-US>id</span>
+  518 из данных параметров с </i><i><span lang=EN-US>id</span> 73 и 74</i></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data[518]:setValue((data[73]:getValue()^2 +
+  data[74]:getValue()^2)^0.5/2)</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><i>--Передать выше сделанные изменения для параметра с </i><i><span
+  lang=EN-US>id</span> 518</i></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data</span>[518]:<span lang=EN-US>update</span>()</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Так-же существует более простой способ работы с данными,
+используя непосредственное обращение к объектам из таблицы <span lang=EN-US>data</span>[].
+Все операции выполняются со значениями, вычисление статуса происходит
+автоматически, путём побитового ИЛИ между статусами операндов, а также
+происходит автоматическая отсылка обновления.</p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=623 valign=top style='width:467.25pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><i>--Вычисление данных для параметра с </i><i><span lang=EN-US>id</span><span
+  lang=EN-US> </span>519 из данных параметров с </i><i><span lang=EN-US>id</span><span
+  lang=EN-US> </span>73 и 74, вычисление статуса и отсылка обновления
+  происходят автоматически</i></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data</span>[519] = (<span lang=EN-US>data</span>[73]^2
+  + <span lang=EN-US>data</span>[74]^2)^0.5/2</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><i>--Данные параметра с </i><i><span lang=EN-US>id</span> 520
+  принимает 42, все статусы сбрасываются, изменения </i></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><i>--автоматически переданы</i></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data</span>[520] = 42</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=EN-US>setControl</span>(boolean <span lang=EN-US>value</span>)
+–задать состояние параметра телеуправления. Отсылка обновления будет
+произведена автоматически.</p>
+
+<p class=MsoNormal><b>Операции для объектов из таблицы </b><b><span lang=EN-US>data</span>[]</b></p>
+
+<p class=MsoNormal>С объектами из таблицы <span lang=EN-US>data</span>[]
+возможны следующие операции:</p>
+
+<p class=MsoNormal>Арифметические:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>“</span>+<span lang=EN-US>” – </span>сложение</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>“-” - </span>вычитание</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>“*” - </span>умножение</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>“/”</span> - деление</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>“^”</span> – возведение в степень</p>
+
+<p class=MsoNormal>Логические: </p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>“|” –</span> логическое ИЛИ</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>“&amp;” –</span> логическое И</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>“~” –</span> инверсия</p>
+
+<p class=MsoNormal><b>Функции для работы со статусами для объектов из таблицы </b><b><span
+lang=EN-US>data</span>[]</b></p>
+
+<p class=MsoNormal><span lang=EN-US>setValueNoCorrect</span>() – установить
+статус “Данные недостоверны”</p>
+
+<p class=MsoNormal><span lang=EN-US>setNoPresent</span>() – установить статус “Источник
+данных отсутствует”</p>
+
+<p class=MsoNormal><span lang=EN-US>setDeratingWarning</span>() – установить
+статус “Нарушены предупредительные уставки”</p>
+
+<p class=MsoNormal><span lang=EN-US>setDeratingAlarm</span>()– установить
+статус “Нарушены аварийные уставки”</p>
+
+<p class=MsoNormal><span lang=EN-US>setNoScanned</span>()– установить статус “Выведен
+из работы”</p>
+
+<p class=MsoNormal><span lang=EN-US>setManual</span>()– установить статус “Ручной
+ввод значения”</p>
+
+<p class=MsoNormal><span lang=EN-US>setSlaveSend</span>()– установить статус “Ведется
+передача во внешние системы”</p>
+
+<p class=MsoNormal><span lang=EN-US>setSubstitution</span>()– установить статус
+“Признак замещения параметра”</p>
+
+<p class=MsoNormal><span lang=EN-US>setSrcNoCorrect</span>()– установить статус
+“Признак некорректной работы драйвера”</p>
+
+<p class=MsoNormal><span lang=EN-US>setDevNoCorrect</span>()– установить статус
+“Признак некорректного источника данных”</p>
+
+<p class=MsoNormal>После установки всех необходимых статусов, нужно отослать итоговый
+обновлённый статус с помощью функции <span lang=EN-US>update</span>.</p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=623 valign=top style='width:467.25pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>if data[523]:getValue() &gt; 225 then </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>    data[523]: setDeratingWarning()</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>    data[523]: setValueNoCorrect()</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>else</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>   data[523]: setStatus(0)</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>data[523]:update()</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=EN-US>isValueNoCorrect</span>() –проверка статуса
+“Данные недостоверны”</p>
+
+<p class=MsoNormal><span lang=EN-US>isNoPresent</span>() – проверка статуса “Источник
+данных отсутствует”</p>
+
+<p class=MsoNormal><span lang=EN-US>isDeratingWarning</span>() – проверка
+статуса “Нарушены предупредительные уставки”</p>
+
+<p class=MsoNormal><span lang=EN-US>isDeratingAlarm</span>()–проверка статуса “Нарушены
+аварийные уставки”</p>
+
+<p class=MsoNormal><span lang=EN-US>isNoScanned</span>()–проверка статуса “Выведен
+из работы”</p>
+
+<p class=MsoNormal><span lang=EN-US>isManual</span>()–проверка статуса “Ручной
+ввод значения”</p>
+
+<p class=MsoNormal><span lang=EN-US>isSlaveSend</span>()–проверка статуса “Ведется
+передача во внешние системы”</p>
+
+<p class=MsoNormal><span lang=EN-US>isSubstitution</span>()–проверка статуса “Признак
+замещения параметра”</p>
+
+<p class=MsoNormal><span lang=EN-US>isSrcNoCorrect</span>()–проверка статуса “Признак
+некорректной работы драйвера”</p>
+
+<p class=MsoNormal><span lang=EN-US>isDevNoCorrect</span>()–проверка статуса “Признак
+некорректного источника данных”</p>
+
+<p class=MsoNormal><b>Константы</b></p>
+
+<p class=MsoNormal>Для описания условий с параметрами, имеющими тип
+телесигнализация, можно использовать предопределённые константы: <span
+lang=EN-US>ON</span><span lang=EN-US> </span>и <span lang=EN-US>OFF</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=623 valign=top style='width:467.25pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>-- Проверка условия ТС включён</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>if</span><span lang=EN-US> </span><span lang=EN-US>data</span>[88]
+  == <span lang=EN-US>ON</span><span lang=EN-US> </span><span lang=EN-US>then</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>                <span lang=EN-US>data</span>[520] = <span lang=EN-US>data</span>[73]+<span
+  lang=EN-US>data</span>[74]</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>-- Проверка условия ТС выключен</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>if data[88] == OFF then</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>                data[520] = data[73]*data[74]</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b>&nbsp;</b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>Функции для вывода сообщений в лог файл</b></p>
+
+<p class=MsoNormal><span lang=EN-US>info</span>(<span lang=EN-US>message</span>)
+- Вывести сообщение в лог файл со статусом “Информация”</p>
+
+<p class=MsoNormal><span lang=EN-US>warning</span>(<span lang=EN-US>message</span>)
+- Вывести сообщение в лог файл со статусом “Предупреждение”</p>
+
+<p class=MsoNormal><span lang=EN-US>error</span>(<span lang=EN-US>message</span>)
+- Вывести сообщение в лог файл со статусом “Ошибка”</p>
+
+<p class=MsoNormal><b>Библиотеки</b></p>
+
+<p class=MsoNormal>Для скрипта дорасчёта по умолчанию включены следующие <span
+lang=EN-US>Lua</span> библиотеки:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>math</span><span lang=EN-US> </span>– библиотека
+математических функций <a href="https://www.lua.org/manual/5.3/manual.html#6.7"><span
+lang=EN-US>https</span>://<span lang=EN-US>www</span>.<span lang=EN-US>lua</span>.<span
+lang=EN-US>org</span>/<span lang=EN-US>manual</span>/5.3/<span lang=EN-US>manual</span>.<span
+lang=EN-US>html</span>#6.7</a></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>os</span><span lang=EN-US> </span>– библиотека
+функции операционной системы <span lang=EN-US>https</span>://<span lang=EN-US>www</span>.<span
+lang=EN-US>lua</span>.<span lang=EN-US>org</span>/<span lang=EN-US>manual</span>/5.3/<span
+lang=EN-US>manual</span>.<span lang=EN-US>html</span>#6.9</p>
+
+<p class=MsoNormal><b>Полная документация</b></p>
+
+<p class=MsoNormal><a href="https://www.lua.org/manual/5.3/manual.html">https://www.lua.org/manual/5.3/manual.html</a></p>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><b>Типовые примеры использования</b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=623 valign=top style='width:467.25pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>--сложный метод, полностью ручное управление</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>data[518]:setStatus(data[73]:getStatus() | data[74]:getStatus())</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data[518]:setValue((data[73]:getValue()^2 +
+  data[74]:getValue()^2)^0.5/2)</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>data[518]:update()</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>-- простой метод, статусы будут сложены побитовым ИЛИ</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data</span>[519] = <span lang=EN-US>data</span>[73]^2
+  + <span lang=EN-US>data</span>[74]^2)^0.5/2</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>--проверка значения ТС</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>if data[86] == ON then</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>                data[520] = data[73]+data[74]</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>else</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>                data[520] = data[73]*3</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>--</span>выводим<span lang=EN-US> timestamp </span>в
+  значение</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data[521] = os.time()</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data[521]:DeratingWarning()</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>--ввод случайных данных</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data</span>[522] = <span lang=EN-US>math</span>.<span
+  lang=EN-US>random</span>(1,1000)</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>--работа с <span lang=EN-US>global</span><span lang=EN-US> </span>массивом,
+  <span lang=EN-US>count</span><span lang=EN-US> </span>будет увеличиваться на
+  1 каждый цикл</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>global['count'] = global['count'] + 1</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data[528] = global['test']</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>--</span>телеуправление</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>if global['count']%4 == 0 then</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>                data[386]:setControl(false)</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>else</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>                data[386]:setControl(true)</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>--</span>циклическое задание данных</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>for id = 528, 1022 do</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>                data[id] = (math.random(1,1000)^2+math.random(1,1000)^2)^0.5/2</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>                data</span>[<span lang=EN-US>id</span>]
+  = <span lang=EN-US>data</span>[73] + <span lang=EN-US>data</span>[74]</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>--Вывод предупреждающего сообщения в лог файл</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>warning(&quot;For data &quot; .. id .. &quot;is last
+  count&quot;)</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>--Логические операции</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>data</span>[525] = ~<span lang=EN-US>data</span>[88]
+  | <span lang=EN-US>data</span>[89]</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

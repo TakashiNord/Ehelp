@@ -1,0 +1,844 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Текст выноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.a
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Tahoma","sans-serif";}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=RU link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>Итак имеем «APC Back-UPS RS 800VA 230V»&nbsp;и систему</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>cat /etc/*release</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_1.jpg"
+title="&quot;apcupsd_ubuntu_1&quot; "><span style='color:windowtext;text-decoration:
+none'><img border=0 width=405 height=254 id="Рисунок 10"
+src="iSMSh10.files/image001.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_1.jpg"></span></a></p>
+
+<p class=MsoNormal>Подключаем APC к серверу через USB-кабель и проверяем
+появилась ли APC в системе</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>lsusb</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_2.jpg"
+title="&quot;apcupsd_ubuntu_2&quot; "><span style='color:windowtext;text-decoration:
+none'><img border=0 width=405 height=254 id="Рисунок 9"
+src="iSMSh10.files/image002.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_2.jpg"></span></a></p>
+
+<p class=MsoNormal><span lang=EN-US>Bus 002 Device 002: ID 051d:0002 American
+Power Conversion Uninterruptible Power Supply</span></p>
+
+<p class=MsoNormal>Если присутствуем эта строчка, можно переходить к дальнейшей
+установке и настройке</p>
+
+<p class=MsoNormal><b>Устанавливаем&nbsp;apcupsd&nbsp;</b></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo apt-get install apcupsd apcupsd-cgi</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Копируем на всяк случай конфиг по умолчанию</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>sudo cp /etc/apcupsd/apcupsd.conf
+  /etc/apcupsd/apcupsd.conf.default</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Настраиваем конфиг под себя</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo vi /etc/apcupsd.conf</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Вот содержимое моего конфига</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>## apcupsd.conf v1.1 ##</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal># date 2012.08.28</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#UPSNAME</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>UPSCABLE usb</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>UPSTYPE usb</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#DEVICE /dev/ttyS0</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#POLLTIME 60</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>LOCKFILE /var/lock</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>SCRIPTDIR /etc/apcupsd</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>PWRFAILDIR /etc/apcupsd</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>NOLOGINDIR /etc</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>ONBATTERYDELAY 6</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>BATTERYLEVEL 5</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>MINUTES 3</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>TIMEOUT 0</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>ANNOY 300</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>ANNOYDELAY 60</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>NOLOGON disable</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>KILLDELAY 0</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>NETSERVER on</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>NISIP 127.0.0.1</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>NISPORT 3551</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>EVENTSFILE /var/log/apcupsd.events</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>EVENTSFILEMAX 10</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>UPSCLASS standalone</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>UPSMODE disable</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>STATTIME 0</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>STATFILE /var/log/apcupsd.status</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>LOGSTATS off</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>DATATIME 0</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#FACILITY DAEMON</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#UPSNAME UPS_IDEN</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#BATTDATE mm/dd/yy</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#SENSITIVITY H</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#WAKEUP 60</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#SLEEP 180</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#LOTRANSFER 208</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#HITRANSFER 253</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#RETURNCHARGE 15</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#BEEPSTATE T</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#LOWBATT 2</p>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#OUTPUTVOLTS 230</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='display:none'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>#SELFTEST 336</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Немного распишу интересные нам параметры</p>
+
+<p class=MsoNormal>ONBATTERYDELAY&nbsp;— <i>время (в секундах), определяющее
+задержку между обнаружением сбоя электропитания и отсылкой события onbattery.
+По умолчанию&nbsp;— 6</i><br>
+BATTERYLEVEL&nbsp;— <i>уровень заряда батареи (в процентах), при котором
+инициируется выключение компьютера. По умолчанию&nbsp;— 5</i><br>
+MINUTES&nbsp;— <i>расчётное время остаточной работы (в минутах), при достижении
+которого инициируется выключение компьютера. По умолчанию&nbsp;— 3</i><br>
+TIMEOUT&nbsp;— <i>параметр актуален для старых ИБП, неспособных определять свой
+уровень заряда. Задаёт время (в секундах) между сбоем электропитания и
+отключением компьютера. Для современного ИБП параметр стоит оставить на 0, но
+выставление иного значения может быть удобно для тестирования работы ИБП.
+Например, если выставить 30 и выдернуть шнур из розетки, уже через полминуты
+apcupsd продемонстрирует своё умение выключать компьютер</i><br>
+Выполнения одного из условий (BATTERYLEVEL, MINUTES или TIMEOUT) достаточно для
+выключения компьютера. Более тонкую настройку опишу немного позже, когда будем
+подключать apc к centos.</p>
+
+<p class=MsoNormal>Перед запуском демона apcupsd надо изменить параметр который
+дает apcupsd &nbsp;понять,&nbsp; что мы не забыли его настроить.</p>
+
+<p class=MsoNormal>В файле<span lang=EN-US> «/etc/default/apcupsd» </span>заменяем<span
+lang=EN-US> ISCONFIGURED=no </span>на<span lang=EN-US> ISCONFIGURED=yes</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo vi /etc/default/apcupsd</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_3.jpg"
+title="&quot;apcupsd_ubuntu_3&quot; "><span style='color:windowtext;text-decoration:
+none'><img border=0 width=405 height=254 id="Рисунок 8"
+src="iSMSh10.files/image003.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_3.jpg"></span></a></p>
+
+<p class=MsoNormal>Запускаем демона apcupsd</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>sudo service apcupsd start</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_4.jpg"
+title="&quot;apcupsd_ubuntu_4&quot; "><span style='color:windowtext;text-decoration:
+none'><img border=0 width=405 height=254 id="Рисунок 7"
+src="iSMSh10.files/image004.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_4.jpg"></span></a></p>
+
+<p class=MsoNormal>Проверяем работает ли демон</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>sudo apcaccess status</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Или командой</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>sudo service apcupsd status</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_5.jpg"
+title="&quot;apcupsd_ubuntu_5&quot; "><span style='color:windowtext;text-decoration:
+none'><img border=0 width=405 height=254 id="Рисунок 6"
+src="iSMSh10.files/image005.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_5.jpg"></span></a></p>
+
+<p class=MsoNormal>Ubuntu при установке добавляет демона в автозагрузку, но
+лучше всё проверить. Устанавливаем&nbsp;sysv-rc-conf</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo apt-get install sysv-rc-conf</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>и проверяем</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>sudo&nbsp;sysv-rc-conf</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_6.jpg"
+title="&quot;apcupsd_ubuntu_6&quot; "><span style='color:windowtext;text-decoration:
+none'><img border=0 width=405 height=254 id="Рисунок 5"
+src="iSMSh10.files/image006.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_6.jpg"></span></a></p>
+
+<p class=MsoNormal><b>Настраиваем web мониторинг apcupsd</b></p>
+
+<p class=MsoNormal>Для вывода мониторинга на веб страничку устанавливаем веб
+сервер</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo apt-get install apache2</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Открываем браузер и вводим адресс</p>
+
+<p class=MsoNormal>http://АДРЕС_ВАШЕГО_СЕРВЕРА/cgi-bin/apcupsd/multimon.cgi</p>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_7.jpg"
+title="&quot;apcupsd_ubuntu_7&quot; "><span style='color:windowtext;text-decoration:
+none'><img border=0 width=482 height=321 id="Рисунок 4"
+src="iSMSh10.files/image007.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_7.jpg"></span></a></p>
+
+<p class=MsoNormal><b>Настройка уведомлений от&nbsp;apcupsd&nbsp;</b></p>
+
+<p class=MsoNormal>Для себя определился с тем, что при перебоях с питанием
+должен писаться лог и приходить смс уведомление на телефон. Пожалуй это
+единственное устройство, которое всегда рядом.</p>
+
+<p class=MsoNormal>подробная документация:&nbsp;<a
+href="http://xaxatyxa.ru/goto/http:/www.apcupsd.org/manual/manual.html#apccontrol-command-line-options"
+target="_blank">www.apcupsd.org</a></p>
+
+<p class=MsoNormal><b>Отправка SMS</b></p>
+
+<p class=MsoNormal>Для телефона должна быть подключена услуга «mail2sms». В
+моем случае будет использоваться «билайн»</p>
+
+<p class=MsoNormal>Я не использую других серверов для отправки писем, и шлю
+напрямую с сервера при помощи sendmail</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo apt-get install sendmail</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Делаем бекапы скриптов</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo cp /etc/apcupsd/onbattery
+  /etc/apcupsd/onbattery.default</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>2</p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo cp /etc/apcupsd/offbattery
+  /etc/apcupsd/offbattery.default</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Создаем файл куда будет писаться лог</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo&nbsp;touch
+  /var/log/apcupsd_status.log</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>2</p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo chmod 777
+  /var/log/apcupsd_status.log</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Правим скрипт для включении питания (<b>offbattery<i>)</i></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo vi&nbsp;/etc/apcupsd/offbattery</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>добавляем строчки (&nbsp;вместо&nbsp;7********** ваш номер
+телефона, например: 79601234567)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>echo $(hostname) $(date) APC_ON | mail
+  7**********@sms.beemail.ru</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>echo $(date) $HOSTNAME Power ON &gt;&gt;
+  /var/log/apcupsd_status.log</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>должно получиться&nbsp;</p>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_8.jpg"
+title="&quot;apcupsd_ubuntu_8&quot; "><span style='color:windowtext;text-decoration:
+none'><img border=0 width=405 height=254 id="Рисунок 3"
+src="iSMSh10.files/image008.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_8.jpg"></span></a></p>
+
+<p class=MsoNormal>Правим скрипт для отключении питания (<b>onbattery</b>)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>sudo vi&nbsp;/etc/apcupsd/onbattery</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>добавляем строчки</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>echo $(hostname) $(date) APC_OFF | mail
+  7**********@sms.beemail.ru</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>2</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>echo $(date) $HOSTNAME Power OFF &gt;&gt;
+  /var/log/apcupsd_status.log</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>должно получиться</p>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_9.jpg"
+title="&quot;apcupsd_ubuntu_9&quot; "><span style='color:windowtext;text-decoration:
+none'><img border=0 width=405 height=254 id="Рисунок 2"
+src="iSMSh10.files/image009.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_9.jpg"></span></a></p>
+
+<p class=MsoNormal>Хотя конечно apcupsd ведёт лог
+в&nbsp;/var/log/apcupsd.events но для меня он не удобен</p>
+
+<p class=MsoNormal><b>Возможные ошибки&nbsp;apcupsd&nbsp;</b></p>
+
+<p class=MsoNormal>1. Не запускается демон apcupsd</p>
+
+<p class=MsoNormal><span lang=EN-US>Please check your configuration
+ISCONFIGURED in /etc/default/apcupsd</span></p>
+
+<p class=MsoNormal><a
+href="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_error_1.jpg"
+title="&quot;apcupsd_ubuntu_error_1&quot; "><span style='color:windowtext;
+text-decoration:none'><img border=0 width=405 height=254 id="Рисунок 1"
+src="iSMSh10.files/image010.jpg"
+alt="http://xaxatyxa.ru/wp-content/uploads/2012/08/apcupsd_ubuntu_error_1.jpg"></span></a></p>
+
+<p class=MsoNormal>решение:</p>
+
+<p class=MsoNormal>Заменяем ISCONFIGURED=no на ISCONFIGURED=yes , сохраняем,
+закрываем. Отныне apcupsd будет знать, что мы не забыли его настроить.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

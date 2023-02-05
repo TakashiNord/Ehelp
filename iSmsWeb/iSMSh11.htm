@@ -1,0 +1,345 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+h1
+	{mso-style-link:"Заголовок 1 Знак";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+code
+	{font-family:"Courier New";}
+pre
+	{mso-style-link:"Стандартный HTML Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+span.HTML
+	{mso-style-name:"Стандартный HTML Знак";
+	mso-style-link:"Стандартный HTML";
+	font-family:"Courier New";}
+span.hljs-comment
+	{mso-style-name:hljs-comment;}
+span.hljs-keyword
+	{mso-style-name:hljs-keyword;}
+span.hljs-number
+	{mso-style-name:hljs-number;}
+span.1
+	{mso-style-name:"Заголовок 1 Знак";
+	mso-style-link:"Заголовок 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=RU>
+
+<div class=WordSection1>
+
+<h1>Порядок обновления <span lang=EN-US>iSMS </span>из пакетов</h1>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'>Обновление программного обеспечения сервера iSMS производится согласно
+инструкции <i>&quot;Руководство по эксплуатации ПТК телемеханики iSMS (iSMS
+Operation manual.pdf)&quot;</i>, раздел <i>&quot;Настройка и управление
+прикладным ПО iSMS&quot;</i>, подраздел <i>&quot;Управление программными
+пакетами iSMS&quot;</i>, пункт <i>&quot;Обновление пакетов iSMS с помощью
+утилиты dpkg&quot;.</i></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'>Ниже процесс описан более подробно для версии 1.18.1.1. Обновление на
+другие версии производится <i>аналогично</i> с поправкой на номер версии.</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'>Перед выполнением обновления обязательно сделать <b><span
+style='color:red'>резервную копию конфигурации</span></b><span
+style='color:red'> </span>(выгрузить текущую конфигурацию)!</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>Для
+выполнения обновления необходимо:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>1. Скопировать
+по FTP или <span lang=EN-US>SCP</span><span lang=EN-US> </span>на сервер iSMS
+программные пакеты (файлы *.deb) в директорию /tmp&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>2.
+Подключиться по ssh или через консоль пользователем ismsadmin.</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>3.
+Переключиться на суперпользователя root:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>ismsadmin@isms:~$
+<b>su -</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>Пароль:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>4. Перейти в
+директорию /tmp:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>root@isms:~#
+<b>cd /tmp</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>5.
+Остановить серверные модули iSMS:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>root@isms:/tmp#
+<b>ema stopww</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>==================================</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;
+&nbsp; &nbsp; &nbsp;Stopping EMA modules</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>==================================</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>WARNING!
+Server is currently in MASTER state! Do You really want to stop it? [Y/n] <b>Y</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>systemctl
+stop isms.target</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>Waiting
+for modules stopped.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>6. </span>Остановить<span lang=EN-US> Web-</span>сервер<span
+lang=EN-US>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>root@isms:/tmp#
+<b>service apache2 stop</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>7. Выполнить
+обновление программных пакетов iSMS:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>root@isms:/tmp#
+<b>dpkg -i isms*.deb</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>В ходе
+установке будет предложено повторно сконфигурировать сервер точного времени NTP
+и выбрать текущий iSMS из списка.<br>
+Необходимо выбрать 1 (основной iSMS или единственный) или 2 (если обновляется
+резервный iSMS).<br>
+Также в ходе установки <i>может быть</i> вопрос о конфигурации серверного ПО</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>Настраивается
+пакет isms-server (1.18.1.1-20181029-133602) …</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>Файл
+настройки «/etc/ema/ema.conf»</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;==&gt;
+Изменён с момента установки (вами или сценарием).</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;==&gt;
+Автор пакета предоставил обновлённую версию.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp; Что
+нужно сделать? Есть следующие варианты:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;
+&nbsp;Y или I : установить версию, предлагаемую сопровождающим пакета</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;
+&nbsp;N или O : оставить установленную на данный момент версию</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;
+&nbsp; &nbsp; D &nbsp; &nbsp;: показать различия между версиями</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;
+&nbsp; &nbsp; Z &nbsp; &nbsp;: запустить оболочку командной строки для проверки
+ситуации</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;По
+умолчанию сохраняется текущая версия файла настройки.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>***
+ema.conf (Y/I/N/O/D/Z) [по умолчанию N] ? <b>N</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>Необходимо
+ответить&nbsp;<b>N</b>&nbsp;(по умолчанию).<br>
+Следить за сообщением об ошибках (их быть не должно).</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>8. Проверить
+версию установленных пакетов:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>root@isms:/tmp#
+<b>dpkg -l | grep --regexp=isms</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>ii
+&nbsp;isms-db &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;1.18.1.1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;all &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;iSMS template
+database</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>ii
+&nbsp;isms-doc &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; 1.18.1.1-20181029-141903 &nbsp; &nbsp;all &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;iSMS web documentation</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>ii
+&nbsp;isms-ntp &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; 1.18.1.1-20181029-133602 &nbsp; &nbsp;all &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;iSMS ntp configuration</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>ii
+&nbsp;isms-server &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;1.18.1.1-20181029-133602 &nbsp; &nbsp;amd64 &nbsp; &nbsp; &nbsp;
+&nbsp;iSMS server modules</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>ii
+&nbsp;isms-utils &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; 1.18.1.1-20181029-133713 &nbsp; &nbsp;amd64 &nbsp; &nbsp; &nbsp;
+&nbsp;iSMS utility programs and scripts</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>ii
+&nbsp;isms-web &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; 1.18.1.1-20181029-133427 &nbsp; &nbsp;amd64 &nbsp; &nbsp; &nbsp;
+&nbsp;iSMS web modules</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>ii
+&nbsp;isms-web-ssl &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; 1.18.1.1-20181029-133119 &nbsp; &nbsp;all &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;SSL for iSMS web modules</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>9. </span>Запустить<span lang=EN-US> Web-</span>сервер</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>root@isms:/tmp#
+<b>service apache2 start</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>10.
+Запустить серверные модули:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>root@isms:/tmp#
+<b>ema start</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>==================================</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>&nbsp;
+&nbsp; &nbsp; &nbsp;Starting EMA modules</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>==================================</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>systemctl
+start isms.target</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>11. </span>Удалить установочные пакеты<span lang=EN-US>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New"'>root@isms:/tmp#
+<b>rm isms*.deb</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Liberation Serif";}
+@font-face
+	{font-family:"Liberation Sans";}
+@font-face
+	{font-family:"Bitstream Vera Sans";}
+@font-face
+	{font-family:FreeSans;}
+@font-face
+	{font-family:"DejaVu Sans Mono";}
+@font-face
+	{font-family:"Bitstream Vera Sans Mono";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Liberation Serif","serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:14.15pt;
+	margin-bottom:.0001pt;
+	text-indent:-14.15pt;
+	font-size:10.0pt;
+	font-family:"Liberation Serif","serif";}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:7.0pt;
+	margin-left:0cm;
+	line-height:120%;
+	font-size:12.0pt;
+	font-family:"Liberation Serif","serif";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:7.0pt;
+	margin-left:0cm;
+	line-height:120%;
+	font-size:12.0pt;
+	font-family:"Liberation Serif","serif";}
+span.a
+	{mso-style-name:"Символ сноски";}
+p.a0, li.a0, div.a0
+	{mso-style-name:Заголовок;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Liberation Sans","sans-serif";}
+p.1, li.1, div.1
+	{mso-style-name:Название1;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Liberation Serif","serif";
+	font-style:italic;}
+p.10, li.10, div.10
+	{mso-style-name:Указатель1;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Liberation Serif","serif";}
+p.a1, li.a1, div.a1
+	{mso-style-name:"Текст в заданном формате";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"DejaVu Sans Mono";}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 2.0cm 2.0cm 2.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=RU style='line-break:strict'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>Запись архивов iSMS в БД MySQL
+осуществляется в таблицы da</span><span lang=EN-US style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>_arc_...,</span><span
+style='font-size:10.0pt;font-family:"Liberation Sans","sans-serif"'> meas_</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Liberation Sans","sans-serif"'>arc_</span><span
+style='font-size:10.0pt;font-family:"Liberation Sans","sans-serif"'>..., и
+т.&nbsp;д.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>Для более эффективной работы с
+таблицами каждая таблица разбивается на партиции. Разбивка на партиции
+требуется для быстрого удаления устаревших данных. Партиции физически
+представляют из себя независимые таблицы. В результате, очистка одной партиции
+сводится к полной очистке одной таблицы, что гораздо быстрее чем поиск записей
+по критерию времени и их последующее удаление.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>Разбивка таблицы на партиции
+осуществляется при старте сервера записи архивов <b>arcwrite</b> в том  случае,
+если существующая разбивка отличается от той, что содержится в конфигурации.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>При старте сервер <b>arcwrite</b>
+считывает профили архивов и на основе считанных данных вычисляет, как должна
+быть разбита на партиции таблица для каждого профиля. Если вычисленное
+разбиение на партиции различается с существующим, то существующая таблица с
+архивами удаляется и создаётся новая с новым разбиением на партиции. <b>При
+этом все существующие данные в таблице будут утеряны!</b></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>На разбиение на партиции оказывают
+влияние два значения: <b>ArchiveDepth</b> и <b>PartitionDepth</b>.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>ArchiveDepth</span></b><span
+style='font-size:10.0pt;font-family:"Liberation Sans","sans-serif"'> – полная
+глубина хранения архива в часах; читается из БД arc_ginfo.depth.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>PartitionDepth</span></b><span
+style='font-size:10.0pt;font-family:"Liberation Sans","sans-serif"'> – плубина
+хранения для одной партиции в минутах; читается из БД
+arc_ginfo.depth_partition.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=a1 style='text-align:justify'><b><span style='font-family:"Liberation Sans","sans-serif"'>PartitionsCount</span></b><span
+style='font-family:"Liberation Sans","sans-serif"'> вычисляется по формуле  <b>ArchiveDepth*60
+</b>/ <b>PartitionDepth</b>.</span></p>
+
+<p class=a1 style='text-align:justify'><b><span style='font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></b></p>
+
+<p class=a1 style='text-align:justify'><b><span style='font-family:"Liberation Sans","sans-serif"'>Примечание</span></b><span
+style='font-family:"Liberation Sans","sans-serif"'>. Параметр </span><span
+lang=EN-US style='font-family:"Liberation Sans","sans-serif"'>PartitionsCount </span><span
+style='font-family:"Liberation Sans","sans-serif"'>содержит количество
+партиций, используемых для хранения архивных данных. Однако при создании
+таблицы создаётся дополнительная партиция (активная) в которую пишутся текущие
+данные. Таким образом, реальное количество партиций, созданных для таблицы,
+равно PartitionsCount+1</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>При этом для трех перечисленных
+параметров имеются ограничения:</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>ArchiveDepth</span></b><span
+style='font-size:10.0pt;font-family:"Liberation Sans","sans-serif"'> = [24 …
+100000], ч.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:10.0pt;
+font-family:"Liberation Sans","sans-serif"'>PartitionDepth</span></b><span
+style='font-size:10.0pt;font-family:"Liberation Sans","sans-serif"'> = [10 …
+525600], мин.</span></p>
+
+<p class=a1 style='text-align:justify'><b><span style='font-family:"Liberation Sans","sans-serif"'>PartitionsCount</span></b><span
+style='font-family:"Liberation Sans","sans-serif"'> = [1 … 63], шт.</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>Если
+значение, прочитанное из БД, выходит за указанные границы, то для дальнейшей
+работы берётся максимальное или минимальное значение соответственно.</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>При
+вычислении количества разделов в случае выхода за границы берётся значение по
+умолчанию равное 12 шт. и пересчитывается в соответствии с этим значением
+глубина партиции (<b>PartitionDepth</b> = <b>ArchiveDepth*60 </b>/ <b>PartitionsCount</b>).</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>Обо
+всех выходах за установленные границы и вновь вычисленных значениях пишется
+соответствующее предупреждение в лог.</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>Распределение
+записываемых значений по партициям осуществляется средствами MySQL на основе
+ключа (в данном случае ключом является время измерения). Для этого задействован
+механизм партицирования (</span><span lang=EN-US style='font-family:"Liberation Sans","sans-serif"'>partitioning</span><span
+style='font-family:"Liberation Sans","sans-serif"'>) в </span><span lang=EN-US
+style='font-family:"Liberation Sans","sans-serif"'>MySQL, </span><span
+style='font-family:"Liberation Sans","sans-serif"'>с которым можно ознакомиться
+из официальной документации к </span><span lang=EN-US style='font-family:"Liberation Sans","sans-serif"'>MySQL
+</span><span style='font-family:"Liberation Sans","sans-serif"'>(https://dev.mysql.com/doc/refman/5.5/en/partitioning.html).</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+<p class=a1 style='text-align:justify'><span style='font-family:"Liberation Sans","sans-serif"'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

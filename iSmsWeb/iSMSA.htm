@@ -1,0 +1,1806 @@
+﻿<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>iSMS Admin manual</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:OpenSymbol;}
+@font-face
+	{font-family:"WenQuanYi Micro Hei";}
+@font-face
+	{font-family:"Lohit Hindi";}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@WenQuanYi Micro Hei";}
+@font-face
+	{font-family:"\@Lohit Hindi";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+h1
+	{mso-style-link:"Заголовок 1 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	background:#4A88D2;
+	font-size:16.0pt;
+	font-family:"Cambria","serif";
+	color:white;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Заголовок 2 Знак";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:1.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#0070C0;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Заголовок 3 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:2.0cm;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Заголовок 4 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:2.0cm;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+h5
+	{mso-style-link:"Заголовок 5 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:2.0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:13.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;
+	font-style:italic;}
+h6
+	{mso-style-link:"Заголовок 6 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:2.0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Заголовок 7 Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:6.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:1.0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:3.0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-style:italic;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Текст сноски Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-link:"Текст примечания Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Верхний колонтитул Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Нижний колонтитул Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:23.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Основной текст Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Основной текст с отступом Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	text-align:left;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:2.0cm;
+	text-align:justify;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+pre
+	{mso-style-link:"Стандартный HTML Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+tt
+	{font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-link:"Тема примечания Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Текст выноски Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"Без интервала Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoRMPane, li.MsoRMPane, div.MsoRMPane
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+span.MsoIntenseEmphasis
+	{color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	page-break-after:avoid;
+	background:#4A88D2;
+	font-size:16.0pt;
+	font-family:"Cambria","serif";
+	color:white;
+	font-weight:bold;}
+span.1
+	{mso-style-name:"Заголовок 1 Знак";
+	mso-style-link:"Заголовок 1";
+	font-family:"Cambria","serif";
+	color:white;
+	background:#4A88D2;
+	font-weight:bold;}
+span.2
+	{mso-style-name:"Заголовок 2 Знак";
+	mso-style-link:"Заголовок 2";
+	font-family:"Cambria","serif";
+	color:#0070C0;
+	font-weight:bold;}
+span.a
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Tahoma","sans-serif";}
+span.a0
+	{mso-style-name:"Верхний колонтитул Знак";
+	mso-style-link:"Верхний колонтитул";}
+span.a1
+	{mso-style-name:"Нижний колонтитул Знак";
+	mso-style-link:"Нижний колонтитул";}
+span.a2
+	{mso-style-name:"Без интервала Знак";
+	mso-style-link:"Без интервала";
+	font-family:"Times New Roman","serif";}
+span.3
+	{mso-style-name:"Заголовок 3 Знак";
+	mso-style-link:"Заголовок 3";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+span.4
+	{mso-style-name:"Заголовок 4 Знак";
+	mso-style-link:"Заголовок 4";
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+span.a3
+	{mso-style-name:"Текст сноски Знак";
+	mso-style-link:"Текст сноски";}
+p.a4, li.a4, div.a4
+	{mso-style-name:"Заголовок содержания";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:left;
+	page-break-before:always;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.5
+	{mso-style-name:"Заголовок 5 Знак";
+	mso-style-link:"Заголовок 5";
+	font-family:"Times New Roman","serif";
+	font-weight:bold;
+	font-style:italic;}
+span.6
+	{mso-style-name:"Заголовок 6 Знак";
+	mso-style-link:"Заголовок 6";
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+span.a5
+	{mso-style-name:"Текст примечания Знак";
+	mso-style-link:"Текст примечания";}
+span.a6
+	{mso-style-name:"Тема примечания Знак";
+	mso-style-link:"Тема примечания";
+	font-weight:bold;}
+p.233E5CD5853943F4BD7E8C4B124C0E1D, li.233E5CD5853943F4BD7E8C4B124C0E1D, div.233E5CD5853943F4BD7E8C4B124C0E1D
+	{mso-style-name:233E5CD5853943F4BD7E8C4B124C0E1D;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:left;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.7
+	{mso-style-name:"Заголовок 7 Знак";
+	mso-style-link:"Заголовок 7";}
+span.apple-converted-space
+	{mso-style-name:apple-converted-space;}
+span.WW8Num1z3
+	{mso-style-name:WW8Num1z3;
+	font-family:Symbol;}
+span.WW8Num2z3
+	{mso-style-name:WW8Num2z3;
+	font-family:Symbol;}
+span.Absatz-Standardschriftart
+	{mso-style-name:Absatz-Standardschriftart;}
+span.a7
+	{mso-style-name:"Символ нумерации";}
+span.a8
+	{mso-style-name:"Маркеры списка";
+	font-family:OpenSymbol;}
+span.a9
+	{mso-style-name:"Основной текст Знак";
+	mso-style-link:"Основной текст";
+	font-family:"Times New Roman","serif";}
+p.10, li.10, div.10
+	{mso-style-name:Указатель1;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.aa, li.aa, div.aa
+	{mso-style-name:"Содержимое врезки";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:left;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.HTML
+	{mso-style-name:"Стандартный HTML Знак";
+	mso-style-link:"Стандартный HTML";
+	font-family:"Courier New";}
+span.sql1-reservedword1
+	{mso-style-name:sql1-reservedword1;
+	color:blue;
+	font-weight:bold;}
+span.sql1-space
+	{mso-style-name:sql1-space;}
+span.sql1-delimitedidentifier1
+	{mso-style-name:sql1-delimitedidentifier1;
+	color:olive;}
+span.sql1-function1
+	{mso-style-name:sql1-function1;
+	color:navy;
+	font-weight:bold;}
+span.sql1-symbol1
+	{mso-style-name:sql1-symbol1;
+	color:blue;}
+span.sql1-identifier1
+	{mso-style-name:sql1-identifier1;
+	color:olive;}
+span.sql1-tablename1
+	{mso-style-name:sql1-tablename1;
+	color:fuchsia;}
+span.sql1-string1
+	{mso-style-name:sql1-string1;
+	color:green;}
+p.CodeCourier, li.CodeCourier, div.CodeCourier
+	{mso-style-name:"Code \(Courier\,10\)";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.NumberingListL1TNR, li.NumberingListL1TNR, div.NumberingListL1TNR
+	{mso-style-name:"NumberingList L1 \(TNR\,12\,BT+6\)";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.55pt;
+	margin-bottom:.0001pt;
+	text-align:left;
+	text-indent:-21.25pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.NumberingListL2, li.NumberingListL2, div.NumberingListL2
+	{mso-style-name:"NumberingList L2";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:42.8pt;
+	margin-bottom:.0001pt;
+	text-align:left;
+	text-indent:-1.0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.NumberingListL3, li.NumberingListL3, div.NumberingListL3
+	{mso-style-name:"NumberingList L3";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:64.05pt;
+	margin-bottom:.0001pt;
+	text-align:left;
+	text-indent:-35.4pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.sql1-conditionalcomment1
+	{mso-style-name:sql1-conditionalcomment1;
+	color:gray;
+	font-style:italic;}
+p.Default, li.Default, div.Default
+	{mso-style-name:Default;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Verdana","sans-serif";
+	color:black;}
+span.ab
+	{mso-style-name:"Основной текст с отступом Знак";
+	mso-style-link:"Основной текст с отступом";}
+p.ac, li.ac, div.ac
+	{mso-style-name:запрос;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:5.0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:11.0pt;
+	font-family:"Courier New";}
+span.rvts12
+	{mso-style-name:rvts12;
+	font-weight:bold;
+	text-decoration:underline;}
+span.rvts13
+	{mso-style-name:rvts13;
+	font-weight:bold;}
+span.rvts14
+	{mso-style-name:rvts14;
+	font-style:italic;}
+span.rvts15
+	{mso-style-name:rvts15;
+	font-family:"Courier New";}
+span.rvts19
+	{mso-style-name:rvts19;
+	font-family:"Courier New";
+	color:lime;}
+p.iSMS, li.iSMS, div.iSMS
+	{mso-style-name:"Маркированный список iSMS";
+	mso-style-link:"Маркированный список iSMS Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:106.3pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-21.25pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+p.ad, li.ad, div.ad
+	{mso-style-name:"Текст в таблице";
+	mso-style-link:"Текст в таблице Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+span.iSMS0
+	{mso-style-name:"Маркированный список iSMS Знак";
+	mso-style-link:"Маркированный список iSMS";}
+p.ae, li.ae, div.ae
+	{mso-style-name:"Заголовок в таблице";
+	mso-style-link:"Заголовок в таблице Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+span.af
+	{mso-style-name:"Текст в таблице Знак";
+	mso-style-link:"Текст в таблице";}
+p.iSMS1, li.iSMS1, div.iSMS1
+	{mso-style-name:"Нумерованный список iSMS";
+	mso-style-link:"Нумерованный список iSMS Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:247.55pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-20.7pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	color:black;}
+span.af0
+	{mso-style-name:"Заголовок в таблице Знак";
+	mso-style-link:"Заголовок в таблице";
+	font-weight:bold;}
+p.af1, li.af1, div.af1
+	{mso-style-name:Важно;
+	mso-style-link:"Важно Знак";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:2.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	background:#D9D9D9;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";}
+span.iSMS2
+	{mso-style-name:"Нумерованный список iSMS Знак";
+	mso-style-link:"Нумерованный список iSMS";
+	color:black;}
+p.-, li.-, div.-
+	{mso-style-name:"ЭМА - Обычный";
+	mso-style-link:"ЭМА - Обычный Знак";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+span.af2
+	{mso-style-name:"Важно Знак";
+	mso-style-link:Важно;
+	background:#D9D9D9;}
+p.-1, li.-1, div.-1
+	{mso-style-name:"ЭМА - Заголовок 1";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:left;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+p.-2, li.-2, div.-2
+	{mso-style-name:"ЭМА - Заголовок 2";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:left;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+p.-10, li.-10, div.-10
+	{mso-style-name:"ЭМА - Нумерованный список 1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:21.55pt;
+	text-align:justify;
+	text-indent:-21.25pt;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.-100, li.-100, div.-100
+	{mso-style-name:"ЭМА - Нумерованный список 1 + Слева\:  0 см Первая с\.\.\.";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:35.45pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.-119, li.-119, div.-119
+	{mso-style-name:"Стиль ЭМА - Нумерованный список 1 + Слева\:  19 см Первая строка\: \.\.\.";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:49.6pt;
+	text-align:justify;
+	text-indent:0cm;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+p.-0, li.-0, div.-0
+	{mso-style-name:"ЭМА - Скриншот\.";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+span.-3
+	{mso-style-name:"ЭМА - Обычный Знак";
+	mso-style-link:"ЭМА - Обычный";}
+p.-20, li.-20, div.-20
+	{mso-style-name:"ЭМА - Нумерованный список 2";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:35.45pt;
+	text-align:justify;
+	text-indent:-21.25pt;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	font-style:italic;}
+p.-11, li.-11, div.-11
+	{mso-style-name:"ЭМА - Ненумерованный список 1";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:35.45pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-21.25pt;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.55pt 2.0cm 2.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+@page WordSection2
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.55pt 2.0cm 2.0cm;}
+div.WordSection2
+	{page:WordSection2;}
+@page WordSection3
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.55pt 2.0cm 2.0cm;}
+div.WordSection3
+	{page:WordSection3;}
+@page WordSection4
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.55pt 2.0cm 2.0cm;}
+div.WordSection4
+	{page:WordSection4;}
+@page WordSection5
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 49.6pt 2.0cm 49.6pt;}
+div.WordSection5
+	{page:WordSection5;}
+@page WordSection6
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 49.6pt 2.0cm 49.6pt;}
+div.WordSection6
+	{page:WordSection6;}
+@page WordSection7
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 49.6pt 2.0cm 49.6pt;}
+div.WordSection7
+	{page:WordSection7;}
+@page WordSection8
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 49.6pt 2.0cm 49.6pt;}
+div.WordSection8
+	{page:WordSection8;}
+@page WordSection9
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 49.6pt 2.0cm 49.6pt;}
+div.WordSection9
+	{page:WordSection9;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=RU link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<div class=WordSection2></div>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%'><br
+ clear=all style="PAGE-BREAK-BEFORE: always">
+</span>
+
+</div>
+
+<div class=WordSection3>
+
+<h1><a name="_Toc358117542"></a><a name="_Ref398024646"></a><a
+ name="_Toc399773212"></a><a name="_Toc399770714"></a><a name="_Toc399511320"></a><a
+ name="_Toc399503210"></a><a name="_Toc399485857"></a><a name="_Toc399430557"></a><a
+ name="_Toc399145473"></a><a name="_Toc88817499">Оглавление</a></h1>
+
+<p class=MsoToc1><A href="#_Toc88817499">Оглавление<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">3</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc88817500">Требования для установки<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">4</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc88817501">Варианты установки<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">4</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc88817502">Установка iSMS с инсталляционного
+диска<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">5</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817503">Выбор языка и местонахождения<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">6</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817504">Настройка клавиатуры<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">7</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817505">Загрузка дополнительных компонентов<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">8</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817506">Настройка сети<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">8</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817507">Настройка времени<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">10</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817508">Разметка дисков<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">10</span></A></p>
+
+<p class=MsoToc3><A href="#_Toc88817509">Автоматическая разбивка диска<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">10</span></A></p>
+
+<p class=MsoToc3><A href="#_Toc88817510">Разбивка дисков вручную<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">12</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817511">Установка базовой системы<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">23</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817512">Настройка параметров системы iSMS<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">23</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817513">Установка системного загрузчика<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">24</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817514">Завершение установки<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">25</span></A></p>
+
+<p class=MsoToc2><A href="#_Toc88817515">Перезагрузка iSMS<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">26</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc88817516">Проверка нормальной установки iSMS<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">27</span></A></p>
+
+<p class=MsoToc1><A href="#_Toc88817517">Возможные проблемы и способы их
+решения<span style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">29</span></A></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%'><br
+ clear=all style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<div class=WordSection4>
+
+<h1><a name="_Toc88817500">Требования для установки</a></h1>
+
+<p class=MsoNormal>Убедитесь в том, что для конфигурируемого сервера выполняются
+следующие условия:</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>имеется основной диск – не менее 2Гб;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>при необходимости записи и хранения архивов требуется
+дополнительное место на основном диске или добавочный диск – не менее 16 Гб;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>сетевой интерфейс сервера подключен к локальной сети.</p>
+
+<p class=MsoNormal>Необходимо заранее уточнить следующую информацию:</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN-US>IP</span>-адрес конфигурируемого сервера <span
+ lang=EN-US>iSMS</span>;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN-US>IP</span>-адрес шлюза локальной сети;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN-US>IP</span>-адрес сервера точного времени.</p>
+
+<h1 style="MARGIN-TOP: 12pt"><a name="_Toc88817501"></a><a name="_Toc398206295">Варианты
+установки</a></h1>
+
+<p class=MsoNormal>Установка программного комплекса iSMS осуществляется с помощью
+соответствующего установочного CD-диска, поставляемого разработчиком
+программного продукта. Установочный диск включает следующие компоненты: ОС
+Debian GNU/Linux 7.6 и выше, программное обеспечение iSMS (серверные модули,
+базовая конфигурационная база данных, &nbsp;<span lang=EN-US>web</span>-приложения и
+прочие средства).</p>
+
+<p class=MsoNormal>Установка всех компонентов выполняется средствами
+стандартного инсталлятора ОС <span lang=EN-US>Debian</span>, в котором
+прописаны все необходимые для установки программного комплекса шаги.</p>
+
+<p class=MsoNormal>В процессе установки будет установлено и сконфигурировано:</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>ОС <span lang=EN-US>Debian</span><span lang=EN-US> </span><span
+ lang=EN-US>GNU</span>/<span lang=EN-US>Linux</span> 7.6 (либо выше) с основными
+сетевыми настройками;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>конфигурационная база данных <span lang=EN-US>iSMS</span>;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>серверное программное обеспечение <span lang=EN-US>iSMS</span>;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN-US>web-</span>приложения <span lang=EN-US>iSMS</span>;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>дополнительные инструменты для работы <span lang=EN-US>iSMS</span>.</p>
+
+<p class=iSMS style="MARGIN-LEFT: 0cm; TEXT-INDENT: 0cm">&nbsp;</p>
+
+</div>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%'><br
+ clear=all style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<div class=WordSection5>
+
+<h1><a name="_Toc88817502"></a><a name="_Toc398206297">Установка iSMS с
+инсталляционного диска</a></h1>
+
+<p class=MsoNormal>Чтобы приступить к установке комплекса <span lang=EN-US>iSMS</span>,
+необходимо вставить в сервер электронный носитель и выполнить с него загрузку.</p>
+
+<p class=MsoNormal>При успешном обнаружении инсталляционного диска на экране
+должно появиться стартовое окно, в котором перечислены версия операционной системы,
+на базе которой сформирован программный комплекс <span lang=EN-US>iSMS</span>, а
+также версия программного обеспечения <span lang=EN-US>iSMS</span>. В этом окне
+необходимо подтвердить начало установки, нажав клавишу <span lang=EN-US>Enter</span>.</p>
+
+<p class=iSMS1 align=left style="TEXT-ALIGN:
+ left; MARGIN-LEFT: 2cm; TEXT-INDENT: 0cm"><IMG src="iSMSA.files/image021.jpg" width=559 height=416></p>
+
+<p class=MsoNormal>Затем появится меню со списком аппаратных платформ, на которые
+может быть установлен комплекс iSMS. Необходимо в очередной раз подтвердить
+свой выбор с помощью клавиши <span lang=EN-US>Enter</span>. </p>
+
+<p class=iSMS1 style="MARGIN-LEFT: 2cm; TEXT-INDENT: 0cm"><span class=af2><IMG
+ id="Рисунок 1" src ="iSMSA.files/image022.png" width=554 height=151 ></span></p>
+
+<p class=MsoNormal>Установка и настройка базовой конфигурации сервера <span
+ lang=EN-US>iSMS</span> для выбранной платформы будет производиться в несколько
+этапов, которые описаны в следующих разделах.</p>
+
+</div>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%'><br
+ clear=all style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<div class=WordSection6>
+
+<h2><a name="_Toc88817503"><span class=3><span style="COLOR: #0070c0">Выбор
+языка и местонахождения</span></span></a></h2>
+
+<p class=MsoNormal>Первым шагом инсталляции является выбор языка, который будет
+использоваться во время установки. Этот язык также будет выбран языком по
+умолчанию для устанавливаемой операционной системы.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image023.jpg" width=558 height=416></p>
+
+<p class=MsoNormal>После выбора языка требуется выбрать местонахождение, то
+есть наименование той страны, где планируется использование iSMS.</p>
+
+<p class=iSMS1 style="MARGIN-LEFT: 2cm; TEXT-INDENT: 0cm"><IMG src="iSMSA.files/image024.png"
+ width=558 height=215 ></p>
+
+<b><span style='FONT-SIZE:
+ 14pt; FONT-FAMILY: "Cambria","serif"; COLOR: #0070c0; LINE-HEIGHT: 115%'><br clear=all style="PAGE-BREAK-BEFORE: always">
+</span></b>
+
+<h2><a name="_Toc88817504"><span class=2>Настройка клавиатуры</span></a></h2>
+
+<p class=iSMS1 style="MARGIN-LEFT: 2cm; TEXT-INDENT: 0cm">Далее предлагается
+выбрать используемую раскладку клавиатуры и метод смены раскладки клавиатуры по
+умолчанию.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image025.jpg" width=558 height=418></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span lang=EN-US><IMG
+ src="iSMSA.files/image026.jpg" width=558 height=418 ></span></p>
+
+<h2><a name="_Toc88817505">Загрузка дополнительных компонентов</a></h2>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">После выбора начальных параметров начнётся загрузка
+компонентов, необходимых для</span> <span style="FONT-SIZE: 12pt">установки
+системы. Данный этап может занять несколько минут.</span></p>
+
+<p class=iSMS1 align=left style="TEXT-ALIGN:
+ left; MARGIN-LEFT: 2cm; TEXT-INDENT: 0cm"><IMG src="iSMSA.files/image027.png" width=556 height=101></p>
+
+<h2><a name="_Ref422689691"></a><a name="_Toc88817506"></a><a
+ name="_Ref479781867">Настройка сети</a></h2>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">По окончании загрузки компонентов системы будет
+предложено выполнить конфигурацию сетевых интерфейсов. Следует принимать в
+расчет тот факт, что при наличии на сервере нескольких сетевых интерфейсов все
+введённые настройки будут применены к первому сетевому интерфейсу.</span><span
+ style="FONT-SIZE: 12pt"> Предварительно необходимо удостовериться, что этот
+интерфейс подключен к локальной сети.</span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">В первую очередь требуется прописать IP-адрес для
+используемого сетевого интерфейса.</span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt"><IMG src="iSMSA.files/image028.png" width=558
+ height=263 ></span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">Далее будет запрошен ввод маски подсети.</span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt"><IMG src="iSMSA.files/image029.png" width=556
+ height=179 ></span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">Следующим шагом является указание IP-адреса шлюза по
+умолчанию (иногда IP-адрес шлюза может совпадать с IP-адресом сервера iSMS).
+Указание шлюза в настройках сети является обязательным шагом, и эту настройку
+нельзя оставлять незаполненной.</span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt"><IMG src="iSMSA.files/image030.png" width=559
+ height=209 ></span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">Затем требуется ввести список используемых DNS
+серверов, которые могут быть перечислены через пробел.</span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt"><IMG src="iSMSA.files/image031.png" width=559
+ height=191 ></span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">Заключительным этапом настройки сети является указание
+имени хоста.</span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt"><IMG src="iSMSA.files/image032.jpg" width=559
+ height=196 ></span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt"></span>&nbsp;</p>
+
+<b><span style='FONT-SIZE:
+ 14pt; FONT-FAMILY: "Cambria","serif"; COLOR: #0070c0; LINE-HEIGHT: 115%'><br clear=all style="PAGE-BREAK-BEFORE: always">
+</span></b>
+
+<h2><a name="_Toc88817507">Настройка времени</a></h2>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">Следующим шагом является выбор часового пояса
+местности, где планируется запуск системы.</span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt"><IMG src="iSMSA.files/image033.png" width=554
+ height=305 ></span></p>
+
+<h2><a name="_Toc88817508">Разметка дисков</a></h2>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">После выбора часового пояса идёт этап разметки диска.</span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">Возможны несколько вариантов разметки дисков: </span></p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>автоматическая разметка;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>разметка вручную.</p>
+
+<h3><a name="_Toc88817509">Автоматическая разбивка диска</a></h3>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt">Для автоматического метода разметки дисков следует
+выбрать вариант <b>«Авто – использовать весь диск»</b>.</span></p>
+
+<p class=-0 style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm 0pt 2cm"><span
+ style="FONT-SIZE: 12pt"><IMG src="iSMSA.files/image034.jpg" width=584
+ height=275 ></span></p>
+
+<p class=-100 style="MARGIN:
+ 3pt 0cm 3pt 2cm"><span style="FONT-SIZE: 12pt"></span>&nbsp;</p>
+
+<p class=-100 style="MARGIN:
+ 3pt 0cm 3pt 2cm"><span style="FONT-SIZE: 12pt">В автоматической схеме
+разметки дисков участвует только один диск. Поэтому для продолжения разметки
+дисков можно выбрать только один из обнаруженных дисков.</span></p>
+
+<p class=-100 style="MARGIN:
+ 3pt 0cm 3pt 2cm"><span style="FONT-SIZE: 12pt">Убедитесь в том, что
+выбранный диск не является загрузочным устройством USB, с которого выполняется
+установка системы.</span></p>
+
+<p class=-100 style="MARGIN:
+ 0cm 0cm 0pt 2cm"><span style="FONT-SIZE: 12pt"><IMG
+ src="iSMSA.files/image035.jpg" width=586 height=181 ></span></p>
+
+<p class=-100 style="MARGIN:
+ 3pt 0cm 3pt 2cm"><span style="FONT-SIZE: 12pt">После выбора диска
+инсталлятор предлагает выбрать одну из предустановленных схем автоматической
+разметки дисков.</span></p>
+
+<p class=-100 style="MARGIN:
+ 3pt 0cm 3pt 2cm"><span style="FONT-SIZE: 12pt"><IMG src="iSMSA.files/image036.png" width=585
+ height=276 ></span></p>
+
+<p class=-100 style="MARGIN-LEFT: 2cm"><span style="FONT-SIZE: 12pt">Для
+установки iSMS рекомендуется выбирать одну из схем, начинающихся с «iSMS».</span></p>
+
+<p class=-100 style="BACKGROUND: #d9d9d9; MARGIN-LEFT: 2cm"><b><span
+ style="FONT-SIZE: 12pt">Примечание.</span></b><span style="FONT-SIZE: 12pt">
+Некоторые схемы могут отсутствовать в списке в случае, если объём размечаемого
+диска меньше минимального необходимого для схемы разметки.</span></p>
+
+<p class=-100 style="MARGIN-LEFT: 2cm"><span style="FONT-SIZE: 12pt">Рекомендации
+по выбору схем разметки дисков представлены в следующей таблице:</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=586
+ style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; WIDTH: 439.45pt; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; MARGIN-LEFT: 62.1pt; BORDER-LEFT: medium none">
+ <tr>
+  <td width=142 valign=top style="BORDER-TOP: #4f81bd 1pt  solid; BORDER-RIGHT: medium  none; WIDTH: 106.35pt; BACKGROUND: #4f81bd; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #4f81bd 1pt solid; PADDING-RIGHT: 5.4pt"    >
+  <p class=MsoNoSpacing><b><span style="FONT-SIZE: 12pt">Размер диска</span></b></p>
+  </td>
+  <td width=444 valign=top style="BORDER-TOP: #4f81bd 1pt  solid; BORDER-RIGHT: #4f81bd  1pt solid; WIDTH: 333.1pt; BACKGROUND: #4f81bd; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"    >
+  <p class=MsoNoSpacing><b><span style="FONT-SIZE: 12pt">Рекомендуемая схема
+  разметки</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=142 valign=top style="BORDER-TOP: #4f81bd 1pt  solid; BORDER-RIGHT: medium none; WIDTH: 106.35pt; BORDER-BOTTOM: #4f81bd 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #4f81bd 1pt solid; PADDING-RIGHT: 5.4pt"    >
+  <p class=-100 align=left style="TEXT-ALIGN:
+  left; MARGIN: 0cm 0cm 0pt"><span lang=EN-US style="FONT-SIZE: 12pt" 
+     >&lt; 4</span><span
+  style="FONT-SIZE: 12pt" 
+     > Гб</span></p>
+  </td>
+  <td width=444 valign=top style="BORDER-TOP: #4f81bd 1pt  solid; BORDER-RIGHT: #4f81bd 1pt solid; WIDTH: 333.1pt; BORDER-BOTTOM: #4f81bd 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"    >
+  <p class=-100 align=left style="TEXT-ALIGN:
+  left; MARGIN: 0cm 0cm 0pt"><span lang=EN-US style="FONT-SIZE: 12pt" 
+     >iSMS</span><span
+  style="FONT-SIZE: 12pt" 
+     >. Один большой раздел для всего</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=142 valign=top style="BORDER-TOP:  medium none; BORDER-RIGHT: medium none;  WIDTH: 106.35pt; BORDER-BOTTOM: #4f81bd 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #4f81bd 1pt solid; PADDING-RIGHT: 5.4pt"    >
+  <p class=-100 align=left style="TEXT-ALIGN:
+  left; MARGIN: 0cm 0cm 0pt"><span style="FONT-SIZE: 12pt" 
+     >&gt;= 4 Гб </span></p>
+  </td>
+  <td width=444 valign=top style="BORDER-TOP:  medium none; BORDER-RIGHT: #4f81bd 1pt  solid; WIDTH: 333.1pt; BORDER-BOTTOM: #4f81bd 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"    >
+  <p class=-100 align=left style="TEXT-ALIGN:
+  left; MARGIN: 0cm 0cm 0pt"><A title="" href="#_ftn1" name=_ftnref1><span
+  
+      class=MsoFootnoteReference><span style="FONT-SIZE: 12pt"><span
+  
+      class=MsoFootnoteReference><span style='FONT-SIZE:
+  12pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%' 
+     >[1]</span></span></span></span></A><span
+  lang=EN-US style="FONT-SIZE: 12pt">iSMS</span><span style="FONT-SIZE: 12pt">.
+  Отдельные разделы для /</span><span lang=EN-US style="FONT-SIZE: 12pt" 
+     >retro</span><span
+  style="FONT-SIZE: 12pt" 
+     >, /</span><span lang=EN-US style="FONT-SIZE: 12pt" 
+     >var</span><span
+  style="FONT-SIZE: 12pt" 
+     >/</span><span lang=EN-US style="FONT-SIZE: 12pt" 
+     >lib</span><span
+  style="FONT-SIZE: 12pt" 
+     >/</span><span lang=EN-US style="FONT-SIZE: 12pt" 
+     >mysql</span><span
+  style="FONT-SIZE: 12pt" 
+     > и /</span><span lang=EN-US style="FONT-SIZE: 12pt" 
+     >var</span><span
+  style="FONT-SIZE: 12pt" 
+     >/</span><span lang=EN-US style="FONT-SIZE: 12pt" 
+     >log</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=142 valign=top style="BORDER-TOP:  medium none; BORDER-RIGHT: medium none;  WIDTH: 106.35pt; BORDER-BOTTOM: #4f81bd 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #4f81bd 1pt solid; PADDING-RIGHT: 5.4pt"    >
+  <p class=-100 align=left style="TEXT-ALIGN:
+  left; MARGIN: 0cm 0cm 0pt"><span style="FONT-SIZE: 12pt" 
+     >&gt;= 16 Гб</span></p>
+  </td>
+  <td width=444 valign=top style="BORDER-TOP:  medium none; BORDER-RIGHT: #4f81bd 1pt  solid; WIDTH: 333.1pt; BORDER-BOTTOM: #4f81bd 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: medium none; PADDING-RIGHT: 5.4pt"    >
+  <p class=-100 align=left style="TEXT-ALIGN:
+  left; MARGIN: 0cm 0cm 0pt"><A title="" href="#_ftn2" name=_ftnref2><span
+  
+      class=MsoFootnoteReference><span style="FONT-SIZE: 12pt"><span
+  
+      class=MsoFootnoteReference><span style='FONT-SIZE:
+  12pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%' 
+     >[2]</span></span></span></span></A><span
+  
+      style="FONT-SIZE: 12pt">iSMS. Отдельные разделы для /home, /usr, /var, /tmp
+  и /retro</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=-100 style="MARGIN-LEFT: 0cm"><span style="FONT-SIZE: 12pt"></span>&nbsp;</p>
+
+<p class=-100 style="MARGIN-LEFT: 2cm"><span style="FONT-SIZE: 12pt">После
+выбора схемы автоматической разметки диска инсталлятор выведет окно с
+результатами разметки. Если никаких изменений вносить не планируется, то в этом
+окне необходимо подтвердить, что разметка диска выполнена верно.</span></p>
+
+<p class=-100 style="MARGIN-LEFT: 2cm"><span style="FONT-SIZE: 12pt"><IMG
+ src="iSMSA.files/image037.jpg" width=587 height=336 ></span></p>
+
+<h3><a name="_Toc88817510">Разбивка дисков вручную</a></h3>
+
+<p class=MsoNormal>При наличии в сервере <span lang=EN-US>iSMS</span><span
+ lang=EN-US> </span>нескольких дисков и при необходимости разместить разные
+разделы на разных дисках может быть полезной возможность разбивки дисков
+вручную.</p>
+
+<p class=MsoNormal>Рассмотрим вариант разбивки файловой системы с условием, что
+в сервере имеется два диска. При этом корневой раздел будет создан на первом
+диске (с файловой системой ext4), а разделы <i>/retro, /var/lib/mysql</i> и <i>/var/log</i>
+– на втором диске (с файловой системой nilfs). </p>
+
+<p class=MsoNormal>Первым шагом при разметке диска должен быть выбор варианта
+разметки <b>«Вручную»</b>.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image038.png" width=587 height=260></p>
+
+<p class=MsoNormal>Далее с помощью интерфейса инсталлятора необходимо создать
+нужные разделы на дисках. Предварительно нужно удалить разделы, которые были
+размечены на диске ранее, и после этого приступать к шагу установки «Создание
+корневого раздела на первом диске».</p>
+
+<h4>Удаление существующих разделов на дисках</h4>
+
+<p class=MsoNormal>Для удаления разделов сначала выбираем первый диск и первый
+раздел на этом диске.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image039.png" width=586 height=342></p>
+
+<p class=MsoNormal>Появится окно настроек раздела. Следует выбрать пункт
+«Удалить раздел».</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image040.png" width=585 height=253></p>
+
+<p class=MsoNormal>После удаления раздела произойдет возврат к предыдущему окну.</p>
+
+<p class=MsoNormal>Аналогичным способом следует удалить все разделы на всех
+размечаемых дисках.</p>
+
+<p class=MsoNormal>После удаления всех разделов будет отображено свободное
+место для каждого диска.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image041.png" width=586 height=311></p>
+
+<p class=MsoNormal>Теперь можно приступать к созданию разделов.</p>
+
+<h4>Создание корневого раздела на первом диске</h4>
+
+<p class=MsoNormal>В окне со списком дисков необходимо выбрать строку, в
+которой указано свободное место для первого диска.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image042.png" width=586 height=311></p>
+
+<p class=MsoNormal>Откроется окно со списком возможных действий над свободным
+пространством. Необходимо выбрать «Создать новый раздел». </p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image043.png" width=340 height=173></p>
+
+<p class=MsoNormal>Далее необходимо задать размер нового раздела (в гигабайтах
+или в процентах).</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image044.png" width=587 height=199></p>
+
+<p class=MsoNormal>Затем следует указать тип нового раздела – первичный.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image045.png" width=188 height=137></p>
+
+<p class=MsoNormal>В окне настроек для корневого раздела необходимо указать:</p>
+
+<p class=iSMS style="MARGIN-TOP: 2pt"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>тип файловой системы
+(в нашем примере <span lang=EN-US>Ext</span>4 – задается по умолчанию);</p>
+
+<p class=iSMS style="MARGIN-TOP: 2pt"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>точку монтирования
+(для корневого раздела – «/»);</p>
+
+<p class=iSMS style="MARGIN-TOP: 2pt; TEXT-INDENT: 0cm"><IMG src="iSMSA.files/image046.png"
+ width=379 height=233 ></p>
+
+<p class=iSMS style="MARGIN-TOP: 2pt"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>метку «загрузочный»
+(для корневого раздела метка должна иметь значение «Вкл.», изменяется при
+нажатии <span lang=EN-US>Enter</span><span lang=EN-US> </span>на строке «Метка ‘загрузочный’).</p>
+
+<p class=MsoNormal align=left style="TEXT-ALIGN:
+ left; MARGIN: 2pt 0cm 0pt 106.3pt"><IMG
+ src="iSMSA.files/image047.png" width=515 height=295 ></p>
+
+<p class=MsoNormal>Для применения выполненных настроек следует выбрать пункт
+«Настройка раздела закончена». В окне со списком дисков для первого диска
+появится раздел с заданными настройками. </p>
+
+<h4>Создание разделов на втором диске со сменой типа файловой системы </h4>
+
+<p class=MsoNormal>В окне со списком дисков следует выбрать строку, в которой
+указано свободное место для второго диска.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image048.png" width=586 height=309></p>
+
+<p class=MsoNormal>Затем в окне со списком возможных действий над свободным
+пространством выбрать «Создать новый раздел».</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image043.png" width=340 height=173></p>
+
+<p class=MsoNormal>Далее следует задать размер раздела (в гигабайтах или в
+процентах от оставшегося свободного места на диске).</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image049.png" width=587 height=199></p>
+
+<p class=MsoNormal>После этого задается тип нового раздела (первичный или
+логический).</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image050.png" width=215 height=157></p>
+
+<p class=MsoNormal style="BACKGROUND: #d9d9d9"><b>Важно:</b> Таблица разделов
+может содержать не более 4 первичных разделов.</p>
+
+<p class=MsoNormal>Далее указывается местоположение раздела на диске (начало).</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image051.png" width=584 height=192></p>
+
+<p class=MsoNormal>После выполнения указанных действий откроется окно, содержащее
+настройки раздела.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image052.png" width=586 height=286></p>
+
+<p class=MsoNormal>В окне настроек раздела необходимо изменить следующие
+параметры:</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>тип файловой системы (если нужно ее сменить);</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>точка монтирования;</p>
+
+<p class=iSMS><span style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>параметры монтирования (в случае использования флэш-карты).</p>
+
+<h5>Изменение типа файловой системы </h5>
+
+<p class=MsoNormal>По умолчанию предлагается использование файловой системы <span
+ lang=EN-US>Ext</span>4. В том случае, если необходимо ее изменить, следует
+выбрать в окне настроек раздела строку «Использовать как: Журналируемая
+файловая система <span lang=EN-US>Ext</span>4», затем в открывшемся окне выбрать
+нужный тип файловой системы.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image053.png" width=284 height=265></p>
+
+<p class=MsoNormal>После выбора файловой системы осуществится возврат в окно
+настроек раздела.</p>
+
+<h5>Задание точки монтирования</h5>
+
+<p class=MsoNormal>Для задания точки монтирования следует в окне настроек
+раздела выбрать строку «Точка монтирования», затем в появившемся окне выбрать
+«Ввести вручную».</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image054.png" width=377 height=233></p>
+
+<p class=MsoNormal>Откроется окно для ввода названия точки монтирования.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image055.png" width=223 height=121></p>
+
+<p class=MsoNormal>После подтверждения введенного наименования осуществится
+возврат в окно настроек раздела.</p>
+
+<h5>Задание параметров монтирования</h5>
+
+<p class=MsoNormal style="BACKGROUND: #d9d9d9"><b>Важно:</b> Если осуществляется
+разметка флэш-карты, то для разделов, не являющихся системными (<i>/var/lib/mysql,
+/var/log, /</i><i><span lang=EN-US>retro</span>), </i>необходимо задать опцию <i><span
+ lang=EN-US>noatime</span>.</i></p>
+
+<p class=MsoNormal>Чтобы изменить параметры монтирования, необходимо в окне
+настроек раздела выбрать строку «Параметры монтирования». </p>
+
+<p class=MsoNormal>Появится окно, в котором следует &nbsp;выбрать опцию <i><span
+ lang=EN-US>noatime</span><span lang=EN-US> </span></i>(выбор осуществляется
+клавишей «пробел»).</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image056.png" width=585 height=328></p>
+
+<p class=MsoNormal>После нажатия «<span lang=EN-US>Enter</span>» (или кнопки
+«Продолжить» в окне) произойдет возврат к окну настроек раздела, где в строке
+«Параметры монтирования» будут отражены произведенные изменения (значение
+изменится с <i><span lang=EN-US>defaults</span></i><span lang=EN-US> </span>на <i><span
+ lang=EN-US>noatime</span></i>). </p>
+
+<h5>Сохранение настроек раздела</h5>
+
+<p class=MsoNormal>Для сохранения выполненных настроек необходимо выбрать пункт
+«Настройка раздела закончена».</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image057.png" width=586 height=263></p>
+
+<p class=MsoNormal>Появится окно со списком разделов, из которго аналогичным
+образом следует создать разделы <i>/var/lib/mysql </i>и<i> /var/log</i>.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image058.png" width=586 height=324></p>
+
+<h5>Запись изменений на диск</h5>
+
+<p class=MsoNormal>После добавления всех разделов в окне со списком дисков
+необходимо подтвердить, что разметка диска выполнена верно.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image059.png" width=587 height=338></p>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%'><br
+ clear=all style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<p class=MsoNormal>После этого установщик предупредит, что следующим шагом
+будет запись сделанных изменений на диск. Необходимо согласиться с записью
+изменений на диск.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image060.png" width=587 height=305></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+<b><span style='FONT-SIZE:
+ 14pt; FONT-FAMILY: "Cambria","serif"; COLOR: #0070c0; LINE-HEIGHT: 115%'><br clear=all style="PAGE-BREAK-BEFORE: always">
+</span></b>
+
+<div class=WordSection7>
+
+<h2><a name="_Toc88817511">Установка базовой системы</a></h2>
+
+<p class=MsoNormal>По завершению выбора основных параметров начнётся установка
+базовой системы, включая разметку диска на основе выбранной ранее схемы и
+установку программных пакетов.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image061.png" width=556 height=101></p>
+
+<h2><a name="_Toc88817512">Настройка параметров системы iSMS</a></h2>
+
+<p class=MsoNormal>После установки базовых компонентов операционной системы
+будет предложена настройка параметров системы iSMS.</p>
+
+<p class=MsoNormal>В первую очередь будет запрошена информация об <span
+ lang=EN-US>IP</span>-адресах первого и второго узлов <span lang=EN-US>iSMS</span>.
+Устанавливаемый <span lang=EN-US>IP</span>-адрес обычно совпадает с тем
+адресом, который был введён при конфигурации первого сетевого интерфейса
+сервера <span lang=EN-US>iSMS</span> (см. п. Настройка сети).</p>
+
+<p class=af1 style="MARGIN-BOTTOM: 6pt"><b>Важно: </b>В случае конфигурации
+системы с одним узлом (т.е. без функции резервирования) при запросе <span
+ lang=EN-US>IP</span>-адреса второго узла следует оставить поле ввода пустым.</p>
+
+<p class=MsoNormal style="MARGIN:
+ 6pt 0cm 6pt 56.65pt"><IMG src="iSMSA.files/image062.png" width=586 height=135></p>
+
+<p class=-0 align=left style="TEXT-ALIGN: left; MARGIN-LEFT: 56.65pt"><IMG
+ src="iSMSA.files/image063.png" width=587 height=140 ></p>
+
+<span style='FONT-SIZE: 12pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%'><br
+ clear=all style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<p class=MsoNormal>Затем требуется указать IP-адреса серверов точного времени NTP.
+Если в комплексе присутствует несколько NTP серверов, то их адреса необходимо
+перечислить через пробел. </p>
+
+<p class=MsoNormal style="MARGIN:
+ 6pt 0cm 6pt 56.65pt; TEXT-INDENT: 0.05pt"><IMG src="iSMSA.files/image064.png" width=586
+ height=157 ></p>
+
+<p class=MsoNormal style="MARGIN:
+ 6pt 0cm 6pt 56.65pt">Завершением выбора базовых настроек системы является указание,
+какой из узлов конфигурируется на текущем сервере: первый (основной) или второй
+(резервный).</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image065.png" width=587 height=143></p>
+
+<h2><a name="_Toc88817513">Установка системного загрузчика</a></h2>
+
+<p class=MsoNormal>После выполнения базовой настройки системы будет предложено
+выбрать устройство для установки системного загрузчика <span lang=EN-US>Grab</span>.</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image066.png" width=559 height=217></p>
+
+<b><span style='FONT-SIZE:
+ 14pt; FONT-FAMILY: "Cambria","serif"; COLOR: #0070c0; LINE-HEIGHT: 115%'><br clear=all style="PAGE-BREAK-BEFORE: always">
+</span></b>
+
+<h2><a name="_Toc88817514">Завершение установки</a></h2>
+
+<p class=MsoNormal>Если в процессе установки будет обнаружена ранее
+установленная операционная система, на завершающем этапе установки будет предложена
+настройка системных часов. На запрос «Системные часы показывают <span
+ lang=EN-US>UTC</span>?» рекомендуется выбрать вариант ответа «Да».</p>
+
+<p class=MsoNormal><IMG src="iSMSA.files/image067.png" width=558 height=168></p>
+
+<p class=af1 style="MARGIN-TOP: 12pt"><b>Важно: </b>До окончания установки
+программного обеспечения может пройти от нескольких минут до получаса (зависит
+от производительности сервера).</p>
+
+<p class=iSMS1 style="MARGIN-LEFT: 2cm; TEXT-INDENT: 0cm">После завершения
+установки сервер выполнит автоматическую перезагрузку.</p>
+
+<p class=MsoNormal>Как только сервер уйдёт в перезагрузку, необходимо извлечь
+из привода <span lang=EN-US>CD</span>-диск. Также рекомендуется зайти в <span
+ lang=EN-US>BIOS</span><span lang=EN-US> </span>и исправить порядок загрузки
+таким образом, чтобы на первом месте была загрузка не с <span lang=EN-US>CD</span>-диска,
+а с диска, на который был установлен системный загрузчик.</p>
+
+<b><span style='FONT-SIZE:
+ 14pt; FONT-FAMILY: "Cambria","serif"; COLOR: #0070c0; LINE-HEIGHT: 115%'><br clear=all style="PAGE-BREAK-BEFORE: always">
+</span></b>
+
+<h2><a name="_Toc88817515">Перезагрузка iSMS</a></h2>
+
+<p class=iSMS1 style="MARGIN-LEFT: 2cm; TEXT-INDENT: 0cm">В результате успешной
+перезагрузки системы на экране должно появиться меню вариантов загрузки
+системы, и в случае отсутствия подтверждения выбора (клавиша <span lang=EN-US>Enter</span>)
+через несколько секунд будет автоматически выбран первый вариант.</p>
+
+<p class=-0 align=left style="TEXT-ALIGN:
+ left; MARGIN: 6pt 0cm 0pt 2cm"><IMG src="iSMSA.files/image068.jpg"
+ width=585 height=311 ></p>
+
+<p class=iSMS1 style="MARGIN-LEFT: 2cm; TEXT-INDENT: 0cm">После загрузки системы
+должно появиться приглашение для входа в ОС. Это будет означать, что система
+установилась полностью и готова к работе.</p>
+
+<p class=-0 align=left style="TEXT-ALIGN:
+ left; MARGIN: 6pt 0cm 0pt 2cm"><IMG src="iSMSA.files/image069.jpg"
+ width=587 height=104 ></p>
+
+</div>
+
+<span lang=EN-US style='FONT-SIZE: 10pt; FONT-FAMILY: "Calibri","sans-serif"'><br
+ clear=all style="PAGE-BREAK-BEFORE: always">
+</span>
+
+<div class=WordSection8>
+
+<h1><a name="_Toc88817516"></a><a name="_Toc398206298">Проверка нормальной
+установки iSMS</a></h1>
+
+<p class=MsoNormal>После завершения установки следует проверить, что
+программный комплекс iSMS на текущем хосте установлен корректно. Для этого
+рекомендуется выполнить следующие действия.</p>
+
+<p class=iSMS1 style="MARGIN-LEFT: 77.95pt; TEXT-INDENT: -21.25pt"><b>1.<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b>На любой машине, которая имеет доступ к технологической сети iSMS,
+запустить web-браузер и указать в адресной строке IP-адрес сервера, куда была
+произведена установка комплекса iSMS. </p>
+
+<p class=iSMS1 style="MARGIN-LEFT: 77.95pt; TEXT-INDENT: 0cm">Например, <b>http</b><b><span
+ lang=EN-US>s</span>://192.168.20.167/</b></p>
+
+<p class=iSMS1 style="MARGIN-LEFT: 77.95pt; TEXT-INDENT: -21.25pt"><b>2.<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b>Для входа в систему необходимо выполнить авторизацию от имени одного
+из пользователей, зарегистрированных в системе. Для этого необходимо заполнить
+поля «Имя» и «Пароль» в появившемся окне и подтвердить ввод нажатием кнопки «Авторизация».
+</p>
+
+<p class=af1 style="MARGIN-LEFT: 77.95pt"><b>Примечание:</b> После установки
+комплекса по умолчанию предусмотрено четыре учётных записи: <i>supervisor,
+administrator, dispatcher, operator</i>. Пароль по умолчанию для всех
+пользователей: <i>passme</i>. </p>
+
+<p class=af1 style="BACKGROUND: none transparent scroll repeat 0% 0%; MARGIN-LEFT: 78pt"><IMG src="iSMSA.files/image070.png"
+ width=556 height=179 ></p>
+
+<p class=af1 style="BACKGROUND: none transparent scroll repeat 0% 0%; MARGIN-LEFT: 78pt">Описание прав
+для каждого типа пользователя содержится в разделе «Права доступа» документа
+«Руководство оператора по программному обеспечению ПТК телемеханики <span
+ lang=EN-US>iSMS</span>».</p>
+
+<p class=MsoNormal style="BACKGROUND: #d9d9d9; MARGIN-LEFT: 77.95pt"><b>Важно:</b> Чтобы исключить несанкционированный доступ к системе, сразу после установки
+системы необходимо&nbsp; произвести смену пароля.&nbsp; </p>
+
+<p class=af1 style="BACKGROUND: none transparent scroll repeat 0% 0%; MARGIN-LEFT: 78pt">Процедура смены
+пароля описана в разделе «Сменить пароль» документа «Руководство по
+эксплуатации ПТК телемеханики iSMS».</p>
+
+<p class=iSMS1 style="MARGIN-LEFT: 77.95pt; TEXT-INDENT: -21.25pt"><b>3.<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></b>В случае верного ввода логина и пароля в окне обозревателя будет
+загружен рабочий стол iSMS, через который осуществляется взаимодействие
+пользователя с системой. </p>
+
+<p class=-0 align=left style="TEXT-ALIGN:
+ left; MARGIN: 6pt 0cm 0pt 77.95pt"><IMG src="iSMSA.files/image071.png"
+ width=556 height=251 ></p>
+
+<p class=MsoNormal>Описание &nbsp;работы с установленным комплексом содержится в &nbsp;пользовательской
+документации «Руководство оператора по программному обеспечению ПТК
+телемеханики iSMS» и «Руководство по эксплуатации ПТК телемеханики iSMS».</p>
+
+</div>
+
+<b><span style='FONT-SIZE:
+ 16pt; FONT-FAMILY: "Cambria","serif"; COLOR: white; LINE-HEIGHT: 115%'><br clear=all style="PAGE-BREAK-BEFORE: always">
+</span></b>
+
+<div class=WordSection9>
+
+<h1 style="MARGIN-TOP: 12pt"><a name="_Toc398206299"></a><a name="_Toc88817517">Возможные
+проблемы и способы их решения</a></h1>
+
+<p class=iSMS1 style="MARGIN-LEFT: 78pt"><b>1.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;
+</span></b><i>Сервер </i><i><span lang=EN-US>iSMS</span>&nbsp; непрерывно
+перезагружается. </i></p>
+
+<p class=MsoNormal>Как правило, непрерывная перезагрузка <span lang=EN-US>iSMS</span><span
+ lang=EN-US> </span>вызвана тем, что срабатывает контроль сети, включенный в
+системе <span lang=EN-US>iSMS</span><span lang=EN-US> </span>по умолчанию.
+Таким образом, если сетевой кабель не подключен к серверу, то контролирующие
+сеть модули iSMS отправляют систему в перезагрузку.</p>
+
+<p class=MsoNormal>Для того чтобы избежать непрерывных перезагрузок компьютера,
+необходимо подключить исправный сетевой кабель к хосту. Также следует проверить
+настройку <span lang=EN-US>IP</span>-адреса сервера в разделе конфигурации «Администрирование/
+Конфигурация/ Сетевые интерфейсы». В конфигурации должен быть указан <span
+ lang=EN-US>IP</span>-адрес интерфейса, который настроен и доступен в ОС.</p>
+
+<p class=iSMS1 style="MARGIN-LEFT: 70.9pt; TEXT-INDENT: -13.6pt"><b>2.<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; </span></b><i>На одном из
+шагов инсталляции сервера </i><i><span lang=EN-US>iSMS</span> были введены некорректные
+параметры.</i></p>
+
+<p class=MsoNormal>В общем случае, установку системы <span lang=EN-US>iSMS</span>
+можно начать заново, повторив все шаги с вводом верных параметров.</p>
+
+<p class=MsoNormal>Некорректно введенные настройки <span lang=EN-US>iSMS</span><span
+ lang=EN-US> </span>можно также изменить вручную после завершения инсталляции,
+пользуясь представленной информацией в сопроводительной документации к системе
+– «Руководство по эксплуатации ПТК телемеханики iSMS» и «Руководство оператора
+по программному обеспечению ПТК телемеханики iSMS».</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+<div><br clear=all>
+
+<hr align=left size=1 width="33%">
+
+<div id=ftn1>
+
+<p class=-100 style="MARGIN-LEFT: 2cm"><A title="" href="#_ftnref1"
+ name=_ftn1 ><span class=MsoFootnoteReference><span class=MsoFootnoteReference><span
+ style='FONT-SIZE: 10pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%'>[1]</span></span></span></A>
+При установке дополнительных приложений к <span lang=EN-US>iSMS</span><span
+ lang=EN-US> </span>необходимо проконтролировать, что корневой раздел имеет
+достаточный размер для их установки.</p>
+
+</div>
+
+<div id=ftn2>
+
+<p class=MsoFootnoteText><A title="" href="#_ftnref2" name=_ftn2><span
+ class=MsoFootnoteReference><span class=MsoFootnoteReference><span
+ style='FONT-SIZE: 10pt; FONT-FAMILY: "Calibri","sans-serif"; LINE-HEIGHT: 115%'>[2]</span></span></span></A>
+данная схема разметки диска включена только в ознакомительных целях.</p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

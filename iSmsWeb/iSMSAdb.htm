@@ -1,0 +1,1167 @@
+﻿<html>
+
+<head>
+<title>iSMS Admin manual. Creation of database for iSMS</title>
+
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"WenQuanYi Micro Hei";}
+@font-face
+	{font-family:"Lohit Hindi";}
+@font-face
+	{font-family:"\@WenQuanYi Micro Hei";}
+@font-face
+	{font-family:"\@Lohit Hindi";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+h1
+	{mso-style-link:"Заголовок 1 Знак";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;}
+h2
+	{mso-style-link:"Заголовок 2 Знак";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;}
+h3
+	{mso-style-link:"Заголовок 3 Знак";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:11.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:22.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Верхний колонтитул Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Нижний колонтитул Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Текст выноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"Без интервала Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.MsoIntenseEmphasis
+	{color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.1
+	{mso-style-name:"Заголовок 1 Знак";
+	mso-style-link:"Заголовок 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.2
+	{mso-style-name:"Заголовок 2 Знак";
+	mso-style-link:"Заголовок 2";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+span.a
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Tahoma","sans-serif";}
+span.a0
+	{mso-style-name:"Верхний колонтитул Знак";
+	mso-style-link:"Верхний колонтитул";}
+span.a1
+	{mso-style-name:"Нижний колонтитул Знак";
+	mso-style-link:"Нижний колонтитул";}
+span.a2
+	{mso-style-name:"Без интервала Знак";
+	mso-style-link:"Без интервала";
+	font-family:"Times New Roman","serif";}
+p.a3, li.a3, div.a3
+	{mso-style-name:"Заголовок содержания";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	page-break-before:always;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.sql1-reservedword1
+	{mso-style-name:sql1-reservedword1;
+	color:blue;
+	font-weight:bold;}
+span.sql1-space
+	{mso-style-name:sql1-space;}
+span.sql1-delimitedidentifier1
+	{mso-style-name:sql1-delimitedidentifier1;
+	color:olive;}
+span.sql1-symbol1
+	{mso-style-name:sql1-symbol1;
+	color:blue;}
+span.sql1-conditionalcomment1
+	{mso-style-name:sql1-conditionalcomment1;
+	color:gray;
+	font-style:italic;}
+p.NumberingListL1, li.NumberingListL1, div.NumberingListL1
+	{mso-style-name:"NumberingList L1";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.55pt;
+	margin-bottom:.0001pt;
+	text-indent:-21.25pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.NumberingListL2, li.NumberingListL2, div.NumberingListL2
+	{mso-style-name:"NumberingList L2";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:42.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-1.0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.NumberingListL3, li.NumberingListL3, div.NumberingListL3
+	{mso-style-name:"NumberingList L3";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:64.05pt;
+	margin-bottom:.0001pt;
+	text-indent:-35.4pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.NLTextL1, li.NLTextL1, div.NLTextL1
+	{mso-style-name:NL_Text_L1;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.NLTextL2, li.NLTextL2, div.NLTextL2
+	{mso-style-name:NL_Text_L2;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Box01, li.Box01, div.Box01
+	{mso-style-name:Box_01;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	background:#E6E6E6;
+	border:none;
+	padding:0cm;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+p.NumberingListL4, li.NumberingListL4, div.NumberingListL4
+	{mso-style-name:"NumberingList L4";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:90.5pt;
+	margin-bottom:.0001pt;
+	text-indent:-36.0pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.3
+	{mso-style-name:"Заголовок 3 Знак";
+	mso-style-link:"Заголовок 3";
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=RU link=blue vlink=purple>
+
+<h3 class=MsoNormal>Оглавление</h3>
+
+<p class=MsoToc2><span class=MsoHyperlink><A href="#_Toc431222559">1.<span
+ style="TEXT-DECORATION: none; COLOR: windowtext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Перенос дампа базы с
+одного MySQL сервера на другой<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">3</span></A></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><A href="#_Toc431222560">2.<span
+ style="TEXT-DECORATION: none; COLOR: windowtext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Перенос конфигурации
+из СУБД Oracle в СУБД MySQL<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">3</span></A></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><A href="#_Toc431222561">3.<span
+ style="TEXT-DECORATION: none; COLOR: windowtext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Обновление БД<span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">.. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">8</span></A></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><A href="#_Toc431222562">Приложение
+1. Дополнительные сведения<span style="TEXT-DECORATION:
+ none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">9</span></A></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><A href="#_Toc431222563">Приложение
+2. Сбрасывание паролей для процессов <span lang=EN-US>iSMS</span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">. </span><span
+ style="TEXT-DECORATION: none; COLOR: windowtext; DISPLAY: none">10</span></A></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<b><span style='FONT-SIZE:
+ 13pt; FONT-FAMILY: "Cambria","serif"; COLOR: #4f81bd; LINE-HEIGHT: 115%'>
+
+<div class=WordSection1><br clear=all style="PAGE-BREAK-BEFORE: always">
+
+</div>
+</span></b>
+
+<h2 style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt" class=WordSection1><a name="_Toc431222559"></a><a
+ name="_Toc381111190">1.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Перенос дампа базы с одного MySQL сервера на другой</a></h2>
+
+<p class=NumberingListL2 style="MARGIN-BOTTOM: 6pt"><a name="_Toc381111191"></a><a
+ name="_Toc350765204"></a><a name="_Toc366845531">1.1<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Подготовить новый экземпляр БД <span lang=EN-US>MySQL</span></a> на
+сервере, куда планируется установить копию <span lang=EN-US>БД </span></p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 0cm; MARGIN-LEFT: 42.55pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US># mysql -h localhost -P 3306 -u root -p mysql</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>Password: ******</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US></span>&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>mysql&gt; CREATE USER 'rsduadmin'@'localhost' IDENTIFIED BY
+'passme';</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US></span>&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>mysql&gt; CREATE USER 'rsduadmin'@'%' IDENTIFIED BY 'passme';<br>
+<br>
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'rsduadmin'@'localhost' IDENTIFIED BY
+'passme' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0
+MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US></span>&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'rsduadmin'@'%' IDENTIFIED
+BY 'passme' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0
+MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;<br>
+<br>
+mysql&gt; <span class=sql1-reservedword1><span style="FONT-WEIGHT:
+ normal; COLOR: windowtext">CREATE</span></span><span class=sql1-space><b> </b></span><span
+ class=sql1-reservedword1><span style="FONT-WEIGHT: normal; COLOR: windowtext">DATABASE
+</span></span>IF NOT EXISTS<span class=sql1-space> </span><span
+ class=sql1-delimitedidentifier1><span style="COLOR: windowtext">`rsduadmin`</span></span><span
+ class=sql1-space> </span><span class=sql1-conditionalcomment1><span
+ style="FONT-STYLE: normal">/*!40100 CHARACTER SET utf8 COLLATE 'utf8_general_ci'
+*/</span></span><span class=sql1-symbol1><span style="COLOR: windowtext">;</span></span></span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US><br>
+mysql&gt; GRANT ALL PRIVILEGES ON `rsduadmin`.* TO 'rsduadmin'@'localhost';</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US></span>&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>mysql&gt; GRANT ALL PRIVILEGES ON `rsduadmin`.* TO 'rsduadmin'@'%';</span></p>
+
+</div>
+
+<p class=NumberingListL2 style="MARGIN-BOTTOM: 6pt"><a name="_Toc366845532">1.2<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Сделать дамп исходной базы:</a></p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 42.55pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US># mysqldump -u root -ppassme --add-drop-database --complete-insert
+--create-options --disable-keys --extended-insert --lock-all-tables rsduadmin
+&gt; rsduadmin.sql</span></p>
+
+</div>
+
+<p class=NumberingListL2 style="MARGIN-BOTTOM: 6pt"><a name="_Toc366845533">1.3<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Перенести файл rsduadmin.sql с одного сервера на другой.</a></p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 42.55pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US># mysql -h localhost -P 3306 -u root -ppassme rsduadmin &lt;
+rsduadmin.sql</span></p>
+
+</div>
+
+<h2 style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt" class=WordSection1><a name="_Toc431222560">2.<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Перенос
+конфигурации из СУБД Oracle в СУБД MySQL</a></h2>
+
+<p class=MsoListParagraph style="MARGIN:
+
+ 6pt 0cm 0pt 21.55pt; DISPLAY: none; LINE-HEIGHT: normal; TEXT-INDENT: -21.25pt"><a name="_Toc366845534"><span style="FONT-SIZE:
+ 12pt; DISPLAY: none">1.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='FONT-SIZE: 12pt; FONT-FAMILY:
+ "Times New Roman","serif"; DISPLAY: none'>&nbsp;</span></a></p>
+
+<p class=MsoListParagraph style="MARGIN:
+
+ 6pt 0cm 0pt 21.55pt; DISPLAY: none; LINE-HEIGHT: normal; TEXT-INDENT: -21.25pt"><span style="FONT-SIZE: 12pt; DISPLAY: none">2.<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='FONT-SIZE: 12pt; FONT-FAMILY:
+ "Times New Roman","serif"; DISPLAY: none'>&nbsp;</span></p>
+
+<p class=NumberingListL2>2.1<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span lang=EN-US>Подготовительные операции</span></p>
+
+<p class=NLTextL1 style="MARGIN-LEFT: 42.55pt">БДТИ <span lang=EN-US>Oracle</span>
+должна быть правильно настроена перед выполнением импорта. </p>
+
+<p class=NLTextL1 style="MARGIN-LEFT: 42.55pt">Почистить в БДТИ <span
+ lang=EN-US>Oracle</span> журнальные таблицы <span lang=EN-US>J</span>_<span
+ lang=EN-US>PSTATE</span>, <span lang=EN-US>J</span>_<span lang=EN-US>RSDUERROR</span></p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: -0.05pt"><a
+ name="_Toc366845535"></a><a name="_Toc366845536">Убедиться, что сервер <span
+ lang=EN-US>MySQL</span></a> слушает на всех интерфейсах. Для этого проверить
+файл конфигурации <span lang=EN-US>MySQL</span>: /<span lang=EN-US>etc</span>/<span
+ lang=EN-US>mysql</span>/<span lang=EN-US>my</span>.<span lang=EN-US>cnf</span>
+, параметр <span lang=EN-US>bind</span>-<span lang=EN-US>address</span>=0.0.0.0
+. Перезапустить <span lang=EN-US>MySQL</span> если производилось исправление.
+(/<span lang=EN-US>etc</span>/<span lang=EN-US>init</span>.<span lang=EN-US>d</span>/<span
+ lang=EN-US>mysql</span>/<span lang=EN-US>restart</span>)</p>
+
+<p class=NumberingListL2>2.2<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span lang=EN-US>Создание экземпляра БД MySQL</span></p>
+
+<p class=NumberingListL3 style="MARGIN:
+ 6pt 0cm 6pt 60.65pt; TEXT-INDENT: -17.85pt"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Подключиться к БД <span
+ lang=EN-US>MySQL</span> от имени <span lang=EN-US>root</span></p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 42.55pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US># mysql -hlocalhost -uroot -ppassme</span></p>
+
+</div>
+
+<p class=NumberingListL3 style="MARGIN:
+ 6pt 0cm 6pt 60.65pt; TEXT-INDENT: -17.85pt"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Создать БД '<span
+ lang=EN-US>rsduadmin</span>' (предворительно удалив старую версию):</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 42.55pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>mysql&gt; DROP DATABASE IF EXISTS `rsduadmin`;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>mysql &gt; <span class=sql1-reservedword1><span style="FONT-WEIGHT:
+ normal; COLOR: windowtext">CREATE</span></span><span class=sql1-space><b> </b></span><span
+ class=sql1-reservedword1><span style="FONT-WEIGHT: normal; COLOR: windowtext">DATABASE
+</span></span>IF NOT EXISTS<span class=sql1-space> </span><span
+ class=sql1-delimitedidentifier1><span style="COLOR: windowtext">`rsduadmin`</span></span><span
+ class=sql1-space> </span><span class=sql1-conditionalcomment1><span
+ style="FONT-STYLE: normal">/*!40100 CHARACTER SET utf8 COLLATE 'utf8_general_ci'
+*/</span></span><span class=sql1-symbol1><span style="COLOR: windowtext">;</span></span></span></p>
+
+</div>
+
+<p class=NumberingListL2 style="MARGIN-BOTTOM: 6pt">2.3<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Создать пользователя 'rsduadmin':</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 42.55pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>mysql&gt; GRANT ALL PRIVILEGES ON rsduadmin.* TO 'rsduadmin'@'%'
+IDENTIFIED BY 'passme';</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>mysql&gt; GRANT ALL PRIVILEGES ON rsduadmin.* TO
+'rsduadmin'@'localhost' IDENTIFIED BY 'passme';</span></p>
+
+</div>
+
+<p class=NLTextL2 style="MARGIN-LEFT: 14.45pt"><a name="_Toc366845538">Далее
+перенос БД ведётся с помощью приложений <span lang=EN-US>Windows</span></a> – <span
+ lang=EN-US>FullConvert</span> и <span lang=EN-US>DBconvertor</span>.</p>
+
+<p class=NumberingListL2><a name="_Toc366845539">2.4<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Подготовка приложений windows для переноса БД.</a></p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 60.8pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845540"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Установить <span
+ lang=EN-US>ODBC</span></a> драйвер для <span lang=EN-US>MySQL</span>.</p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 60.8pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845541"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Создать <span
+ lang=EN-US>ODBC</span></a> источник в <span lang=EN-US>Windows</span> для <span
+ lang=EN-US>MySQL</span> (Администрирование -&gt; Источники данных (<span
+ lang=EN-US>ODBC</span>))</p>
+
+<p class=NumberingListL4 style="MARGIN-LEFT: 60.8pt; TEXT-INDENT: -18pt"><span
+ style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>Выбрать закладку «Пользовательский <span lang=EN-US>DSN</span>» и
+нажать кнопку «Добавить…»</p>
+
+<p class=NLTextL1 style="MARGIN-LEFT: 63.8pt"><span lang=EN-US><IMG src="iSMSAdb.files/image003.png"
+ width=462 height=395 ></span></p>
+
+<p class=NumberingListL4 style="MARGIN-LEFT: 63.8pt; TEXT-INDENT: -21.25pt"><span
+ style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>В окне «Создание нового источника данных» выбрать драйвер <span
+ lang=EN-US>MySQL</span><span lang=EN-US> </span><span lang=EN-US>ODBC</span>. </p>
+
+<p class=NumberingListL4 style="MARGIN-LEFT: 63.8pt; TEXT-INDENT: 0cm"><span
+ lang=EN-US><IMG src="iSMSAdb.files/image004.png" width=469 height=345></span></p>
+
+<p class=NumberingListL4 style="MARGIN-LEFT: 63.8pt; TEXT-INDENT: 0cm">Если
+драйвер <span lang=EN-US>MySQL</span><span lang=EN-US> </span><span lang=EN-US>ODBC</span>
+отсутствует в списке, то следующие шаги вы выполнить не сможете. Попробуйте
+начать описание <span lang=EN-US>ODBC-</span>источника с самого начала.</p>
+
+<p class=NumberingListL4 style="MARGIN-LEFT: 63.8pt; TEXT-INDENT: -21.25pt"><span
+ style="FONT-FAMILY: Wingdings">ü<span style='FONT: 7pt "Times New Roman"'>&nbsp;
+</span></span>В окне настройки соединения с источником данных указать: имя
+источника, <span lang=EN-US>IP</span> адрес, порт оставить 3306, имя
+пользователя (<span lang=EN-US>root</span>), пароль пользователя <span
+ lang=EN-US>root</span>, имя базы данных (<span lang=EN-US>rsduadmin</span>).</p>
+
+<p class=NLTextL1 style="MARGIN-LEFT: 63.8pt"><span lang=EN-US><IMG src="iSMSAdb.files/image005.png"
+ width=426 height=405 ></span></p>
+
+<p class=NumberingListL2 style="MARGIN-BOTTOM: 6pt"><a name="_Toc366845543">2.5<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Перенос БД</a></p>
+
+<p class=NumberingListL2 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845542"><span lang=EN-US style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Распакуйте</a> архив<span
+ lang=EN-US> FullConvert.zip.</span></p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845544"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Запустите приложение </a><span
+ lang=EN-US>FullConvert</span>.<span lang=EN-US>exe</span>, в котором следует
+проект <span lang=EN-US>ORA</span>_<span lang=EN-US>TO</span>_<span lang=EN-US>DB</span>.<span
+ lang=EN-US>fcs</span>.</p>
+
+<p class=MsoNormal style="TEXT-ALIGN: justify; MARGIN-LEFT: 53.4pt"><b><i><span
+ style ='FONT-SIZE: 12pt; FONT-FAMILY: "Times New Roman","serif"; LINE-HEIGHT: 115%'>Примечание</span></i></b><i><span
+ style ='FONT-SIZE: 12pt; FONT-FAMILY: "Times New Roman","serif"; LINE-HEIGHT: 115%'>:
+При открытии проекта может возникнуть предупреждение, что невозможно соединение
+с БД Oracle или MySQ</span></i><i><span lang=EN-US style='FONT-SIZE:
+ 12pt; FONT-FAMILY: "Times New Roman","serif"; LINE-HEIGHT: 115%'>L</span></i><i><span
+ style ='FONT-SIZE: 12pt; FONT-FAMILY: "Times New Roman","serif"; LINE-HEIGHT: 115%'>.
+</span></i><i><span style='FONT-SIZE: 12pt; FONT-FAMILY: "Times New Roman","serif"; LINE-HEIGHT: 115%'>В
+случае этих ошибок автоматически откроется окно редактирования настроек</span></i></p>
+
+<p class=NLTextL1 style="MARGIN-LEFT: 53.4pt"><span lang=EN-US><IMG src="iSMSAdb.files/image006.jpg"
+ width=334 height=127 ></span></p>
+
+<p class=NLTextL1 style="MARGIN-LEFT: 53.4pt"><span lang=EN-US><IMG src="iSMSAdb.files/image007.jpg"
+ width=433 height=99 ></span></p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845545"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Выберите опцию "<span
+ lang=EN-US>Edit</span></a><span lang=EN-US> </span><span lang=EN-US>project</span>",
+как на показано на рисунке.</p>
+
+<p class=NLTextL1 style="MARGIN-LEFT: 53.4pt"><span lang=EN-US><IMG src="iSMSAdb.files/image008.jpg"
+ width=405 height=407 ></span></p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845546"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>На первых двух шагах
+открывшегося визарда настроить БД источник и БД приемник, остальные шаги
+пропустить нажатием "<span lang=EN-US>Next</span></a>".</p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845547"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>После того как
+настроены параметры БД источника и приемника, необходимо настроить опции
+переноса. Для этого выбрать пункт "<span lang=EN-US>Home</span></a>-&gt;<span
+ lang=EN-US>Options</span>". Откроется окно опций.</p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845548"><span lang=EN-US style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>В окне опций выберите
+закладку&nbsp; "<span lang=EN-US>Transform</span></a>". В<span lang=EN-US>
+полях "Table name case" </span>и <span lang=EN-US>"Column name
+case" </span>необходимо<span lang=EN-US> выбрать </span>вариант <span
+ lang=EN-US>"Lowercase".</span></p>
+
+<p class=NLTextL1 style="MARGIN-LEFT: 53.4pt"><span lang=EN-US><IMG src="iSMSAdb.files/image009.jpg"
+ width=422 height=396 ></span></p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845549"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Перейдите к закладке
+"<span lang=EN-US>MySQL</span></a>". В поле "<span lang=EN-US>Table</span><span
+ lang=EN-US> </span><span lang=EN-US>engine</span>" необходимо указать &nbsp;"<span
+ lang=EN-US>InnoDB</span>", в поле "<span lang=EN-US>Character</span><span
+ lang=EN-US> </span><span lang=EN-US>set</span>" выбрать "<span
+ lang=EN-US>utf</span>8".</p>
+
+<p class=NLTextL1 style="MARGIN-LEFT: 53.4pt"><span lang=EN-US><IMG src="iSMSAdb.files/image010.jpg"
+ width=415 height=391 ></span></p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845550"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Нажмите кнопку "<span
+ lang=EN-US>Convert</span></a>" и дождитесь завершения переноса.</p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845551"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Убедитесь, что при
+переносе не произошло критических ошибок (иногда обнаруживается нарушение
+нескольких констрейнов, что не является критичным).</a></p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 53.4pt; TEXT-INDENT: -18pt"><a
+ name="_Toc366845552"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Завершите приложение <span
+ lang=EN-US>FullConvert</span></a>.</p>
+
+<p class=NumberingListL2><a name="_Toc366845553">2.6<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Выполнение дополнительных настроек</a></p>
+
+<p class=NumberingListL3 style="MARGIN:
+ 6pt 0cm 6pt 53.4pt; TEXT-INDENT: -18pt"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Используйте утилиту <span
+ lang=EN-US>DBconverter</span>, к которой прилагается инструкция по применению.
+Утилита может быть запущена только для ОС <span lang=EN-US>Windows</span>.</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 42.55pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>ОПИСАНИЕ</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US></span>&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">Данная
+утилита предназначена для внесения изменений в базу данных <span lang=EN-US>MySQL</span>
+после того, как сработает программа <span lang=EN-US>FullConvert</span>. Цель
+работы - воссоздать структуру БД, аналогичную той, что имеется в БД <span
+ lang=EN-US>Oracle</span>, с которой снимается копия. Воссоздаются только те
+объекты, которые необходимы для запуска определенного списка приложений.</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">ПРЕДВАРИТЕЛЬНАЯ
+ПОДГОТОВКА</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">1. Заполнение
+файла "<span lang=EN-US>config</span>.<span lang=EN-US>ini</span>"</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">В первой
+строке файла содержится имя <span lang=EN-US>DSN</span>, созданного на
+предыдущем шаге</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">В каждой
+следующей за первой строке содержится пара значений целого неотрицательного
+типа, конфигурирующая создание видов <span lang=EN-US>DA</span>_<span
+ lang=EN-US>V</span>_<span lang=EN-US>CAT</span>_ и <span lang=EN-US>DA</span>_<span
+ lang=EN-US>V</span>_<span lang=EN-US>LST</span>_ следующим образом:</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">первое число
+- это номер вида <span lang=EN-US>DA</span>_<span lang=EN-US>V</span>_<span
+ lang=EN-US>CAT</span>_ и <span lang=EN-US>DA</span>_<span lang=EN-US>V</span>_<span
+ lang=EN-US>LST</span>_,</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">второе число
+- это корневой элемент в таблице <span lang=EN-US>DA</span>_<span lang=EN-US>CAT</span>,
+от которого строится вид <span lang=EN-US>DA</span>_<span lang=EN-US>V</span>_<span
+ lang=EN-US>CAT</span>_</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">Пример: если
+нам необходимо, чтобы вид <span lang=EN-US>DA</span>_<span lang=EN-US>V</span>_<span
+ lang=EN-US>CAT</span>_3 строился от корневого узла с номером 10, то в файле
+"<span lang=EN-US>config</span>.<span lang=EN-US>ini</span>"</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">необходимо
+добавить строку</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">3 10</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">автоматически
+создастся вид <span lang=EN-US>DA</span>_<span lang=EN-US>V</span>_<span
+ lang=EN-US>LST</span>_3</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">ИСПОЛЬЗОВАНИЕ</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">Для запуска
+приложения необходим фреймворк .NET версии 2.0 и выше. Конфигурационный файл
+"<span lang=EN-US>config</span>.<span lang=EN-US>ini</span>" следует
+помещать в одну директорию с исполняемым файлом приложения. Нормальный
+результат завершения приложения – сообщение «<span lang=EN-US>DB</span><span
+ lang=EN-US> </span><span lang=EN-US>Convertor</span><span lang=EN-US> </span><span
+ lang=EN-US>was</span><span lang=EN-US> </span><span lang=EN-US>finished</span><span
+ lang=EN-US> </span><span lang=EN-US>success</span>».</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US>UPD</span>1 [11/09/2013]:</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">Все сообщения
+в процессе работы программы выводятся на консоль и в лог-файл <span lang=EN-US>DBConvert</span>.<span
+ lang=EN-US>log</span>. Поэтому после завершения программы следует проверить
+содержимое этого файла на наличие ошибок.</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm">В новой
+версии конвертора добавлено автоматическое создание всех пользователей,
+описанных в <span lang=EN-US>s</span>_<span lang=EN-US>users</span> и задание
+для них пароля по умолчанию: ‘<span lang=EN-US>rsdu</span>_211’. Поэтому после
+выполнения <span lang=EN-US>DBConvert</span> следует сбросить все пароли в <span
+ lang=EN-US>host</span>.<span lang=EN-US>ini</span>.</p>
+
+</div>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 2cm; TEXT-INDENT: -24.6pt"><a
+ name="_Toc366845554"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp; </span></span>Сбросьте пароли
+для всех пользователей, прописанных в конфигурационном файле хоста <span
+ lang=EN-US>host</span></a>.<span lang=EN-US>ini</span>. <a name="OLE_LINK4"></a><a
+ name="OLE_LINK3">Для этого надо отредактировать файл /</a><span lang=EN-US>etc</span>/<span
+ lang=EN-US>ema</span>/<span lang=EN-US>host</span>.<span lang=EN-US>ini</span>
+и удалить все строчки, начинающиеся с “<span lang=EN-US>PROCESS</span>_<span
+ lang=EN-US>LOGIN</span>”, “<span lang=EN-US>PROCESS</span>_<span lang=EN-US>PASSWORD</span>”,
+“<span lang=EN-US>PROCESS</span>_<span lang=EN-US>KEYTIME</span>”. В этом же
+файле необходимо отредактировать строку “<span lang=EN-US>PROCESS</span>_<span
+ lang=EN-US>NUM</span>” и указать значение 0 (ноль).</p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 2cm; TEXT-INDENT: -21.25pt"><a
+ name="_Toc366845556"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Проверьте и исправьте
+<span lang=EN-US>IP</span></a> адреса в таблице <span lang=EN-US>ad</span>_<span
+ lang=EN-US>ipinfo</span>.</p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 2cm; TEXT-INDENT: -21.25pt"><a
+ name="_Toc366845557"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Проверьте и исправьте
+<span lang=EN-US>IP</span></a> адреса в таблице <span lang=EN-US>da</span>_<span
+ lang=EN-US>slave</span>.</p>
+
+<p class=NumberingListL3 style="MARGIN-LEFT: 2cm; TEXT-INDENT: -21.25pt"><a
+ name="_Toc366845558"><span style="FONT-FAMILY: Wingdings">ü<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp; </span></span>Проверьте и исправьте
+параметр <span lang=EN-US>MASTER</span></a>_<span lang=EN-US>HOST</span> для
+модулей <span lang=EN-US>bridged</span>.</p>
+
+<h2 style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt" class=WordSection1><a name="_Toc431222561">3.<span
+ style  ='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Обновление
+БД</a></h2>
+
+<p class=NumberingListL2 style="MARGIN-LEFT: 14.2pt; TEXT-INDENT: 0.25pt">В случае
+выполнения обновления уже ранее сконфигурированной БД <span lang=EN-US>MySQL</span>
+необходимо выполнить те же действия что и при начальной установке (см. п.2).</p>
+
+<p class=NumberingListL1 style="MARGIN-LEFT: 0.3pt; TEXT-INDENT: 0cm">&nbsp;</p>
+
+<b><span style='FONT-SIZE: 14pt; FONT-FAMILY:
+ "Times New Roman","serif"; COLOR: #4f81bd; LINE-HEIGHT: 115%'>
+
+<div class=WordSection1><br clear=all style="PAGE-BREAK-BEFORE: always">
+
+</div>
+</span></b>
+
+<h2 class=WordSection1><a name="OLE_LINK1"></a><a name="_Toc431222562">Приложение 1.
+Дополнительные сведения</a></h2>
+
+<p class=MsoNormal style="TEXT-ALIGN:
+ justify; MARGIN: 6pt 0cm"><span style='FONT-SIZE:
+ 12pt; FONT-FAMILY: "Times New Roman","serif"; LINE-HEIGHT: 115%'>Дополнительные знания, которые
+могут понадобиться для решения возникших проблем.</span></p>
+
+<p class=NumberingListL1 style="MARGIN-BOTTOM: 6pt">1.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>При необходимости (на этапе настройки) предоставить возможность для
+подключения к БД извне можно, изменив в файле /etc/mysql/my.cnf настройку
+адресов, прослушиваемых <span lang=EN-US>mysql</span>:</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 21.3pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'># Instead of skip-networking the
+default is now to listen only on</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'># localhost which is more
+compatible and is not less secure.</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ style='FONT-FAMILY: "Courier New"'>#прослушивать только </span><span lang=EN-US
+ style='FONT-FAMILY: "Courier New"'>loopback</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ style='FONT-FAMILY: "Courier New"'>#</span><span lang=EN-US style='FONT-FAMILY:
+ "Courier New"'>bind</span><span style='FONT-FAMILY: "Courier New"'>-</span><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>address</span><span
+ style='FONT-FAMILY: "Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 127.0.0.1</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ style='FONT-FAMILY: "Courier New"'>#прослушивать все адреса</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>bind</span><span style='FONT-FAMILY:
+ "Courier New"'>-</span><span lang=EN-US style='FONT-FAMILY: "Courier New"'>address</span><span
+ style='FONT-FAMILY: "Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 0.0.0.0</span></p>
+
+</div>
+
+<p class=NumberingListL1 style="MARGIN-BOTTOM: 6pt; TEXT-INDENT: 0cm">После
+настройки из соображений безопасности крайне рекомендуется вернуть настройку
+прослушки только на <span lang=EN-US>loopback</span>:</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 21.3pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'># Instead of skip-networking the
+default is now to listen only on</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'># localhost which is more
+compatible and is not less secure.</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>bind</span><span style='FONT-FAMILY:
+ "Courier New"'>-</span><span lang=EN-US style='FONT-FAMILY: "Courier New"'>address</span><span
+ style='FONT-FAMILY: "Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 127.0.0.1</span></p>
+
+</div>
+
+<p class=NumberingListL1 style="MARGIN-BOTTOM: 6pt">2.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Предоставление пользователю <span lang=EN-US>root</span> прав
+подключаться с удалённого хоста с помощью команды:</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 21.3pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>mysql&gt; grant all privileges on
+*.* to 'root'@'%' identified by 'passme' with grant option;</span></p>
+
+</div>
+
+<p class=NumberingListL1 style="MARGIN-BOTTOM: 6pt">3.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Создание пользователя ‘<span lang=EN-US>dcsd</span>_<span lang=EN-US>ga</span>1’со
+всеми правами на БД ‘<span lang=EN-US>rsduadmin</span>’, которому можно
+подключаться с локального хоста с паролем ‘<span lang=EN-US>rsdu</span>_211’,
+можно выполнить с помощью команды:</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 21.3pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>mysql&gt; GRANT EXECUTE, SELECT,
+SHOW VIEW, ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY
+TABLES, CREATE VIEW, DELETE, DROP, EVENT, INDEX, INSERT, REFERENCES, TRIGGER,
+UPDATE, LOCK TABLES&nbsp; ON `rsduadmin`.* TO 'dcsd_ga1'@'localhost' IDENTIFIED BY
+'rsdu_211';</span></p>
+
+</div>
+
+<p class=NumberingListL1 style="MARGIN-BOTTOM: 6pt">4.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Проверить, что пользователь может зайти с локального хоста, можно с
+помощью команды:</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 21.3pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>$ mysql -hlocalhost -udcsd_ga1
+-prsdu_211 rsduadmin</span></p>
+
+</div>
+
+<p class=NumberingListL1 style="MARGIN-BOTTOM: 6pt">5.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Следующий скрипт генерирует <span lang=EN-US>SQL</span> скрипт, который
+добавляет всех пользователей для процессов, описанных в БД.</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 21.3pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><a
+ name="OLE_LINK2"><span lang=EN-US style='FONT-FAMILY: "Courier New"'>select
+"GRANT EXECUTE, SELECT, SHOW VIEW, ALTER, ALTER ROUTINE, CREATE, CREATE
+ROUTINE, CREATE TEMPORARY TABLES, CREATE VIEW, DELETE, DROP, EVENT, INDEX,
+INSERT, REFERENCES, TRIGGER, UPDATE, LOCK TABLES "</span></a></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>union select "ON
+`rsduadmin`.*&nbsp; TO"</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>union select CONCAT("'",
+login, "'@'localhost' IDENTIFIED BY 'rsdu_211',") from s_users as u
+inner join sys_otyp as ot on u.id_type=ot.id where u.login is not null and
+ot.define_alias='OTYP_PROCESS';</span></p>
+
+</div>
+
+<p class=NumberingListL1 style="MARGIN-BOTTOM: 6pt">6.<span style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Список серверов описанных на узле (1043) можно получить с помощью
+запроса</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 21.3pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm" class=WordSection1>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>mysql&gt; select login from
+s_users where id_node=1043 and login is not null;</span></p>
+
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+
+<b><span style='FONT-SIZE:
+ 13pt; FONT-FAMILY: "Cambria","serif"; COLOR: #4f81bd; LINE-HEIGHT: 115%'>
+
+<div class=WordSection1><br clear=all style="PAGE-BREAK-BEFORE: always">
+
+</div>
+</span></b>
+
+<h2 class=WordSection1><a name="_Toc431222563"></a><a name="OLE_LINK5">Приложение 2. Сбрасывание
+паролей для процессов </a><span lang=EN-US>iSMS</span></h2>
+
+<p class=MsoNormal>Для того чтобы сбросить пароли, используемые серверными
+процессами <span lang=EN-US>iSMS</span>, необходимо сделать следующее:</p>
+
+<div class=WordSection1>
+
+<ol style="MARGIN-TOP: 0cm" type=1>
+ <li class=MsoNormal>Остановить серверные модули на сервере <span lang=EN-US>iSMS</span><span
+     lang=EN-US> </span>с помощью команды `<span lang=EN-US>ema</span><span
+     lang=EN-US> </span><span lang=EN-US>stopww</span>` 
+ 
+ <li class=MsoNormal>Почистить пароли в конфигурационном файле /<span
+     lang=EN-US>etc</span>/<span lang=EN-US>ema</span>/<span lang=EN-US>host</span>.<span
+     lang=EN-US>ini</span>. </li>
+</ol>
+
+</div>
+
+<p class=NumberingListL3 style="MARGIN:
+ 6pt 0cm 6pt 36pt; TEXT-INDENT: 0cm"><span style='FONT-SIZE:
+ 11pt; FONT-FAMILY: "Calibri","sans-serif"'>Для этого надо отредактировать файл /</span><span
+ lang=EN-US style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>etc</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>/</span><span
+ lang=EN-US style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>ema</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>/</span><span
+ lang=EN-US style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>host</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>.</span><span
+ lang=EN-US style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>ini</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'> и удалить все
+строчки, начинающиеся с “</span><span lang=EN-US style='FONT-SIZE:
+ 11pt; FONT-FAMILY: "Calibri","sans-serif"'>PROCESS</span><span style='FONT-SIZE:
+ 11pt; FONT-FAMILY: "Calibri","sans-serif"'>_</span><span lang=EN-US style='FONT-SIZE:
+ 11pt; FONT-FAMILY: "Calibri","sans-serif"'>LOGIN</span><span style='FONT-SIZE:
+ 11pt; FONT-FAMILY: "Calibri","sans-serif"'>”, “</span><span lang=EN-US
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>PROCESS</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>_</span><span
+ lang=EN-US style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>PASSWORD</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>”, “</span><span
+ lang=EN-US style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>PROCESS</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>_</span><span
+ lang=EN-US style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>KEYTIME</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>”. В этом же файле
+необходимо отредактировать строку “</span><span lang=EN-US style='FONT-SIZE:
+ 11pt; FONT-FAMILY: "Calibri","sans-serif"'>PROCESS</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>_</span><span
+ lang=EN-US style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>NUM</span><span
+ style='FONT-SIZE: 11pt; FONT-FAMILY: "Calibri","sans-serif"'>” и указать
+значение 0 (ноль).</span></p>
+
+<ol style="MARGIN-TOP: 0cm" start=3 type=1>
+ <li class=MsoNormal>Почистить пароли у пользователей в БД <span lang=EN-US>iSMS</span>.</li>
+</ol>
+
+<p class=MsoNormal style="MARGIN-LEFT: 36pt">Для этого необходимо
+воспользоваться следующей процедурой.</p>
+
+<div style="BORDER-TOP: black 1pt solid; BORDER-RIGHT: black
+ 1pt solid; BACKGROUND: #e6e6e6; BORDER-BOTTOM: black 1pt solid; PADDING-BOTTOM: 1pt; PADDING-TOP: 1pt; PADDING-LEFT: 1pt; MARGIN-LEFT: 21.3pt; BORDER-LEFT: black 1pt solid; PADDING-RIGHT: 1pt; MARGIN-RIGHT: 0cm">
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>DROP PROCEDURE IF EXISTS
+rsduadmin.clean_proc_passwords;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>CREATE procedure
+rsduadmin.clean_proc_passwords()</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>begin</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;DECLARE done INTEGER DEFAULT 0;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;DECLARE num INTEGER DEFAULT 0;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;DECLARE sLogin VARCHAR(255);</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'></span>&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;DECLARE rCursor CURSOR FOR select
+login from s_users where (id_node=1043 OR id_node=1044) and login is not null
+order by id_node, login asc;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;DECLARE CONTINUE HANDLER FOR NOT
+FOUND SET done=1;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'></span>&nbsp;</p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;SET num = 0;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;OPEN rCursor;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;FETCH rCursor INTO sLogin;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;WHILE done = 0 DO</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp; SET @CleanPasswordCommand =   
+CONCAT ("grant all privileges on rsduadmin.* to
+'",sLogin,"'@'localhost' identified by 'rsdu_211'",";");</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp; SET num = num + 1;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp; PREPARE stmt FROM
+@CleanPasswordCommand;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp; EXECUTE stmt;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp; FETCH rCursor INTO sLogin;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;END WHILE;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;CLOSE rCursor;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>&nbsp;SELECT num as "it was
+cleaned, passwords" FROM dual;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>end;</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>call
+rsduadmin.clean_proc_passwords();</span></p>
+
+<p class=Box01 style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BACKGROUND: #e6e6e6; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 0cm; BORDER-LEFT: medium none; PADDING-RIGHT: 0cm"><span
+ lang=EN-US style='FONT-FAMILY: "Courier New"'>DROP PROCEDURE IF EXISTS
+rsduadmin.clean_proc_passwords;</span></p>
+
+</div>
+
+<ol style="MARGIN-TOP: 0cm" start=4 type=1>
+ <li class=MsoNormal style="MARGIN-BOTTOM:
+     6pt; TEXT-ALIGN: justify; MARGIN-TOP: 6pt" 
+ >В завершение, нужно запустить серверные модули на сервере <span
+     lang=EN-US>iSMS</span> с помощью команды `<span lang=EN-US>ema</span><span
+     lang=EN-US> </span><span lang=EN-US>start</span>` и проконтролировать их
+     запуск.</li>
+</ol>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</body>
+
+</html>
