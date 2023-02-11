@@ -1,19 +1,19 @@
-# E-help
-variation files of format chm \ docs
+# E-help (Garbage).
+variation files of format chm \ docs. Garbage or rubbish.
 
-  **EmaRsdu** -  эскиз Help chm-формат.(chm)
+  **EmaRsdu** -  эскиз Help (chm)
   
-  **DGhelp** -  эскиз DG chm-формат.(chm)
+  **DGhelp** -  эскиз DG (chm)
   
-  **RabbitMQhelp** -  эскиз Rabbit chm-формат.(chm)  
+  **RabbitMQhelp** -  эскиз Rabbit (chm)  
 
-  **Archive2** -  эскиз Archive (ver 1) chm-формат.(chm)
+  **Archive2** -  эскиз Archive (ver 1)(chm, pdf)
 
-  **Proj1Base** -  эскиз Base chm-формат.(chm)
+  **Proj1Base** -  эскиз Base(chm)
   
-  **Proj3Sbor** -  эскиз Sbor chm-формат.(chm)
+  **Proj3Sbor** -  эскиз Sbor (chm)
 
-  **Proj4KCC** -  эскиз KCC chm-формат.(chm)
+  **Proj4KCC** -  эскиз KCC (chm)
   
   **Назначение модулей РВ**  - e1-Назначение модулей РВ
 
@@ -21,4 +21,4 @@ variation files of format chm \ docs
 
   **Установка и настройка RabbitMQ**  - e3-Установка и настройка RabbitMQ
 
-  **Установка и настройка iSmsWeb**  - эскиз iSmsWeb chm-формат.(chm)
+  **Установка и настройка iSmsWeb**  - эскиз iSmsWeb (chm)
